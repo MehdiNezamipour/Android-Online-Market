@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/row_layout_cardView"
+    android:layout_width="136dp"
+    android:layout_height="196dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:id="@+id/product_layout__cover"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:src="@drawable/place_holder" />
+
+        <TextView
+            android:id="@+id/product_layout__title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="4dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/iran_yekan"
+            android:gravity="end"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="Product Title"
+            android:textSize="12sp" />
+
+        <View
+            android:id="@+id/row_item_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="4dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/product_layout_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="4dp"
+            android:gravity="end"
+            android:text="Price"
+            android:textColor="@color/digikala_green"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
