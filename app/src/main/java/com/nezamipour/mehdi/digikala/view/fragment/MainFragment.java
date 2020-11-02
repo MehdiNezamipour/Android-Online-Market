@@ -14,6 +14,8 @@ import com.nezamipour.mehdi.digikala.R;
 
 public class MainFragment extends Fragment {
 
+
+
     public MainFragment() {
         // Required empty public constructor
     }
