@@ -5,5 +5,4 @@ import androidx.lifecycle.ViewModel;
 public class ProductAdapterViewModel extends ViewModel {
 
 
-
 }
