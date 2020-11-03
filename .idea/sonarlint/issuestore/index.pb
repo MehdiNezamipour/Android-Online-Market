@@ -7,8 +7,6 @@ P
 Oapp/src/main/java/com/nezamipour/mehdi/digikala/view/activity/MainActivity.java,5\2\521881656bfad051b3fae5d690324f1d30da06e6
 Z
 *app/src/main/res/drawable/cart_counter.xml,f\6\f646d93d11d8703b26b1051f37551915f5d9dc8b
-d
-4app/src/main/res/drawable/ic_launcher_background.xml,4\9\49845c622cb06d895975c7b1e3f943e320bce688
 Z
 *app/src/main/res/drawable/progress_bar.xml,a\a\aaaac7fef95ce679e373801c5227d5c9a0d8e6b7
 W
@@ -99,3 +97,11 @@ t
 Dapp/src/main/java/com/nezamipour/mehdi/digikala/data/model/text.java,9\9\99680bea61268370fe347635cd9b2636d2c0f052
 s
 Capp/src/main/java/com/nezamipour/mehdi/digikala/network/WooApi.java,7\9\79a6b3d56b10683407946689ee2316bcabbcf60a
+s
+Capp/src/main/java/com/nezamipour/mehdi/digikala/util/ImageUtil.java,9\a\9a9ede569c55e1411a535acd11edede297cab0a9
+†
+Vapp/src/main/java/com/nezamipour/mehdi/digikala/viewModel/ProductAdapterViewModel.java,4\d\4d098edcc0b037b8c6725b9759ade9647e8fb402
+ƒ
+Sapp/src/main/java/com/nezamipour/mehdi/digikala/adapter/ProductRecyclerAdapter.java,9\3\931baa3313b4a880e270b6e0d4d318ae186c0840
+
+Oapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/MainFragment.java,0\c\0cab7e885d7040c9357088e4dc1a58f3b25f507b
