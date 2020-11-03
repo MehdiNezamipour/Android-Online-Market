@@ -1,4 +1,4 @@
-package com.nezamipour.mehdi.digikala.data.database;
+package com.nezamipour.mehdi.digikala.data.repository;
 
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 
@@ -12,6 +12,7 @@ public class ProductRepository {
     private List<Product> mAllProducts;
     private List<Product> mOfferedProducts;
     //TODO add more list for save products in repository
+    private List<Product> mLatestProducts;
 
 
     private ProductRepository() {
@@ -40,5 +41,13 @@ public class ProductRepository {
 
     public void setOfferedProducts(List<Product> offeredProducts) {
         mOfferedProducts = offeredProducts;
+    }
+
+    public List<Product> getLatestProducts() {
+        return mLatestProducts;
+    }
+
+    public void setLatestProducts(List<Product> latestProducts) {
+        mLatestProducts = latestProducts;
     }
 }

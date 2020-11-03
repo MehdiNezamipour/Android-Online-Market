@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.nezamipour.mehdi.digikala.R;
-import com.nezamipour.mehdi.digikala.data.database.ProductRepository;
+import com.nezamipour.mehdi.digikala.data.repository.ProductRepository;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.databinding.FragmentSplashBinding;
 import com.nezamipour.mehdi.digikala.network.RetrofitInstance;
@@ -67,7 +67,7 @@ public class SplashFragment extends Fragment {
 
         mProductRepository = ProductRepository.getInstance();
         mWooApi = RetrofitInstance.getInstance().create(WooApi.class);
-        requestForOfferedProducts();
+        requestForInitData();
 
         mBinding.textViewRetry.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,17 +76,34 @@ public class SplashFragment extends Fragment {
                 mBinding.textViewNoInternet.setVisibility(View.GONE);
                 mBinding.progressBar.setVisibility(View.VISIBLE);
                 mBinding.progressBar.show();
-                requestForOfferedProducts();
+                requestForInitData();
             }
         });
     }
 
-    private void requestForOfferedProducts() {
-        mWooApi.getSaleProduct(8, 1).enqueue(new Callback<List<Product>>() {
+    private void requestForInitData() {
+        mWooApi.getSaleProducts(8, 1).enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if (response.isSuccessful()) {
                     mProductRepository.setOfferedProducts(response.body());
+                    requestForLatestProducts();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                loadInternetError();
+            }
+        });
+    }
+
+    private void requestForLatestProducts() {
+        mWooApi.getProducts(10, 1, "date").enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()){
+                    mProductRepository.setLatestProducts(response.body());
                     mBinding.progressBar.setVisibility(View.GONE);
                     mBinding.progressBar.hide();
                     startActivity(MainActivity.newIntent(getContext()));
@@ -95,9 +112,17 @@ public class SplashFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
-                mBinding.textViewNoInternet.setVisibility(View.VISIBLE);
-                mBinding.textViewRetry.setVisibility(View.VISIBLE);
+                loadInternetError();
             }
         });
     }
+
+
+
+    private void loadInternetError() {
+        mBinding.textViewNoInternet.setVisibility(View.VISIBLE);
+        mBinding.textViewRetry.setVisibility(View.VISIBLE);
+    }
+
 }
+

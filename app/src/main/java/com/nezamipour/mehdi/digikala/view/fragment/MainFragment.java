@@ -13,14 +13,15 @@ import android.view.ViewGroup;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.adapter.ProductRecyclerAdapter;
-import com.nezamipour.mehdi.digikala.data.database.ProductRepository;
+import com.nezamipour.mehdi.digikala.data.repository.ProductRepository;
 import com.nezamipour.mehdi.digikala.databinding.FragmentMainBinding;
 
 public class MainFragment extends Fragment {
 
     private ProductRepository mProductRepository;
     private FragmentMainBinding mBinding;
-    private ProductRecyclerAdapter mProductRecyclerAdapter;
+    private ProductRecyclerAdapter mOfferedProductAdapter;
+    private ProductRecyclerAdapter mLatestProductAdapter;
 
 
     public MainFragment() {
@@ -55,15 +56,13 @@ public class MainFragment extends Fragment {
     }
 
     private void initView() {
-        if (mProductRecyclerAdapter == null) {
-            mProductRecyclerAdapter = new ProductRecyclerAdapter(getContext());
-            mProductRecyclerAdapter.setProducts(mProductRepository.getOfferedProducts());
-            mBinding.recyclerViewOfferedProduct.setAdapter(mProductRecyclerAdapter);
-        }
-        else{
-            mBinding.recyclerViewOfferedProduct.setAdapter(mProductRecyclerAdapter);
-            mProductRecyclerAdapter.setProducts(mProductRepository.getOfferedProducts());
-            mProductRecyclerAdapter.notifyDataSetChanged();
-        }
+        mOfferedProductAdapter = new ProductRecyclerAdapter(getContext());
+        mOfferedProductAdapter.setProducts(mProductRepository.getOfferedProducts());
+        mBinding.recyclerViewOfferedProduct.setAdapter(mOfferedProductAdapter);
+
+        mLatestProductAdapter = new ProductRecyclerAdapter(getContext());
+        mLatestProductAdapter.setProducts(mProductRepository.getLatestProducts());
+        mBinding.recyclerViewLatestProduct.setAdapter(mLatestProductAdapter);
+
     }
 }
