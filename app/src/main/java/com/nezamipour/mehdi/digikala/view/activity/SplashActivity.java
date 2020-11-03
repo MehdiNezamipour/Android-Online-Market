@@ -17,5 +17,8 @@ public class SplashActivity extends SingleFragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
     }
 }
