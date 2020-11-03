@@ -21,5 +21,8 @@ public interface WooApi {
                                     @Query("page") int numberOfPage,
                                     @Query("orderby") String orderBy);
 
+    @GET(BASE_URL + "products" + WOOCOMMERCE_REST_AUTHENTICATION_KEY)
+    Call<List<Product>> getAllProducts();
+
 
 }

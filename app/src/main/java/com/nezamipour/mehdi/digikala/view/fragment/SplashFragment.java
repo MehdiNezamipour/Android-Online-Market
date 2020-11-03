@@ -1,35 +1,26 @@
 package com.nezamipour.mehdi.digikala.view.fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.nezamipour.mehdi.digikala.R;
-import com.nezamipour.mehdi.digikala.data.repository.ProductRepository;
-import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.databinding.FragmentSplashBinding;
-import com.nezamipour.mehdi.digikala.network.RetrofitInstance;
-import com.nezamipour.mehdi.digikala.network.WooApi;
 import com.nezamipour.mehdi.digikala.view.activity.MainActivity;
+import com.nezamipour.mehdi.digikala.viewmodel.SplashFragmentViewModel;
 
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import java.util.Objects;
 
 public class SplashFragment extends Fragment {
 
-
-    private WooApi mWooApi;
-    private ProductRepository mProductRepository;
+    private SplashFragmentViewModel mViewModel;
     private FragmentSplashBinding mBinding;
 
     public SplashFragment() {
@@ -48,6 +39,27 @@ public class SplashFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        mViewModel = new ViewModelProvider(this).get(SplashFragmentViewModel.class);
+        mViewModel.fetchInitData();
+
+        mViewModel.getIsLoading().observe(this, aBoolean -> {
+            if (!aBoolean) {
+                loadInternetError();
+            }
+        });
+
+        mViewModel.getIsError().observe(this, aBoolean -> {
+            if (aBoolean) {
+                loadInternetError();
+            }
+        });
+        mViewModel.getStartMainActivity().observe(this, aBoolean -> {
+            if (aBoolean) {
+                Objects.requireNonNull
+                        (getActivity()).startActivity(MainActivity.newIntent(getContext()));
+            }
+        });
+
     }
 
     @Override
@@ -64,59 +76,20 @@ public class SplashFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        mProductRepository = ProductRepository.getInstance();
-        mWooApi = RetrofitInstance.getInstance().create(WooApi.class);
-        requestForInitData();
-
-        mBinding.textViewRetry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mBinding.textViewRetry.setVisibility(View.GONE);
-                mBinding.textViewNoInternet.setVisibility(View.GONE);
-                mBinding.progressBar.setVisibility(View.VISIBLE);
-                mBinding.progressBar.show();
-                requestForInitData();
-            }
+        mBinding.textViewRetry.setOnClickListener(v -> {
+            mViewModel.getIsError().setValue(false);
+            mViewModel.getIsLoading().setValue(true);
+            mViewModel.fetchInitData();
+            showLoadingUi();
         });
     }
 
-    private void requestForInitData() {
-        mWooApi.getSaleProducts(8, 1).enqueue(new Callback<List<Product>>() {
-            @Override
-            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
-                if (response.isSuccessful()) {
-                    mProductRepository.setOfferedProducts(response.body());
-                    requestForLatestProducts();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Product>> call, Throwable t) {
-                loadInternetError();
-            }
-        });
+    private void showLoadingUi() {
+        mBinding.textViewRetry.setVisibility(View.GONE);
+        mBinding.textViewNoInternet.setVisibility(View.GONE);
+        mBinding.progressBar.setVisibility(View.VISIBLE);
+        mBinding.progressBar.show();
     }
-
-    private void requestForLatestProducts() {
-        mWooApi.getProducts(10, 1, "date").enqueue(new Callback<List<Product>>() {
-            @Override
-            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
-                if (response.isSuccessful()){
-                    mProductRepository.setLatestProducts(response.body());
-                    mBinding.progressBar.setVisibility(View.GONE);
-                    mBinding.progressBar.hide();
-                    startActivity(MainActivity.newIntent(getContext()));
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Product>> call, Throwable t) {
-                loadInternetError();
-            }
-        });
-    }
-
 
 
     private void loadInternetError() {

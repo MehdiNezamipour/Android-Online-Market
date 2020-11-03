@@ -11,8 +11,9 @@ public class ProductRepository {
     private static ProductRepository sRepository;
     private List<Product> mAllProducts;
     private List<Product> mOfferedProducts;
-    //TODO add more list for save products in repository
     private List<Product> mLatestProducts;
+    private List<Product> mTopRatingProducts;
+    private List<Product> mPopularProducts;
 
 
     private ProductRepository() {
@@ -24,7 +25,6 @@ public class ProductRepository {
         }
         return sRepository;
     }
-
 
 
     public List<Product> getAllProducts() {
@@ -49,5 +49,21 @@ public class ProductRepository {
 
     public void setLatestProducts(List<Product> latestProducts) {
         mLatestProducts = latestProducts;
+    }
+
+    public List<Product> getTopRatingProducts() {
+        return mTopRatingProducts;
+    }
+
+    public void setTopRatingProducts(List<Product> bestProducts) {
+        mTopRatingProducts = bestProducts;
+    }
+
+    public List<Product> getPopularProducts() {
+        return mPopularProducts;
+    }
+
+    public void setPopularProducts(List<Product> popularProducts) {
+        mPopularProducts = popularProducts;
     }
 }

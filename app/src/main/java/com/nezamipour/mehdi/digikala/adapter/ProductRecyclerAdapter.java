@@ -12,7 +12,7 @@ import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.databinding.RowItemProductBinding;
 import com.nezamipour.mehdi.digikala.util.ImageUtil;
-import com.nezamipour.mehdi.digikala.viewModel.ProductAdapterViewModel;
+import com.nezamipour.mehdi.digikala.viewmodel.ProductAdapterViewModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
