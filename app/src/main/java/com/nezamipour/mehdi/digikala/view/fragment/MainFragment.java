@@ -1,27 +1,24 @@
 package com.nezamipour.mehdi.digikala.view.fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.nezamipour.mehdi.digikala.R;
-import com.nezamipour.mehdi.digikala.adapter.ProductRecyclerAdapter;
-import com.nezamipour.mehdi.digikala.data.repository.ProductRepository;
 import com.nezamipour.mehdi.digikala.databinding.FragmentMainBinding;
+import com.nezamipour.mehdi.digikala.viewmodel.MainFragmentViewModel;
 
 public class MainFragment extends Fragment {
 
-    private ProductRepository mProductRepository;
     private FragmentMainBinding mBinding;
-    private ProductRecyclerAdapter mOfferedProductAdapter;
-    private ProductRecyclerAdapter mLatestProductAdapter;
+    private MainFragmentViewModel mViewModel;
 
 
     public MainFragment() {
@@ -38,7 +35,26 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mProductRepository = ProductRepository.getInstance();
+
+        mViewModel = new ViewModelProvider(this).get(MainFragmentViewModel.class);
+        mViewModel.initAdapters();
+
+        mViewModel.getOfferedProductsLiveData().observe(this, products -> {
+            mViewModel.getOfferedProductsAdapter().notifyDataSetChanged();
+        });
+
+        mViewModel.getLatestProductsLiveData().observe(this, products -> {
+            mViewModel.getLatestProductsAdapter().notifyDataSetChanged();
+        });
+
+        mViewModel.getTopRatingProductsLiveData().observe(this, products -> {
+            mViewModel.getTopRatingProductsAdapter().notifyDataSetChanged();
+        });
+
+        mViewModel.getPopularProductsLiveData().observe(this, products -> {
+            mViewModel.getOfferedProductsAdapter().notifyDataSetChanged();
+        });
+
     }
 
     @Override
@@ -51,18 +67,11 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initView();
+        mBinding.recyclerViewOfferedProduct.setAdapter(mViewModel.getOfferedProductsAdapter());
+        mBinding.recyclerViewLatestProduct.setAdapter(mViewModel.getLatestProductsAdapter());
+        mBinding.recyclerViewTopRatingProduct.setAdapter(mViewModel.getTopRatingProductsAdapter());
+        mBinding.recyclerViewPopularProduct.setAdapter(mViewModel.getPopularProductsAdapter());
 
     }
 
-    private void initView() {
-        mOfferedProductAdapter = new ProductRecyclerAdapter(getContext());
-        mOfferedProductAdapter.setProducts(mProductRepository.getOfferedProducts());
-        mBinding.recyclerViewOfferedProduct.setAdapter(mOfferedProductAdapter);
-
-        mLatestProductAdapter = new ProductRecyclerAdapter(getContext());
-        mLatestProductAdapter.setProducts(mProductRepository.getLatestProducts());
-        mBinding.recyclerViewLatestProduct.setAdapter(mLatestProductAdapter);
-
-    }
 }

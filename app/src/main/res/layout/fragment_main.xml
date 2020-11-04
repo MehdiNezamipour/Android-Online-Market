@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:gravity="right"
-                android:text="@string/newests"
+                android:text="@string/latest"
                 app:fontFamily="@font/far_trafc_bd" />
 
         </LinearLayout>
@@ -135,7 +135,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_mostViewed_product"
+            android:id="@+id/recyclerView_popular_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -177,14 +177,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:gravity="right"
-                android:text="@string/best_sellers"
+                android:text="@string/popular"
                 app:fontFamily="@font/far_trafc_bd" />
 
 
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_best_product"
+            android:id="@+id/recyclerView_topRating_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
