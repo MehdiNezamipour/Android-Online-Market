@@ -115,3 +115,9 @@ Qapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/SplashFragment.ja
 Vapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/SplashFragmentViewModel.java,5\f\5f3270093377d72c6e25a7f13489f6dd3777e0f9
 „
 Tapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/MainFragmentViewModel.java,1\8\18ba0bdabf82b5c49564a03896f7776d126d30d6
+d
+4app/src/main/res/drawable/ic_launcher_background.xml,4\9\49845c622cb06d895975c7b1e3f943e320bce688
+h
+8app/src/main/res/drawable-v24/ic_launcher_foreground.xml,0\7\078508c831007ccb3938b355f0d30a8368f99a8d
+R
+"app/src/main/res/values/colors.xml,9\6\969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
