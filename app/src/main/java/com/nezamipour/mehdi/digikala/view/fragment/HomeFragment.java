@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.databinding.FragmentHomeBinding;
+import com.nezamipour.mehdi.digikala.view.activity.WholeProductsActivity;
 import com.nezamipour.mehdi.digikala.viewmodel.HomeFragmentViewModel;
 
 public class HomeFragment extends Fragment {
@@ -73,7 +74,25 @@ public class HomeFragment extends Fragment {
         mBinding.recyclerViewTopRatingProduct.setAdapter(mViewModel.getTopRatingProductsAdapter());
         mBinding.recyclerViewPopularProduct.setAdapter(mViewModel.getPopularProductsAdapter());
 
+        setListeners();
 
+
+    }
+
+    private void setListeners() {
+        mBinding.textViewWholeLatestProducts.setOnClickListener(v -> {
+            startActivity(WholeProductsActivity.newIntent(getContext(), "date"));
+        });
+
+        mBinding.textViewWholePopularProducts.setOnClickListener(v -> {
+            startActivity(WholeProductsActivity.newIntent(getContext(), "popularity"));
+
+        });
+
+        mBinding.textViewWholeTopRatingProducts.setOnClickListener(v -> {
+            startActivity(WholeProductsActivity.newIntent(getContext(), "rating"));
+
+        });
     }
 
 }

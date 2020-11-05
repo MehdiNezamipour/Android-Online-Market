@@ -90,7 +90,9 @@
                     android:layout_weight="0.5"
                     android:gravity="start"
                     android:text="@string/latest"
+                    android:textColor="@android:color/black"
                     app:fontFamily="@font/far_trafc_bd" />
+
 
             </LinearLayout>
 
@@ -136,6 +138,7 @@
                     android:layout_weight="0.5"
                     android:gravity="start"
                     android:text="@string/popular"
+                    android:textColor="@android:color/black"
                     app:fontFamily="@font/far_trafc_bd" />
 
 
@@ -187,6 +190,7 @@
                     android:layout_weight="0.5"
                     android:gravity="start"
                     android:text="@string/topRating"
+                    android:textColor="@android:color/black"
                     app:fontFamily="@font/far_trafc_bd" />
 
 

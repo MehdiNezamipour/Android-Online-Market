@@ -1,5 +1,6 @@
 package com.nezamipour.mehdi.digikala.network;
 
+import com.nezamipour.mehdi.digikala.data.model.product.Category;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 
 import java.util.List;
@@ -23,6 +24,10 @@ public interface WooApi {
 
     @GET(BASE_URL + "products" + API_KEY)
     Call<List<Product>> getAllProducts();
+
+    @GET(BASE_URL + "products" + "/categories" + API_KEY)
+    Call<List<Category>> getAllCategories(@Query("per_page") int perPage, @Query("page") int page);
+
 
 
 }
