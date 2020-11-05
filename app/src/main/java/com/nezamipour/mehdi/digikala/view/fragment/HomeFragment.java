@@ -12,21 +12,21 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.nezamipour.mehdi.digikala.R;
-import com.nezamipour.mehdi.digikala.databinding.FragmentMainBinding;
-import com.nezamipour.mehdi.digikala.viewmodel.MainFragmentViewModel;
+import com.nezamipour.mehdi.digikala.databinding.FragmentHomeBinding;
+import com.nezamipour.mehdi.digikala.viewmodel.HomeFragmentViewModel;
 
-public class MainFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
-    private FragmentMainBinding mBinding;
-    private MainFragmentViewModel mViewModel;
+    private FragmentHomeBinding mBinding;
+    private HomeFragmentViewModel mViewModel;
 
 
-    public MainFragment() {
+    public HomeFragment() {
         // Required empty public constructor
     }
 
-    public static MainFragment newInstance() {
-        MainFragment fragment = new MainFragment();
+    public static HomeFragment newInstance() {
+        HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -36,7 +36,7 @@ public class MainFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mViewModel = new ViewModelProvider(this).get(MainFragmentViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(HomeFragmentViewModel.class);
         mViewModel.initAdapters();
 
         mViewModel.getOfferedProductsLiveData().observe(this, products -> {
@@ -60,17 +60,19 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false);
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
         return mBinding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         mBinding.recyclerViewOfferedProduct.setAdapter(mViewModel.getOfferedProductsAdapter());
         mBinding.recyclerViewLatestProduct.setAdapter(mViewModel.getLatestProductsAdapter());
         mBinding.recyclerViewTopRatingProduct.setAdapter(mViewModel.getTopRatingProductsAdapter());
         mBinding.recyclerViewPopularProduct.setAdapter(mViewModel.getPopularProductsAdapter());
+
 
     }
 

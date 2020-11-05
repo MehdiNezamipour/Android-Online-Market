@@ -14,7 +14,7 @@ import com.nezamipour.mehdi.digikala.data.repository.ProductRepository;
 
 import java.util.List;
 
-public class MainFragmentViewModel extends AndroidViewModel {
+public class HomeFragmentViewModel extends AndroidViewModel {
 
     private final MutableLiveData<List<Product>> mOfferedProductsLiveData = new MutableLiveData<>();
     private final MutableLiveData<List<Product>> mLatestProductsLiveData = new MutableLiveData<>();
@@ -30,7 +30,7 @@ public class MainFragmentViewModel extends AndroidViewModel {
     private ProductRepository mProductRepository;
 
 
-    public MainFragmentViewModel(@NonNull Application application) {
+    public HomeFragmentViewModel(@NonNull Application application) {
         super(application);
         mProductRepository = ProductRepository.getInstance();
         fetchOfferedProductsFromRepository();

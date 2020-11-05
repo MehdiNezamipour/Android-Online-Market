@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.databinding.FragmentSplashBinding;
-import com.nezamipour.mehdi.digikala.view.activity.MainActivity;
+import com.nezamipour.mehdi.digikala.view.activity.HomeActivity;
 import com.nezamipour.mehdi.digikala.viewmodel.SplashFragmentViewModel;
 
 import java.util.Objects;
@@ -56,7 +56,7 @@ public class SplashFragment extends Fragment {
         mViewModel.getStartMainActivity().observe(this, aBoolean -> {
             if (aBoolean) {
                 Objects.requireNonNull
-                        (getActivity()).startActivity(MainActivity.newIntent(getContext()));
+                        (getActivity()).startActivity(HomeActivity.newIntent(getContext()));
             }
         });
 

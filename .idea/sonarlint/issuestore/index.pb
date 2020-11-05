@@ -101,8 +101,6 @@ Vapp/src/main/java/com/nezamipour/mehdi/digikala/viewModel/ProductAdapterViewMod
 Sapp/src/main/java/com/nezamipour/mehdi/digikala/adapter/ProductRecyclerAdapter.java,9\3\931baa3313b4a880e270b6e0d4d318ae186c0840
 
 Oapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/MainFragment.java,0\c\0cab7e885d7040c9357088e4dc1a58f3b25f507b
-[
-+app/src/main/res/layout/fragment_splash.xml,c\2\c2108990ed152bf3b25e1e9e1b88238ca6696534
 Å
 Qapp/src/main/java/com/nezamipour/mehdi/digikala/view/activity/SplashActivity.java,6\5\656edd4b134c44b1b711c564619181b12812bd6f
 Ü

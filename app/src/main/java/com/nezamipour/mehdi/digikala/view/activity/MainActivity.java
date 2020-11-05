@@ -1,35 +1,62 @@
 package com.nezamipour.mehdi.digikala.view.activity;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
-import com.nezamipour.mehdi.digikala.view.fragment.MainFragment;
+import android.os.Bundle;
+import android.view.MenuItem;
 
-public class MainActivity extends SingleFragmentActivity {
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.nezamipour.mehdi.digikala.R;
+import com.nezamipour.mehdi.digikala.databinding.ActivityMainBinding;
 
-    public static Intent newIntent(Context context) {
-        return new Intent(context, MainActivity.class);
-    }
+public abstract class MainActivity extends AppCompatActivity {
 
 
-    @Override
-    protected Fragment createFragment() {
-        return MainFragment.newInstance();
-    }
-
+    private ActivityMainBinding mBinding;
 
     @Override
-    public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 1)
-            getSupportFragmentManager().popBackStack();
-        else {
-            Intent intent = new Intent(MainActivity.this, SplashActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra("EXIT", true);
-            startActivity(intent);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = fragmentManager.findFragmentById(R.id.page_fragment_container);
+
+        if (fragment == null) {
+            fragmentManager.beginTransaction()
+                    .add(R.id.page_fragment_container, createFragment(), getFragmentTag())
+                    .commit();
+        } else {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.page_fragment_container, createFragment(), getFragmentTag())
+                    .commit();
         }
+
+
+
+        mBinding.bottomNavigation.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.home_page:
+                    HomeActivity.newIntent(MainActivity.this);
+                    return true;
+                case R.id.category_page:
+                    //TODO : create category fragment
+                    return true;
+                case R.id.cart_page:
+                    //TODO : create cart fragment
+                    return true;
+                default:
+                    return false;
+            }
+        });
     }
+
+    protected abstract String getFragmentTag();
+
+    protected abstract Fragment createFragment();
 }
