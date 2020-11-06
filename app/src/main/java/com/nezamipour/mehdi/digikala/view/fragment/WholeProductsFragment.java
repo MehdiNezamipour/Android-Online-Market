@@ -18,7 +18,6 @@ import com.nezamipour.mehdi.digikala.viewmodel.WholeProductFragmentViewModel;
 public class WholeProductsFragment extends Fragment {
 
 
-    public static final String ARG_ORDER_BY = "com.nezamipour.mehdi.digikala.orderBy";
     private FragmentWholeProductsBinding mBinding;
     private WholeProductFragmentViewModel mViewModel;
 
@@ -27,10 +26,9 @@ public class WholeProductsFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static WholeProductsFragment newInstance(String orderBy) {
+    public static WholeProductsFragment newInstance() {
         WholeProductsFragment fragment = new WholeProductsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_ORDER_BY, orderBy);
         fragment.setArguments(args);
         return fragment;
     }
@@ -39,13 +37,16 @@ public class WholeProductsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        String orderBy = WholeProductsFragmentArgs.fromBundle(getArguments()).getOrderBy();
+
         mViewModel = new ViewModelProvider(this).get(WholeProductFragmentViewModel.class);
 
         mViewModel.getStringOrderByLiveData().observe(this, s -> {
             mViewModel.fetchDataFromRepository();
             mViewModel.getWholeProductsAdapter().notifyDataSetChanged();
         });
-        mViewModel.getStringOrderByLiveData().setValue(getArguments().getString(ARG_ORDER_BY));
+
+        mViewModel.getStringOrderByLiveData().setValue(orderBy);
         mViewModel.fetchDataFromRepository();
     }
 

@@ -10,10 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.databinding.FragmentHomeBinding;
-import com.nezamipour.mehdi.digikala.view.activity.WholeProductsActivity;
 import com.nezamipour.mehdi.digikala.viewmodel.HomeFragmentViewModel;
 
 public class HomeFragment extends Fragment {
@@ -81,16 +81,29 @@ public class HomeFragment extends Fragment {
 
     private void setListeners() {
         mBinding.textViewWholeLatestProducts.setOnClickListener(v -> {
-            startActivity(WholeProductsActivity.newIntent(getContext(), "date"));
+
+            HomeFragmentDirections.ActionHomeFragmentToWholeProductsFragment action = HomeFragmentDirections
+                    .actionHomeFragmentToWholeProductsFragment("date");
+
+            Navigation.findNavController(v)
+                    .navigate(action);
+
         });
 
         mBinding.textViewWholePopularProducts.setOnClickListener(v -> {
-            startActivity(WholeProductsActivity.newIntent(getContext(), "popularity"));
+            HomeFragmentDirections.ActionHomeFragmentToWholeProductsFragment action = HomeFragmentDirections
+                    .actionHomeFragmentToWholeProductsFragment("popularity");
 
+            Navigation.findNavController(v)
+                    .navigate(action);
         });
 
         mBinding.textViewWholeTopRatingProducts.setOnClickListener(v -> {
-            startActivity(WholeProductsActivity.newIntent(getContext(), "rating"));
+            HomeFragmentDirections.ActionHomeFragmentToWholeProductsFragment action = HomeFragmentDirections
+                    .actionHomeFragmentToWholeProductsFragment("rating");
+
+            Navigation.findNavController(v)
+                    .navigate(action);
 
         });
     }
