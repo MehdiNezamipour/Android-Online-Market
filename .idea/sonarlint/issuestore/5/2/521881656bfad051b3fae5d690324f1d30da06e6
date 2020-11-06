@@ -1,15 +1,4 @@
 
-O
-java:S1128
-"2Remove this unused import 'android.view.MenuItem'.(Ğ¬Ó‘8Ôå™ÍÙ.
-O
-java:S11353"2Complete the task associated to this TODO comment.(á™ù¢8Ôå™ÍÙ.
 t
-java:S1450"WRemove the "mBinding" field and declare it as a local variable in the relevant methods.(á“¯è8æÙŒÍÙ.
-V	java:S110"<This class has 9 parents which is greater than 5 authorized.(Ûîë‘øÿÿÿÿ
-T
-java:S11350"2Complete the task associated to this TODO comment.(—ü“üÿÿÿÿ8Ôå™ÍÙ.
-€
-java:S1128"^Remove this unused import 'com.google.android.material.bottomnavigation.BottomNavigationView'.(ºØÇÿÿÿÿÿ8Ôå™ÍÙ.
-U
-java:S1128"8Remove this unused import 'androidx.annotation.NonNull'.(ˆÛúÜ8Ôå™ÍÙ.
+java:S1450"WRemove the "mBinding" field and declare it as a local variable in the relevant methods.(á“¯è8æÙŒÍÙ.
+Q	java:S110"<This class has 9 parents which is greater than 5 authorized.(²Ú±

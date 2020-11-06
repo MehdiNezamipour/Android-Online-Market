@@ -13,9 +13,14 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.nezamipour.mehdi.digikala.R;
+import com.nezamipour.mehdi.digikala.adapter.ImageSliderAdapter;
 import com.nezamipour.mehdi.digikala.adapter.ProductRecyclerAdapter;
 import com.nezamipour.mehdi.digikala.databinding.FragmentHomeBinding;
+import com.nezamipour.mehdi.digikala.util.ImageUtil;
 import com.nezamipour.mehdi.digikala.viewmodel.HomeFragmentViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -26,6 +31,7 @@ public class HomeFragment extends Fragment {
     private ProductRecyclerAdapter mLatestProductsAdapter;
     private ProductRecyclerAdapter mTopRatingProductsAdapter;
     private ProductRecyclerAdapter mPopularProductsAdapter;
+    private ImageSliderAdapter mImageSliderAdapter;
 
 
     public HomeFragment() {
@@ -76,6 +82,18 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mImageSliderAdapter = new ImageSliderAdapter(getContext());
+        List<String> stringsResource = new ArrayList<>();
+
+        stringsResource.add(ImageUtil.convertResourceIdToUrl(R.drawable.main_slider_image01));
+        stringsResource.add(ImageUtil.convertResourceIdToUrl(R.drawable.main_slider_image02));
+        stringsResource.add(ImageUtil.convertResourceIdToUrl(R.drawable.main_slider_image03));
+        stringsResource.add(ImageUtil.convertResourceIdToUrl(R.drawable.main_slider_image02));
+
+        mImageSliderAdapter.setStringImageUrl(stringsResource);
+
+        mBinding.imageSlider.setSliderAdapter(mImageSliderAdapter);
+
 
         mBinding.recyclerViewOfferedProduct.setAdapter(mOfferedProductsAdapter);
         mBinding.recyclerViewLatestProduct.setAdapter(mLatestProductsAdapter);

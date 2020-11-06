@@ -9,16 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.adapter.WholeProductsAdapter;
-import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.databinding.FragmentWholeProductsBinding;
 import com.nezamipour.mehdi.digikala.viewmodel.WholeProductFragmentViewModel;
-
-import java.util.List;
 
 public class WholeProductsFragment extends Fragment {
 
