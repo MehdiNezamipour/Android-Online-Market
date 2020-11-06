@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/nav_fragHome">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/nav_fragHome"
         android:name="com.nezamipour.mehdi.digikala.view.fragment.HomeFragment"
-        android:label="HomeFragment">
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_wholeProductsFragment"
             app:destination="@id/wholeProductsFragment" />
@@ -16,9 +18,20 @@
     <fragment
         android:id="@+id/wholeProductsFragment"
         android:name="com.nezamipour.mehdi.digikala.view.fragment.WholeProductsFragment"
-        android:label="WholeProductsFragment">
+        android:label="WholeProductsFragment"
+        tools:layout="@layout/fragment_whole_products">
         <argument
             android:name="orderBy"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/nav_fragCategory"
+        android:name="com.nezamipour.mehdi.digikala.view.fragment.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" />
+    <fragment
+        android:id="@+id/nav_fragCart"
+        android:name="com.nezamipour.mehdi.digikala.view.fragment.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>

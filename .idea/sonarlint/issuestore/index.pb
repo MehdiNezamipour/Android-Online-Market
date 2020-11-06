@@ -117,8 +117,6 @@ R
 "app/src/main/res/values/colors.xml,9\6\969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
 [
 +app/src/main/res/layout/fragment_splash.xml,c\2\c2108990ed152bf3b25e1e9e1b88238ca6696534
-`
-0app/src/main/res/menu/bottom_navigation_menu.xml,d\6\d6b83c453579d1c62b11597f7bfbba2e903ecd37
 
 Oapp/src/main/java/com/nezamipour/mehdi/digikala/view/activity/HomeActivity.java,3\9\39db44093071671444a1ee08116ad3d8497fff81
 ˆ

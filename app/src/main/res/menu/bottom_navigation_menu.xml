@@ -3,19 +3,19 @@
     >
 
     <item
-        android:id="@+id/cart_page"
+        android:id="@+id/nav_fragCart"
         android:enabled="true"
         android:icon="@drawable/ic_shopping_cart"
         android:title="@string/cart"/>
 
     <item
-        android:id="@+id/category_page"
+        android:id="@+id/nav_fragCategory"
         android:enabled="true"
         android:icon="@drawable/ic_category"
         android:title="@string/category"/>
 
     <item
-        android:id="@+id/home_page"
+        android:id="@+id/nav_fragHome"
         android:enabled="true"
         android:icon="@drawable/ic_home"
         android:title="@string/home_page"/>
