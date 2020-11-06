@@ -1,55 +1,39 @@
 package com.nezamipour.mehdi.digikala.viewmodel;
 
-import android.app.Application;
-
-import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.nezamipour.mehdi.digikala.adapter.WholeProductsAdapter;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.data.repository.ProductRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class WholeProductFragmentViewModel extends AndroidViewModel {
+public class WholeProductFragmentViewModel extends ViewModel {
 
-    private ProductRepository mProductRepository;
-    private List<Product> mProducts = new ArrayList<>();
+    private final ProductRepository mProductRepository;
+    private final MutableLiveData<List<Product>> mProducts = new MutableLiveData<>();
     private final MutableLiveData<String> mStringOrderByLiveData = new MutableLiveData<>();
-    private WholeProductsAdapter mWholeProductsAdapter;
 
-    public WholeProductFragmentViewModel(@NonNull Application application) {
-        super(application);
+
+    public WholeProductFragmentViewModel() {
         mProductRepository = ProductRepository.getInstance();
     }
-
 
     public void fetchDataFromRepository() {
         switch (mStringOrderByLiveData.getValue()) {
             case "date":
-                mProducts = mProductRepository.getLatestProducts();
+                mProducts.setValue(mProductRepository.getLatestProducts());
                 break;
             case "popularity":
-                mProducts = mProductRepository.getPopularProducts();
+                mProducts.setValue(mProductRepository.getPopularProducts());
                 break;
             case "rating":
-                mProducts = mProductRepository.getTopRatingProducts();
+                mProducts.setValue(mProductRepository.getTopRatingProducts());
                 break;
             default:
                 break;
         }
-    }
-
-    public void initAdapter() {
-        mWholeProductsAdapter = new WholeProductsAdapter(getApplication());
-        mWholeProductsAdapter.setProducts(mProducts);
-    }
-
-    public WholeProductsAdapter getWholeProductsAdapter() {
-        return mWholeProductsAdapter;
     }
 
 
@@ -57,5 +41,7 @@ public class WholeProductFragmentViewModel extends AndroidViewModel {
         return mStringOrderByLiveData;
     }
 
-
+    public LiveData<List<Product>> getProducts() {
+        return mProducts;
+    }
 }

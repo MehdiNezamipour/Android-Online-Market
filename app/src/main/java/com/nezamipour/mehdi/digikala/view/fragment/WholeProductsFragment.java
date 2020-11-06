@@ -9,17 +9,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.nezamipour.mehdi.digikala.R;
+import com.nezamipour.mehdi.digikala.adapter.WholeProductsAdapter;
+import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.databinding.FragmentWholeProductsBinding;
 import com.nezamipour.mehdi.digikala.viewmodel.WholeProductFragmentViewModel;
+
+import java.util.List;
 
 public class WholeProductsFragment extends Fragment {
 
 
     private FragmentWholeProductsBinding mBinding;
     private WholeProductFragmentViewModel mViewModel;
+    private WholeProductsAdapter mWholeProductsAdapter;
 
 
     public WholeProductsFragment() {
@@ -40,14 +46,18 @@ public class WholeProductsFragment extends Fragment {
         String orderBy = WholeProductsFragmentArgs.fromBundle(getArguments()).getOrderBy();
 
         mViewModel = new ViewModelProvider(this).get(WholeProductFragmentViewModel.class);
-
-        mViewModel.getStringOrderByLiveData().observe(this, s -> {
-            mViewModel.fetchDataFromRepository();
-            mViewModel.getWholeProductsAdapter().notifyDataSetChanged();
-        });
-
         mViewModel.getStringOrderByLiveData().setValue(orderBy);
         mViewModel.fetchDataFromRepository();
+        initAdapter();
+
+        mViewModel.getProducts().observe(this, products -> {
+            mWholeProductsAdapter.notifyDataSetChanged();
+        });
+        mViewModel.getStringOrderByLiveData().observe(this, s -> {
+            mWholeProductsAdapter.notifyDataSetChanged();
+        });
+
+
     }
 
     @Override
@@ -61,10 +71,13 @@ public class WholeProductsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mViewModel.initAdapter();
-
-        mBinding.recyclerViewWholeProducts.setAdapter(mViewModel.getWholeProductsAdapter());
+        mBinding.recyclerViewWholeProducts.setAdapter(mWholeProductsAdapter);
 
 
+    }
+
+    public void initAdapter() {
+        mWholeProductsAdapter = new WholeProductsAdapter(getContext());
+        mWholeProductsAdapter.setProducts(mViewModel.getProducts().getValue());
     }
 }

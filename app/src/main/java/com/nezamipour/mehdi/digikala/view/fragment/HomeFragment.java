@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.nezamipour.mehdi.digikala.R;
+import com.nezamipour.mehdi.digikala.adapter.ProductRecyclerAdapter;
 import com.nezamipour.mehdi.digikala.databinding.FragmentHomeBinding;
 import com.nezamipour.mehdi.digikala.viewmodel.HomeFragmentViewModel;
 
@@ -20,6 +21,11 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding mBinding;
     private HomeFragmentViewModel mViewModel;
+
+    private ProductRecyclerAdapter mOfferedProductsAdapter;
+    private ProductRecyclerAdapter mLatestProductsAdapter;
+    private ProductRecyclerAdapter mTopRatingProductsAdapter;
+    private ProductRecyclerAdapter mPopularProductsAdapter;
 
 
     public HomeFragment() {
@@ -38,22 +44,24 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         mViewModel = new ViewModelProvider(this).get(HomeFragmentViewModel.class);
-        mViewModel.initAdapters();
+        mViewModel.fetchDataFromRepository();
+
+        initAdapters();
 
         mViewModel.getOfferedProductsLiveData().observe(this, products -> {
-            mViewModel.getOfferedProductsAdapter().notifyDataSetChanged();
+            mOfferedProductsAdapter.notifyDataSetChanged();
         });
 
         mViewModel.getLatestProductsLiveData().observe(this, products -> {
-            mViewModel.getLatestProductsAdapter().notifyDataSetChanged();
+            mLatestProductsAdapter.notifyDataSetChanged();
         });
 
         mViewModel.getTopRatingProductsLiveData().observe(this, products -> {
-            mViewModel.getTopRatingProductsAdapter().notifyDataSetChanged();
+            mTopRatingProductsAdapter.notifyDataSetChanged();
         });
 
         mViewModel.getPopularProductsLiveData().observe(this, products -> {
-            mViewModel.getOfferedProductsAdapter().notifyDataSetChanged();
+            mPopularProductsAdapter.notifyDataSetChanged();
         });
 
     }
@@ -69,10 +77,10 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mBinding.recyclerViewOfferedProduct.setAdapter(mViewModel.getOfferedProductsAdapter());
-        mBinding.recyclerViewLatestProduct.setAdapter(mViewModel.getLatestProductsAdapter());
-        mBinding.recyclerViewTopRatingProduct.setAdapter(mViewModel.getTopRatingProductsAdapter());
-        mBinding.recyclerViewPopularProduct.setAdapter(mViewModel.getPopularProductsAdapter());
+        mBinding.recyclerViewOfferedProduct.setAdapter(mOfferedProductsAdapter);
+        mBinding.recyclerViewLatestProduct.setAdapter(mLatestProductsAdapter);
+        mBinding.recyclerViewTopRatingProduct.setAdapter(mTopRatingProductsAdapter);
+        mBinding.recyclerViewPopularProduct.setAdapter(mPopularProductsAdapter);
 
         setListeners();
 
@@ -106,6 +114,20 @@ public class HomeFragment extends Fragment {
                     .navigate(action);
 
         });
+    }
+
+    public void initAdapters() {
+        mOfferedProductsAdapter = new ProductRecyclerAdapter(getContext());
+        mOfferedProductsAdapter.setProducts(mViewModel.getOfferedProductsLiveData().getValue());
+
+        mLatestProductsAdapter = new ProductRecyclerAdapter(getContext());
+        mLatestProductsAdapter.setProducts(mViewModel.getLatestProductsLiveData().getValue());
+
+        mTopRatingProductsAdapter = new ProductRecyclerAdapter(getContext());
+        mTopRatingProductsAdapter.setProducts(mViewModel.getTopRatingProductsLiveData().getValue());
+
+        mPopularProductsAdapter = new ProductRecyclerAdapter(getContext());
+        mPopularProductsAdapter.setProducts(mViewModel.getPopularProductsLiveData().getValue());
     }
 
 }

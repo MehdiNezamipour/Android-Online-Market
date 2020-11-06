@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         NavController navController = Navigation.findNavController(this, R.id.main_nav_host);
-        mBinding.navigationButton.setSelectedItemId(R.id.nav_fragHome);
+        mBinding.bottomNavigation.setSelectedItemId(R.id.nav_fragHome);
 
-        NavigationUI.setupWithNavController(mBinding.navigationButton, navController);
+        NavigationUI.setupWithNavController(mBinding.bottomNavigation, navController);
 
 
     }
