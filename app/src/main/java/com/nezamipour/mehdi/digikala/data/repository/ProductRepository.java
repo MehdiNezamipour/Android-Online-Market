@@ -66,4 +66,5 @@ public class ProductRepository {
     public void setPopularProducts(List<Product> popularProducts) {
         mPopularProducts = popularProducts;
     }
+
 }

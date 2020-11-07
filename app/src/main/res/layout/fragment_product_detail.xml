@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.nezamipour.mehdi.digikala.viewmodel.ProductDetailFragmentViewModel" />
+            type="com.nezamipour.mehdi.digikala.viewmodel.ProductDetailViewModel" />
     </data>
 
     <ScrollView

@@ -76,8 +76,8 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         public void bindProduct(Product product) {
             mProduct = product;
             mBinding.rowLayoutCardView.setOnClickListener(v -> {
-                HomeFragmentDirections.ActionNavFragHomeToProductDetailFragment action = HomeFragmentDirections
-                        .actionNavFragHomeToProductDetailFragment(mProduct.getId());
+                HomeFragmentDirections.ActionNavFragHomeToLoadingFragment action = HomeFragmentDirections
+                        .actionNavFragHomeToLoadingFragment(mProduct.getId());
                 Navigation.findNavController(v).navigate(action);
             });
 

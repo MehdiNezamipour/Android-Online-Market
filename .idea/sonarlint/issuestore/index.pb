@@ -139,8 +139,6 @@ Y
 Sapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/CategoryFragment.java,4\8\48c000952e8dbde67dc4b0b2d8ac6cb075cee8ab
 
 Oapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/CartFragment.java,9\4\94dbd315cb3ead096a768f656e9832baf8047ec1
-Y
-)app/src/main/res/layout/activity_main.xml,7\6\76b07e40f24cce093536731477540f12e7da3cb6
 
 Oapp/src/main/java/com/nezamipour/mehdi/digikala/adapter/ImageSliderAdapter.java,0\0\000e81314c5dd84d9beff4c73c53d1813d558904
 \

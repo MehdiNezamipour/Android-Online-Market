@@ -73,16 +73,16 @@ public class SplashFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mBinding.textViewRetry.setOnClickListener(v -> {
-            mViewModel.getIsError().setValue(false);
-            mViewModel.getIsLoading().setValue(true);
+        mBinding.buttonRetry.setOnClickListener(v -> {
             mViewModel.fetchInitData();
             showLoadingUi();
+            mViewModel.getIsError().setValue(false);
+            mViewModel.getIsLoading().setValue(true);
         });
     }
 
     private void showLoadingUi() {
-        mBinding.textViewRetry.setVisibility(View.GONE);
+        mBinding.buttonRetry.setVisibility(View.GONE);
         mBinding.textViewNoInternet.setVisibility(View.GONE);
         mBinding.progressBar.setVisibility(View.VISIBLE);
         mBinding.progressBar.show();
@@ -91,7 +91,10 @@ public class SplashFragment extends Fragment {
 
     private void loadInternetError() {
         mBinding.textViewNoInternet.setVisibility(View.VISIBLE);
-        mBinding.textViewRetry.setVisibility(View.VISIBLE);
+        mBinding.buttonRetry.setVisibility(View.VISIBLE);
+        mBinding.progressBar.setVisibility(View.GONE);
+        mBinding.progressBar.hide();
+
     }
 
 }
