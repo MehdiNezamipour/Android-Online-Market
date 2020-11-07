@@ -7,6 +7,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 import static com.nezamipour.mehdi.digikala.network.RetrofitInstance.BASE_URL;
@@ -27,6 +28,10 @@ public interface WooApi {
 
     @GET(BASE_URL + "products" + "/categories" + API_KEY)
     Call<List<Category>> getAllCategories(@Query("per_page") int perPage, @Query("page") int page);
+
+    @GET(BASE_URL + "products/{productId}" + API_KEY)
+    Call<Product> getProductById(@Path("productId") Integer productId);
+
 
 
 

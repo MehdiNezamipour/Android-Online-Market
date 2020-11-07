@@ -23,7 +23,7 @@
             <com.smarteist.autoimageslider.SliderView
                 android:id="@+id/imageSlider"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 app:sliderAnimationDuration="600"
                 app:sliderAutoCycleDirection="back_and_forth"
                 app:sliderAutoCycleEnabled="true"
@@ -33,9 +33,9 @@
                 app:sliderIndicatorOrientation="horizontal"
                 app:sliderIndicatorPadding="3dp"
                 app:sliderIndicatorRadius="2dp"
-                app:sliderIndicatorSelectedColor="#5A5A5A"
-                app:sliderIndicatorUnselectedColor="#FFF"
-                app:sliderScrollTimeInSec="1"
+                app:sliderIndicatorSelectedColor="@color/digikala_gray"
+                app:sliderIndicatorUnselectedColor="@color/digikala_white"
+                app:sliderScrollTimeInSec="3"
                 app:sliderStartAutoCycle="true" />
 
 

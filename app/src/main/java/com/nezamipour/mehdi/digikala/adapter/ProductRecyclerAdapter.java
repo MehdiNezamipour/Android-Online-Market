@@ -2,16 +2,19 @@ package com.nezamipour.mehdi.digikala.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.databinding.RowItemProductBinding;
 import com.nezamipour.mehdi.digikala.util.ImageUtil;
+import com.nezamipour.mehdi.digikala.view.fragment.HomeFragmentDirections;
 import com.nezamipour.mehdi.digikala.viewmodel.ProductAdapterViewModel;
 import com.squareup.picasso.Picasso;
 
@@ -23,7 +26,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
     //TODO later
     private ProductAdapterViewModel mViewModel;
 
-    private List <Product> mProducts;
+    private List<Product> mProducts;
     private Context mContext;
 
     public ProductRecyclerAdapter(Context context) {
@@ -64,6 +67,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         private RowItemProductBinding mBinding;
         private Product mProduct;
 
+
         public ProductRecyclerViewHolder(@NonNull RowItemProductBinding binding) {
             super(binding.getRoot());
             this.mBinding = binding;
@@ -71,6 +75,12 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
 
         public void bindProduct(Product product) {
             mProduct = product;
+            mBinding.rowLayoutCardView.setOnClickListener(v -> {
+                HomeFragmentDirections.ActionNavFragHomeToProductDetailFragment action = HomeFragmentDirections
+                        .actionNavFragHomeToProductDetailFragment(mProduct.getId());
+                Navigation.findNavController(v).navigate(action);
+            });
+
             mBinding.textViewProductTitle.setText(mProduct.getName());
             mBinding.textViewProductPrice.setText(mProduct.getPrice());
 

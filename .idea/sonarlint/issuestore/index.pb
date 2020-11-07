@@ -115,14 +115,10 @@ h
 8app/src/main/res/drawable-v24/ic_launcher_foreground.xml,0\7\078508c831007ccb3938b355f0d30a8368f99a8d
 R
 "app/src/main/res/values/colors.xml,9\6\969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
-[
-+app/src/main/res/layout/fragment_splash.xml,c\2\c2108990ed152bf3b25e1e9e1b88238ca6696534
 „
 Tapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/HomeFragmentViewModel.java,2\9\2900b313cd0a24c4a32d2c48891e839b4c01e774
 \
 ,app/src/main/res/layout/row_item_product.xml,b\6\b666380125f9e60d7e7162d314f127feb8861392
-S
-#app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e
 
 Oapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/HomeFragment.java,d\6\d69aab41cb391c6ac5ce1fa64ff08d078c3e4d54
 Œ
@@ -137,10 +133,6 @@ c
 3app/src/main/res/layout/row_item_whole_products.xml,b\4\b4cc668364df0ce586c2795b99cf2f4115ef02f4
 Y
 )app/src/main/res/layout/fragment_cart.xml,d\3\d3847d71b9fb3999d0a292b8bcc79f28a6d6933d
-]
--app/src/main/res/layout/fragment_category.xml,1\3\137bd709e5680d18a1be69388168e389adaae9ce
-Y
-)app/src/main/res/navigation/nav_graph.xml,b\a\baffce053da291d96fb575a09f2bbe9aaa9c4be9
 `
 0app/src/main/res/menu/bottom_navigation_menu.xml,d\6\d6b83c453579d1c62b11597f7bfbba2e903ecd37
 ƒ
@@ -151,3 +143,7 @@ Y
 )app/src/main/res/layout/activity_main.xml,7\6\76b07e40f24cce093536731477540f12e7da3cb6
 
 Oapp/src/main/java/com/nezamipour/mehdi/digikala/adapter/ImageSliderAdapter.java,0\0\000e81314c5dd84d9beff4c73c53d1813d558904
+\
+,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
+f
+6app/src/main/res/layout/image_slider_custom_layout.xml,6\e\6e13eb94db62a509b0d2fe2d6ec4a57e8d2f771e

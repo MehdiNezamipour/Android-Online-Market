@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_wholeProductsFragment"
             app:destination="@id/wholeProductsFragment" />
+        <action
+            android:id="@+id/action_nav_fragHome_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
     </fragment>
 
     <fragment
@@ -23,6 +26,9 @@
         <argument
             android:name="orderBy"
             app:argType="string" />
+        <action
+            android:id="@+id/action_wholeProductsFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_fragCategory"
@@ -34,4 +40,12 @@
         android:name="com.nezamipour.mehdi.digikala.view.fragment.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.nezamipour.mehdi.digikala.view.fragment.ProductDetailFragment"
+        android:label="ProductDetailFragment" >
+        <argument
+            android:name="productId"
+            app:argType="integer" />
+    </fragment>
 </navigation>
