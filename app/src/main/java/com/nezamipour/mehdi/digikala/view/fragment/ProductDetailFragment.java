@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.adapter.ImageSliderAdapter;
 import com.nezamipour.mehdi.digikala.databinding.FragmentProductDetailBinding;
+import com.nezamipour.mehdi.digikala.util.ImageUtil;
 import com.nezamipour.mehdi.digikala.viewmodel.ProductDetailViewModel;
 
 public class ProductDetailFragment extends Fragment {
@@ -56,5 +57,12 @@ public class ProductDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mImageSliderAdapter = new ImageSliderAdapter(getContext());
+        mImageSliderAdapter
+                .setStringImageUrl(
+                        ImageUtil.getAllImageUrlOfProduct(
+                                mViewModel.getProductMutableLiveData().getValue()));
+
+        mBinding.imageSliderProductDetailImages.setSliderAdapter(mImageSliderAdapter);
     }
 }

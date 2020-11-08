@@ -1,7 +1,9 @@
 
-T
-java:S1135"2Complete the task associated to this TODO comment.(¥·€şşÿÿÿÿ8±©ÌéØ.
-t
-java:S1450A"WRemove the "mProduct" field and declare it as a local variable in the relevant methods.(Ùşºö8±©ÌéØ.
 P
-java:S1068".Remove this unused "mViewModel" private field.(áß‚Âüÿÿÿÿ8±©ÌéØ.
+java:S1128".Remove this unused import 'android.view.View'.(Ø½­äşÿÿÿÿ8™ÕßœÚ.
+P
+java:S1068".Remove this unused "mViewModel" private field.(áß‚Âüÿÿÿÿ8±©ÌéØ.
+T
+java:S1135"2Complete the task associated to this TODO comment.(¥·€şşÿÿÿÿ8±©ÌéØ.
+t
+java:S1450D"WRemove the "mProduct" field and declare it as a local variable in the relevant methods.(Ùşºö8±©ÌéØ.

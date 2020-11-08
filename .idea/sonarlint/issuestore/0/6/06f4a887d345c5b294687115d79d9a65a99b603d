@@ -1,29 +1,29 @@
 
+O
+java:S1948¿",Make "attributes" transient or serializable.(§Ô¦±øÿÿÿÿ8‚ÒˆéØ.
+P
+java:S1948G"3Make "dateOnSaleFromGmt" transient or serializable.(‚ÆŞƒ8‚ÒˆéØ.
+O
+java:S1948È"1Make "groupedProducts" transient or serializable.(¼ÍğÜ8‚ÒˆéØ.
 M
 java:S1948b"+Make "downloads" transient or serializable.(”®Ÿúÿÿÿÿ8‚ÒˆéØ.
-N
-java:S1948ª"+Make "upsellIds" transient or serializable.(¬¶‡Ïÿÿÿÿÿ8‚ÒˆéØ.
+Q
+java:S1948­".Make "crossSellIds" transient or serializable.(Æìú”ûÿÿÿÿ8‚ÒˆéØ.
+h
+java:S1124Ò"EReorder the modifiers to comply with the Java Language Specification.(Õ¯öËûÿÿÿÿ8‚ÒˆéØ.
 M
 java:S1948D"0Make "dateOnSaleFrom" transient or serializable.(ÉäšË8‚ÒˆéØ.
 P
 java:S1948J".Make "dateOnSaleTo" transient or serializable.(Ş¾ÔÜÿÿÿÿÿ8‚ÒˆéØ.
-H
-java:S1948Î"*Make "metaData" transient or serializable.(ÃŞç¶8‚ÒˆéØ.
-Q
-java:S1948Â"3Make "defaultAttributes" transient or serializable.(à¡¥8‚ÒˆéØ.
-h
-java:S1124Ò"EReorder the modifiers to comply with the Java Language Specification.(Õ¯öËûÿÿÿÿ8‚ÒˆéØ.
 K
 java:S1948z"/Make "stockQuantity" transient or serializable.(×¾8‚ÒˆéØ.
-J
-java:S1948Å",Make "variations" transient or serializable.(ª„İ²8‚ÒˆéØ.
-O
-java:S1948È"1Make "groupedProducts" transient or serializable.(¼ÍğÜ8‚ÒˆéØ.
 S
 java:S1948M"1Make "dateOnSaleToGmt" transient or serializable.(šÖ³¥øÿÿÿÿ8‚ÒˆéØ.
-P
-java:S1948G"3Make "dateOnSaleFromGmt" transient or serializable.(‚ÆŞƒ8‚ÒˆéØ.
+J
+java:S1948Å",Make "variations" transient or serializable.(ª„İ²8‚ÒˆéØ.
 Q
-java:S1948­".Make "crossSellIds" transient or serializable.(Æìú”ûÿÿÿÿ8‚ÒˆéØ.
-O
-java:S1948¿",Make "attributes" transient or serializable.(§Ô¦±øÿÿÿÿ8‚ÒˆéØ.
+java:S1948Â"3Make "defaultAttributes" transient or serializable.(à¡¥8‚ÒˆéØ.
+N
+java:S1948ª"+Make "upsellIds" transient or serializable.(¬¶‡Ïÿÿÿÿÿ8‚ÒˆéØ.
+H
+java:S1948Î"*Make "metaData" transient or serializable.(ÃŞç¶8‚ÒˆéØ.

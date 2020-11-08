@@ -5,6 +5,7 @@ import android.net.Uri;
 import com.nezamipour.mehdi.digikala.data.model.product.Image;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ImageUtil {
@@ -19,5 +20,13 @@ public class ImageUtil {
 
     public static String convertResourceIdToUrl(int resourceId) {
         return Uri.parse("android.resource://com.nezamipour.mehdi.digikala/" + resourceId).toString();
+    }
+
+    public static List<String> getAllImageUrlOfProduct(Product product) {
+        List<String> urls = new ArrayList<>();
+        for (Image image : product.getImages()) {
+            urls.add(image.getSrc());
+        }
+        return urls;
     }
 }

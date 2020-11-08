@@ -1,11 +1,11 @@
 
-H
-java:S1602A",Remove useless curly braces around statement(â³Â8İ™Ò‘Ù.
-I
-java:S16029",Remove useless curly braces around statement(†È½›8¡ëÏ‘Ù.
+„
+java:S1450""bRemove the "mImageSliderAdapter" field and declare it as a local variable in the relevant methods.(´Ğ²°ùÿÿÿÿ8äºİêÙ.
 N
 java:S1602=",Remove useless curly braces around statement(ÄÏÕ˜ıÿÿÿÿ8¾äĞ‘Ù.
 I
 java:S1602E",Remove useless curly braces around statement(×ß×8İ™Ò‘Ù.
-„
-java:S1450""bRemove the "mImageSliderAdapter" field and declare it as a local variable in the relevant methods.(´Ğ²°ùÿÿÿÿ8äºİêÙ.
+H
+java:S1602A",Remove useless curly braces around statement(â³Â8İ™Ò‘Ù.
+I
+java:S16029",Remove useless curly braces around statement(†È½›8¡ëÏ‘Ù.
