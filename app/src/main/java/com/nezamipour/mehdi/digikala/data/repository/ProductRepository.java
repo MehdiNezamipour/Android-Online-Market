@@ -1,5 +1,6 @@
 package com.nezamipour.mehdi.digikala.data.repository;
 
+import com.nezamipour.mehdi.digikala.data.model.product.Category;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 
 import java.util.List;
@@ -14,6 +15,9 @@ public class ProductRepository {
     private List<Product> mLatestProducts;
     private List<Product> mTopRatingProducts;
     private List<Product> mPopularProducts;
+
+    private List<Category> mAllCategories;
+
 
 
     private ProductRepository() {
@@ -67,4 +71,11 @@ public class ProductRepository {
         mPopularProducts = popularProducts;
     }
 
+    public List<Category> getAllCategories() {
+        return mAllCategories;
+    }
+
+    public void setAllCategories(List<Category> allCategories) {
+        mAllCategories = allCategories;
+    }
 }

@@ -26,12 +26,14 @@ public interface WooApi {
     @GET(BASE_URL + "products" + API_KEY)
     Call<List<Product>> getAllProducts();
 
-    @GET(BASE_URL + "products" + "/categories" + API_KEY)
-    Call<List<Category>> getAllCategories(@Query("per_page") int perPage, @Query("page") int page);
 
     @GET(BASE_URL + "products/{productId}" + API_KEY)
     Call<Product> getProductById(@Path("productId") Integer productId);
 
+    //this api has 18 categories right now
+    //so for get all of them page = 1 and per_page= 18
+    @GET(BASE_URL + "products" + "/categories" + API_KEY)
+    Call<List<Category>> getAllCategories(@Query("per_page") int perPage, @Query("page") int page);
 
 
 

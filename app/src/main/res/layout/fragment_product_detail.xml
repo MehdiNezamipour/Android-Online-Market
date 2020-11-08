@@ -16,7 +16,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/digikala_dark_white"
             android:orientation="vertical">
 
@@ -41,14 +41,13 @@
                         app:sliderAutoCycleDirection="back_and_forth"
                         app:sliderAutoCycleEnabled="false"
                         app:sliderIndicatorAnimationDuration="600"
-                        app:sliderIndicatorGravity="center_horizontal|bottom"
-                        app:sliderIndicatorMargin="15dp"
+                        app:sliderIndicatorGravity="start|bottom"
+                        app:sliderIndicatorMarginBottom="16dp"
+                        app:sliderIndicatorMarginLeft="16sp"
                         app:sliderIndicatorOrientation="horizontal"
-                        app:sliderIndicatorPadding="3dp"
                         app:sliderIndicatorRadius="2dp"
                         app:sliderIndicatorSelectedColor="@color/digikala_gray"
-                        app:sliderIndicatorUnselectedColor="@color/digikala_white"
-                        app:sliderScrollTimeInSec="3"
+                        app:sliderIndicatorUnselectedColor="@color/digikala_light_gray"
                         app:sliderStartAutoCycle="false" />
 
                     <LinearLayout
@@ -103,20 +102,20 @@
                         android:fontFamily="@font/far_roya_bd"
                         android:gravity="right"
                         android:text="@{viewModel.productMutableLiveData.name}"
-                        android:textSize="16dp" />
+                        android:textSize="16sp" />
 
 
                     <TextView
                         android:id="@+id/textView_product_detail_short_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/iran_yekan"
                         android:gravity="right"
                         android:text="@{viewModel.productMutableLiveData.shortDescription}"
                         android:textColor="@color/digikala_gray"
-                        android:textSize="12dp" />
+                        android:textSize="12sp" />
 
 
                 </LinearLayout>
@@ -136,13 +135,13 @@
                     android:id="@+id/button_product_detail_users_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="4dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="0.5"
                     android:fontFamily="@font/far_trafc_bd"
                     android:text="@string/product_comments"
                     android:textColor="@color/digikala_dark_blue_gray"
-                    android:textSize="10dp"
+                    android:textSize="10sp"
                     app:backgroundTint="@color/digikala_raw_white"
                     app:cornerRadius="0dp"
                     app:icon="@drawable/ic_comment"
@@ -161,7 +160,7 @@
                     android:fontFamily="@font/far_trafc_bd"
                     android:text="@string/product_detail"
                     android:textColor="@color/digikala_dark_blue_gray"
-                    android:textSize="10dp"
+                    android:textSize="10sp"
                     app:backgroundTint="@color/digikala_raw_white"
                     app:cornerRadius="0dp"
                     app:icon="@drawable/ic_detail"
@@ -200,7 +199,7 @@
                             android:id="@+id/product_detail_color_spinner"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginRight="20dp"
+                            android:layout_marginEnd="20dp"
                             android:textDirection="rtl" />
 
                         <TextView
@@ -209,7 +208,7 @@
                             android:layout_gravity="right"
                             android:fontFamily="@font/iran_yekan"
                             android:text="@string/color"
-                            android:textSize="12dp" />
+                            android:textSize="12sp" />
 
 
                     </LinearLayout>
@@ -229,7 +228,7 @@
                             android:id="@+id/product_detail_size_spinner"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp" />
+                            android:layout_marginEnd="20dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -237,7 +236,7 @@
                             android:layout_gravity="right"
                             android:fontFamily="@font/iran_yekan"
                             android:text="@string/size"
-                            android:textSize="12dp" />
+                            android:textSize="12sp" />
 
 
                     </LinearLayout>
@@ -257,10 +256,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|right"
-                            android:layout_marginRight="8dp"
+                            android:layout_marginEnd="8dp"
                             android:fontFamily="@font/iran_yekan"
                             android:text="@string/product_garanty"
-                            android:textSize="10dp" />
+                            android:textSize="10sp" />
 
                         <ImageView
                             android:layout_width="18dp"
@@ -296,7 +295,7 @@
                             android:fontFamily="@font/iran_yekan"
                             android:text="@string/app_name_fa"
                             android:textColor="@color/digikala_red"
-                            android:textSize="10dp" />
+                            android:textSize="10sp" />
 
                         <TextView
                             android:id="@+id/product_detail_activity__product_name7"
@@ -306,7 +305,7 @@
                             android:layout_marginRight="8dp"
                             android:fontFamily="@font/iran_yekan"
                             android:text="@string/sell_by"
-                            android:textSize="10dp" />
+                            android:textSize="10sp" />
 
                         <ImageView
                             android:layout_width="18dp"
@@ -335,7 +334,7 @@
                             android:layout_marginRight="8dp"
                             android:fontFamily="@font/iran_yekan"
                             android:text="@string/ready_for_send_storage"
-                            android:textSize="10dp" />
+                            android:textSize="10sp" />
 
                         <ImageView
                             android:layout_width="18dp"
@@ -353,7 +352,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="8dp"
                         android:orientation="horizontal">
@@ -362,24 +361,24 @@
                             android:id="@+id/textView_product_detail_sale_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="4dp"
+                            android:layout_marginStart="4dp"
                             android:fontFamily="@font/far_trafc_bd"
                             android:gravity="left"
                             android:text="@{viewModel.productMutableLiveData.salePrice}"
                             android:textColor="@color/digikala_green"
-                            android:textSize="17dp" />
+                            android:textSize="17sp" />
 
 
                         <TextView
                             android:id="@+id/textView_product_detail_regular_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
                             android:fontFamily="@font/far_trafc_bd"
                             android:gravity="left"
                             android:text="@{viewModel.productMutableLiveData.regularPrice}"
                             android:textColor="@color/digikala_red"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
 
 
                     </LinearLayout>
@@ -434,7 +433,7 @@
                         android:paddingRight="12dp"
                         android:paddingBottom="4dp"
                         android:textColor="#C9464646"
-                        android:textSize="10dp" />
+                        android:textSize="10sp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -455,7 +454,7 @@
                         android:paddingBottom="8dp"
                         android:text="@string/more_detail"
                         android:textColor="@color/digikala_gray"
-                        android:textSize="10dp" />
+                        android:textSize="10sp" />
 
                 </LinearLayout>
 

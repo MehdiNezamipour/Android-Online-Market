@@ -64,5 +64,6 @@ public class ProductDetailFragment extends Fragment {
                                 mViewModel.getProductMutableLiveData().getValue()));
 
         mBinding.imageSliderProductDetailImages.setSliderAdapter(mImageSliderAdapter);
+
     }
 }

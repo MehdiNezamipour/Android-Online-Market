@@ -2,11 +2,11 @@
 package com.nezamipour.mehdi.digikala.data.model.product;
 
 import java.io.Serializable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Image implements Serializable
-{
+public class Image implements Serializable {
 
     @SerializedName("id")
     @Expose

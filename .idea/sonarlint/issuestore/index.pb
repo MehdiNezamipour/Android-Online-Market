@@ -117,8 +117,6 @@ R
 "app/src/main/res/values/colors.xml,9\6\969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
 „
 Tapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/HomeFragmentViewModel.java,2\9\2900b313cd0a24c4a32d2c48891e839b4c01e774
-\
-,app/src/main/res/layout/row_item_product.xml,b\6\b666380125f9e60d7e7162d314f127feb8861392
 
 Oapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/HomeFragment.java,d\6\d69aab41cb391c6ac5ce1fa64ff08d078c3e4d54
 Œ
@@ -129,8 +127,6 @@ Xapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/WholeProductsFrag
 Qapp/src/main/java/com/nezamipour/mehdi/digikala/adapter/WholeProductsAdapter.java,7\8\78ea50189316250da2293e837be41d92e2d11fd8
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-c
-3app/src/main/res/layout/row_item_whole_products.xml,b\4\b4cc668364df0ce586c2795b99cf2f4115ef02f4
 Y
 )app/src/main/res/layout/fragment_cart.xml,d\3\d3847d71b9fb3999d0a292b8bcc79f28a6d6933d
 `
@@ -159,8 +155,6 @@ Y
 )app/src/main/res/layout/activity_main.xml,7\6\76b07e40f24cce093536731477540f12e7da3cb6
 \
 ,app/src/main/res/layout/fragment_loading.xml,b\c\bcf840eed15b0326f37b14741db67a1a0dfa690a
-c
-3app/src/main/res/layout/fragment_product_detail.xml,5\9\59730e0b4780ef3eb688fdb74d597d500ae5e058
 Y
 )app/src/main/res/navigation/nav_graph.xml,b\a\baffce053da291d96fb575a09f2bbe9aaa9c4be9
 S
