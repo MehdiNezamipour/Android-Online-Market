@@ -37,8 +37,8 @@ public class ProductDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         mViewModel = new ViewModelProvider(this).get(ProductDetailViewModel.class);
-        mViewModel.setProductMutableLiveData
-                (ProductDetailFragmentArgs.fromBundle(getArguments()).getProduct());
+
+
     }
 
     @Override

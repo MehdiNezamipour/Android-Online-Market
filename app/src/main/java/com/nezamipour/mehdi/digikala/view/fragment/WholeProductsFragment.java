@@ -42,17 +42,12 @@ public class WholeProductsFragment extends Fragment {
         String orderBy = WholeProductsFragmentArgs.fromBundle(getArguments()).getOrderBy();
 
         mViewModel = new ViewModelProvider(this).get(WholeProductFragmentViewModel.class);
-        mViewModel.getStringOrderByLiveData().setValue(orderBy);
-        mViewModel.fetchDataFromRepository();
+        mViewModel.fetchDataFromRepository(orderBy);
         initAdapter();
 
         mViewModel.getProducts().observe(this, products -> {
             mWholeProductsAdapter.notifyDataSetChanged();
         });
-        mViewModel.getStringOrderByLiveData().observe(this, s -> {
-            mWholeProductsAdapter.notifyDataSetChanged();
-        });
-
 
     }
 

@@ -13,33 +13,28 @@ public class WholeProductFragmentViewModel extends ViewModel {
 
     private final ProductRepository mProductRepository;
     private final MutableLiveData<List<Product>> mProducts = new MutableLiveData<>();
-    private final MutableLiveData<String> mStringOrderByLiveData = new MutableLiveData<>();
 
 
     public WholeProductFragmentViewModel() {
         mProductRepository = ProductRepository.getInstance();
     }
 
-    public void fetchDataFromRepository() {
-        switch (mStringOrderByLiveData.getValue()) {
+    public void fetchDataFromRepository(String orderBy) {
+        switch (orderBy) {
             case "date":
-                mProducts.setValue(mProductRepository.getLatestProducts());
+                mProducts.setValue(mProductRepository.getLatestProductsLiveData().getValue());
                 break;
             case "popularity":
-                mProducts.setValue(mProductRepository.getPopularProducts());
+                mProducts.setValue(mProductRepository.getPopularProductsLiveData().getValue());
                 break;
             case "rating":
-                mProducts.setValue(mProductRepository.getTopRatingProducts());
+                mProducts.setValue(mProductRepository.getTopRatingProductsLiveData().getValue());
                 break;
             default:
                 break;
         }
     }
 
-
-    public MutableLiveData<String> getStringOrderByLiveData() {
-        return mStringOrderByLiveData;
-    }
 
     public LiveData<List<Product>> getProducts() {
         return mProducts;

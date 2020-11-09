@@ -163,8 +163,6 @@ S
 Uapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/ProductDetailViewModel.java,c\c\cc5e0b141b0b937ef30da3e7e1d814586f0c0dc0
 Y
 )app/src/main/res/layout/fragment_home.xml,3\1\31c5880846ef63ff1963efbe141ddfd56680bb19
-c
-3app/src/main/res/layout/fragment_product_detail.xml,5\9\59730e0b4780ef3eb688fdb74d597d500ae5e058
 ]
 -app/src/main/res/layout/row_item_category.xml,b\1\b17dab4b403787b76c9ac4cb0b0bc81e0d423d21
 „
