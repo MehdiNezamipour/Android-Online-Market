@@ -38,7 +38,6 @@ public class ProductDetailFragment extends Fragment {
 
         mViewModel = new ViewModelProvider(this).get(ProductDetailViewModel.class);
 
-
     }
 
     @Override

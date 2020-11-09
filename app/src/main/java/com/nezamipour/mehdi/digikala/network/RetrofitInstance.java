@@ -10,27 +10,26 @@ public class RetrofitInstance {
     public static final String CONSUMER_SECRET = "cs_065abe66a9a354981648904bb7bcdc247cb5209a";
 
     public static final String API_KEY = "?consumer_key=" +
-                    RetrofitInstance.CONSUMER_KEY +
-                    "&consumer_secret=" +
-                    RetrofitInstance.CONSUMER_SECRET;
+            RetrofitInstance.CONSUMER_KEY +
+            "&consumer_secret=" +
+            RetrofitInstance.CONSUMER_SECRET;
 
 
     // Singleton
 
-    private static Retrofit retrofitInstance;
+
+    private RetrofitInstance() {
+    }
+
+    private static Retrofit sRetrofit = null;
 
     public static Retrofit getInstance() {
-
-        if (retrofitInstance == null) {
-
-            retrofitInstance = new Retrofit.Builder()
+        if (sRetrofit == null) {
+            sRetrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-
         }
-
-
-        return retrofitInstance;
+        return sRetrofit;
     }
 }

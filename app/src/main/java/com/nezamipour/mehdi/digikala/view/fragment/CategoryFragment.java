@@ -96,29 +96,29 @@ public class CategoryFragment extends Fragment {
     }
 
     private void setUpAdapters() {
-        mChildParent1Adapter = new CategoryRecyclerAdapter(getContext());
+        mChildParent1Adapter = new CategoryRecyclerAdapter();
         mChildParent1Adapter.setCategories(mViewModel.getChildParent1LiveData().getValue());
         mBinding.recyclerViewCategory1.setAdapter(mChildParent1Adapter);
 
-        mChildParent2Adapter = new CategoryRecyclerAdapter(getContext());
+        mChildParent2Adapter = new CategoryRecyclerAdapter();
         mChildParent2Adapter.setCategories(mViewModel.getChildParent2LiveData().getValue());
         mBinding.recyclerViewCategory2.setAdapter(mChildParent2Adapter);
 
-        mChildParent3Adapter = new CategoryRecyclerAdapter(getContext());
+        mChildParent3Adapter = new CategoryRecyclerAdapter();
         mChildParent3Adapter.setCategories(mViewModel.getChildParent3LiveData().getValue());
         mBinding.recyclerViewCategory3.setAdapter(mChildParent3Adapter);
 
 
-        mChildParent4Adapter = new CategoryRecyclerAdapter(getContext());
+        mChildParent4Adapter = new CategoryRecyclerAdapter();
         mChildParent4Adapter.setCategories(mViewModel.getChildParent4LiveData().getValue());
         mBinding.recyclerViewCategory4.setAdapter(mChildParent4Adapter);
 
 
-        mChildParent5Adapter = new CategoryRecyclerAdapter(getContext());
+        mChildParent5Adapter = new CategoryRecyclerAdapter();
         mChildParent5Adapter.setCategories(mViewModel.getChildParent5LiveData().getValue());
         mBinding.recyclerViewCategory5.setAdapter(mChildParent5Adapter);
 
-        mChildParent6Adapter = new CategoryRecyclerAdapter(getContext());
+        mChildParent6Adapter = new CategoryRecyclerAdapter();
         mChildParent6Adapter.setCategories(mViewModel.getChildParent6LiveData().getValue());
         mBinding.recyclerViewCategory6.setAdapter(mChildParent6Adapter);
     }

@@ -1,6 +1,5 @@
 package com.nezamipour.mehdi.digikala.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -18,15 +17,13 @@ import java.util.List;
 public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecyclerAdapter.CategoryViewHolder> {
 
     private List<Category> mCategories;
-    private final Context mContext;
 
 
     public void setCategories(List<Category> categories) {
         mCategories = categories;
     }
 
-    public CategoryRecyclerAdapter(Context context) {
-        mContext = context;
+    public CategoryRecyclerAdapter() {
     }
 
     @NonNull
@@ -34,7 +31,7 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         RowItemCategoryBinding binding =
                 DataBindingUtil.inflate(
-                        LayoutInflater.from(mContext),
+                        LayoutInflater.from(parent.getContext()),
                         R.layout.row_item_category,
                         parent,
                         false);
@@ -53,7 +50,7 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
     }
 
 
-    public class CategoryViewHolder extends RecyclerView.ViewHolder {
+    public static class CategoryViewHolder extends RecyclerView.ViewHolder {
 
         private final RowItemCategoryBinding mBinding;
         private Category mCategory;

@@ -133,16 +133,16 @@ public class HomeFragment extends Fragment {
     }
 
     public void initAdapters() {
-        mOfferedProductsAdapter = new ProductRecyclerAdapter(getContext());
+        mOfferedProductsAdapter = new ProductRecyclerAdapter();
         mOfferedProductsAdapter.setProducts(mViewModel.getOfferedProductsLiveData().getValue());
 
-        mLatestProductsAdapter = new ProductRecyclerAdapter(getContext());
+        mLatestProductsAdapter = new ProductRecyclerAdapter();
         mLatestProductsAdapter.setProducts(mViewModel.getLatestProductsLiveData().getValue());
 
-        mTopRatingProductsAdapter = new ProductRecyclerAdapter(getContext());
+        mTopRatingProductsAdapter = new ProductRecyclerAdapter();
         mTopRatingProductsAdapter.setProducts(mViewModel.getTopRatingProductsLiveData().getValue());
 
-        mPopularProductsAdapter = new ProductRecyclerAdapter(getContext());
+        mPopularProductsAdapter = new ProductRecyclerAdapter();
         mPopularProductsAdapter.setProducts(mViewModel.getPopularProductsLiveData().getValue());
     }
 

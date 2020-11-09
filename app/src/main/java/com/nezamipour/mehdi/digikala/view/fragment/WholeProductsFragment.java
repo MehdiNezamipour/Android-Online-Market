@@ -39,6 +39,7 @@ public class WholeProductsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        assert getArguments() != null;
         String orderBy = WholeProductsFragmentArgs.fromBundle(getArguments()).getOrderBy();
 
         mViewModel = new ViewModelProvider(this).get(WholeProductFragmentViewModel.class);
@@ -68,7 +69,7 @@ public class WholeProductsFragment extends Fragment {
     }
 
     public void initAdapter() {
-        mWholeProductsAdapter = new WholeProductsAdapter(getContext());
+        mWholeProductsAdapter = new WholeProductsAdapter();
         mWholeProductsAdapter.setProducts(mViewModel.getProducts().getValue());
     }
 }

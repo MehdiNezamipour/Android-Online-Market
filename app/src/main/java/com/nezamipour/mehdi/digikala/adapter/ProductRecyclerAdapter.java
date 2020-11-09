@@ -1,6 +1,5 @@
 package com.nezamipour.mehdi.digikala.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -14,7 +13,6 @@ import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.databinding.RowItemProductBinding;
 import com.nezamipour.mehdi.digikala.util.ImageUtil;
 import com.nezamipour.mehdi.digikala.view.fragment.HomeFragmentDirections;
-import com.nezamipour.mehdi.digikala.viewmodel.ProductAdapterViewModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -22,14 +20,10 @@ import java.util.List;
 
 public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter.ProductRecyclerViewHolder> {
 
-    //TODO later
-    private ProductAdapterViewModel mViewModel;
 
     private List<Product> mProducts;
-    private Context mContext;
 
-    public ProductRecyclerAdapter(Context context) {
-        mContext = context;
+    public ProductRecyclerAdapter() {
         mProducts = new ArrayList<>();
     }
 
@@ -40,7 +34,7 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
     @NonNull
     @Override
     public ProductRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(mContext);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         RowItemProductBinding binding =
                 DataBindingUtil.inflate(
                         inflater,
@@ -61,9 +55,9 @@ public class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecycler
         return mProducts.size();
     }
 
-    public class ProductRecyclerViewHolder extends RecyclerView.ViewHolder {
+    public static class ProductRecyclerViewHolder extends RecyclerView.ViewHolder {
 
-        private RowItemProductBinding mBinding;
+        private final RowItemProductBinding mBinding;
         private Product mProduct;
 
 

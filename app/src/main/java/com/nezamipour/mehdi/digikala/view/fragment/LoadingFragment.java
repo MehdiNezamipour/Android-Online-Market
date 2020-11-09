@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.nezamipour.mehdi.digikala.R;
-import com.nezamipour.mehdi.digikala.adapter.ImageSliderAdapter;
 import com.nezamipour.mehdi.digikala.databinding.FragmentLoadingBinding;
 import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 import com.nezamipour.mehdi.digikala.viewmodel.ProductDetailViewModel;
@@ -37,6 +36,7 @@ public class LoadingFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        assert getArguments() != null;
         mProductId = LoadingFragmentArgs.fromBundle(getArguments()).getProductId();
         mViewModel = new ViewModelProvider(this).get(ProductDetailViewModel.class);
 
