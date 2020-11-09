@@ -1,9 +1,20 @@
 package com.nezamipour.mehdi.digikala.data.repository;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
 import com.nezamipour.mehdi.digikala.data.model.product.Category;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
+import com.nezamipour.mehdi.digikala.network.RetrofitInstance;
+import com.nezamipour.mehdi.digikala.network.WooApi;
+import com.nezamipour.mehdi.digikala.util.CategoryUtil;
+import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ProductRepository {
 
@@ -16,11 +27,13 @@ public class ProductRepository {
     private List<Product> mTopRatingProducts;
     private List<Product> mPopularProducts;
 
-    private List<Category> mAllCategories;
+    private final WooApi mWooApi;
 
-
+    private final MutableLiveData<ConnectionState> mConnectionStateMutableLiveData;
 
     private ProductRepository() {
+        mWooApi = RetrofitInstance.getInstance().create(WooApi.class);
+        mConnectionStateMutableLiveData = new MutableLiveData<>();
     }
 
     public static ProductRepository getInstance() {
@@ -30,6 +43,10 @@ public class ProductRepository {
         return sRepository;
     }
 
+
+    public MutableLiveData<ConnectionState> getConnectionStateLiveData() {
+        return mConnectionStateMutableLiveData;
+    }
 
     public List<Product> getAllProducts() {
         return mAllProducts;
@@ -71,11 +88,105 @@ public class ProductRepository {
         mPopularProducts = popularProducts;
     }
 
-    public List<Category> getAllCategories() {
-        return mAllCategories;
+
+    public void fetchInitData() {
+        mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
+        //offered products
+        mWooApi.getSaleProducts(10, 1).enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    mOfferedProducts = response.body();
+                    fetchLatestProducts();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                initInternetError();
+            }
+        });
     }
 
-    public void setAllCategories(List<Category> allCategories) {
-        mAllCategories = allCategories;
+
+    private void fetchLatestProducts() {
+        mWooApi.getProducts(10, 1, "date").enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    mLatestProducts = response.body();
+                    //top rating products
+                    fetchBestProducts();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                initInternetError();
+            }
+        });
     }
+
+    private void fetchBestProducts() {
+        mWooApi.getProducts(10, 1, "rating").enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    mTopRatingProducts = response.body();
+                    //last step of fetch from api
+                    fetchPopularProducts();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                initInternetError();
+            }
+        });
+    }
+
+    private void fetchPopularProducts() {
+        mWooApi.getProducts(10, 1, "popularity").enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    mPopularProducts = response.body();
+                    fetchAllCategories();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                initInternetError();
+            }
+        });
+    }
+
+    private void fetchAllCategories() {
+        mWooApi.getAllCategories(18, 1).enqueue(new Callback<List<Category>>() {
+            @Override
+            public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
+                if (response.isSuccessful()) {
+                    CategoryRepository categoryRepository = CategoryRepository.getInstance();
+                    categoryRepository.setAllCategories(response.body());
+                    categoryRepository.setParentCategories(CategoryUtil.parentsCategory(response.body()));
+                    //live data flag to start activity in Ui (SplashFragment) with observe this field
+                    mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Category>> call, Throwable t) {
+                initInternetError();
+            }
+        });
+    }
+
+    private void initInternetError() {
+        mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
+    }
+
+
 }

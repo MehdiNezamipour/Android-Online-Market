@@ -31,12 +31,12 @@ public class CategoryRepository {
 
     private List<Category> mAllCategories;
     private List<Category> mParentCategories;
-    private final List<Category> mChildOfParent1;
-    private final List<Category> mChildOfParent2;
-    private final List<Category> mChildOfParent3;
-    private final List<Category> mChildOfParent4;
-    private final List<Category> mChildOfParent5;
-    private final List<Category> mChildOfParent6;
+    private List<Category> mChildOfParent1;
+    private List<Category> mChildOfParent2;
+    private List<Category> mChildOfParent3;
+    private List<Category> mChildOfParent4;
+    private List<Category> mChildOfParent5;
+    private List<Category> mChildOfParent6;
 
 
     public List<Category> getAllCategories() {
@@ -55,36 +55,39 @@ public class CategoryRepository {
         mParentCategories = parentCategories;
     }
 
+    public void fetchChildCategories() {
+        mChildOfParent1 = CategoryUtil.childCategories(mAllCategories, mParentCategories.get(0).getId());
+        mChildOfParent2 = CategoryUtil.childCategories(mAllCategories, mParentCategories.get(1).getId());
+        mChildOfParent3 = CategoryUtil.childCategories(mAllCategories, mParentCategories.get(2).getId());
+        mChildOfParent4 = CategoryUtil.childCategories(mAllCategories, mParentCategories.get(3).getId());
+        mChildOfParent5 = CategoryUtil.childCategories(mAllCategories, mParentCategories.get(4).getId());
+        mChildOfParent6 = CategoryUtil.childCategories(mAllCategories, mParentCategories.get(5).getId());
+    }
+
     public List<Category> getChildOfParent1() {
-        mChildOfParent1.addAll(CategoryUtil.childCategories(mAllCategories, mParentCategories.get(0).getId()));
         return mChildOfParent1;
     }
 
     public List<Category> getChildOfParent2() {
-        mChildOfParent2.addAll(CategoryUtil.childCategories(mAllCategories, mParentCategories.get(1).getId()));
         return mChildOfParent2;
     }
 
 
     public List<Category> getChildOfParent3() {
-        mChildOfParent3.addAll(CategoryUtil.childCategories(mAllCategories, mParentCategories.get(2).getId()));
         return mChildOfParent3;
     }
 
 
     public List<Category> getChildOfParent4() {
-        mChildOfParent4.addAll(CategoryUtil.childCategories(mAllCategories, mParentCategories.get(3).getId()));
         return mChildOfParent4;
     }
 
 
     public List<Category> getChildOfParent5() {
-        mChildOfParent5.addAll(CategoryUtil.childCategories(mAllCategories, mParentCategories.get(4).getId()));
         return mChildOfParent5;
     }
 
     public List<Category> getChildOfParent6() {
-        mChildOfParent6.addAll(CategoryUtil.childCategories(mAllCategories, mParentCategories.get(5).getId()));
         return mChildOfParent6;
     }
 

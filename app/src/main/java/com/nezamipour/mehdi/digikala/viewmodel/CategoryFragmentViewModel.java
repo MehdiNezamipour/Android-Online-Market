@@ -36,6 +36,8 @@ public class CategoryFragmentViewModel extends ViewModel {
 
 
     public void fetchCategories() {
+        mCategoryRepository.fetchChildCategories();
+
         mParentCategoriesLiveData.setValue(mCategoryRepository.getParentCategories());
         mChildParent1LiveData.setValue(mCategoryRepository.getChildOfParent1());
         mChildParent2LiveData.setValue(mCategoryRepository.getChildOfParent2());
