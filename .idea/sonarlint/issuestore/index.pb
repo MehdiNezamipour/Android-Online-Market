@@ -153,8 +153,6 @@ c
 3app/src/main/res/drawable-anydpi/ic_retry_white.xml,4\c\4c31ac8912dba2c158c48ddf662fcf8b5ebaf6c7
 Y
 )app/src/main/res/layout/activity_main.xml,7\6\76b07e40f24cce093536731477540f12e7da3cb6
-\
-,app/src/main/res/layout/fragment_loading.xml,b\c\bcf840eed15b0326f37b14741db67a1a0dfa690a
 S
 #app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e
 …

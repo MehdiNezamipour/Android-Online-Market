@@ -20,12 +20,16 @@ public class ProductRepository {
 
     //singleton
 
+    //for special products
     private static ProductRepository sRepository;
     private final MutableLiveData<List<Product>> mAllProductsLiveData;
     private final MutableLiveData<List<Product>> mOfferedProductsLiveData;
     private final MutableLiveData<List<Product>> mLatestProductsLiveData;
     private final MutableLiveData<List<Product>> mTopRatingProductsLiveData;
     private final MutableLiveData<List<Product>> mPopularProductsLiveData;
+
+    //for products of specific category
+    private MutableLiveData<List<Product>> mCategoryProductsLiveData;
 
     private final MutableLiveData<ConnectionState> mConnectionStateMutableLiveData;
     private final MutableLiveData<Product> mProductByIdMutableLiveData;
@@ -42,6 +46,8 @@ public class ProductRepository {
         mTopRatingProductsLiveData = new MutableLiveData<>();
         mPopularProductsLiveData = new MutableLiveData<>();
 
+        mCategoryProductsLiveData = new MutableLiveData<>();
+
         mConnectionStateMutableLiveData = new MutableLiveData<>();
         mProductByIdMutableLiveData = new MutableLiveData<>();
 
@@ -55,11 +61,15 @@ public class ProductRepository {
     }
 
 
+    public MutableLiveData<List<Product>> getCategoryProductsLiveData() {
+        return mCategoryProductsLiveData;
+    }
+
     public MutableLiveData<ConnectionState> getConnectionStateLiveData() {
         return mConnectionStateMutableLiveData;
     }
 
-    public MutableLiveData<Product> getProductByIdMutableLiveData() {
+    public LiveData<Product> getProductByIdMutableLiveData() {
         return mProductByIdMutableLiveData;
     }
 
@@ -103,6 +113,24 @@ public class ProductRepository {
 
             @Override
             public void onFailure(Call<Product> call, Throwable t) {
+                mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
+            }
+        });
+    }
+
+    public void fetchCategoryProducts (Integer categoryId){
+        mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
+        mWooApi.getCategoryProducts(categoryId, 10, 1).enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()){
+                    mCategoryProductsLiveData.setValue(response.body());
+                    mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
                 mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
             }
         });

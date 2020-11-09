@@ -36,5 +36,11 @@ public interface WooApi {
     Call<List<Category>> getAllCategories(@Query("per_page") int perPage, @Query("page") int page);
 
 
+    //for get products of a specific category
+    @GET(BASE_URL + "products" + API_KEY)
+    Call<List<Product>> getCategoryProducts(@Query("category") int categoryId,
+                                            @Query("per_page") int perPage,
+                                            @Query("page") int page);
+
 
 }

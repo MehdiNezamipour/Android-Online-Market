@@ -5,11 +5,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.data.model.product.Category;
 import com.nezamipour.mehdi.digikala.databinding.RowItemCategoryBinding;
+import com.nezamipour.mehdi.digikala.view.fragment.CategoryFragmentDirections;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -71,6 +73,11 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
 
             mBinding.rowLayoutCardView.setOnClickListener(v -> {
                 //TODO : later
+                CategoryFragmentDirections
+                        .ActionNavFragCategoryToCategoryProductsLoadingFragment action =
+                        CategoryFragmentDirections
+                                .actionNavFragCategoryToCategoryProductsLoadingFragment(mCategory.getId());
+                Navigation.findNavController(v).navigate(action);
             });
         }
     }

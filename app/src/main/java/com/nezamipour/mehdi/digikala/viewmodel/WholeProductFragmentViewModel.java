@@ -30,6 +30,8 @@ public class WholeProductFragmentViewModel extends ViewModel {
             case "rating":
                 mProducts.setValue(mProductRepository.getTopRatingProductsLiveData().getValue());
                 break;
+            case "category":
+                mProducts.setValue(mProductRepository.getCategoryProductsLiveData().getValue());
             default:
                 break;
         }
