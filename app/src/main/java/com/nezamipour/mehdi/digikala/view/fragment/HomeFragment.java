@@ -48,6 +48,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mViewModel = new ViewModelProvider(this).get(HomeFragmentViewModel.class);
 
         initAdapters();
@@ -70,12 +71,14 @@ public class HomeFragment extends Fragment {
 
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
         return mBinding.getRoot();
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

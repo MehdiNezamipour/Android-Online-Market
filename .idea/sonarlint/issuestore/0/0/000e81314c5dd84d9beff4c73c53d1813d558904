@@ -1,5 +1,5 @@
 
 K
-java:S10686".Remove this unused "mStringUrl" private field.(ÓÎÔ£8¤ó®êÙ.
+java:S10685".Remove this unused "mStringUrl" private field.(ÓÎÔ£8¤ó®êÙ.
 v
-java:S14506"YRemove the "mStringUrl" field and declare it as a local variable in the relevant methods.(ÓÎÔ£8Ö×êÙ.
+java:S14505"YRemove the "mStringUrl" field and declare it as a local variable in the relevant methods.(ÓÎÔ£8Ö×êÙ.

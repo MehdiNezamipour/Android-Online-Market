@@ -1,13 +1,13 @@
 
-H
-java:S1602=",Remove useless curly braces around statement(üÙî$8°Ì–½Ú.
+I
+java:S1602.",Remove useless curly braces around statement(¿ÓÅ‘8³„–½Ú.
 N
 java:S16021",Remove useless curly braces around statement(á°¨Æùÿÿÿÿ8°Ì–½Ú.
 H
 java:S1602A",Remove useless curly braces around statement(ƒ¤¾B8°Ì–½Ú.
 N
 java:S16025",Remove useless curly braces around statement(â¦„êøÿÿÿÿ8°Ì–½Ú.
-I
-java:S1602.",Remove useless curly braces around statement(¿ÓÅ‘8³„–½Ú.
 H
 java:S16029",Remove useless curly braces around statement(Óå¡8°Ì–½Ú.
+H
+java:S1602=",Remove useless curly braces around statement(üÙî$8°Ì–½Ú.

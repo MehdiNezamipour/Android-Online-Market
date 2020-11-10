@@ -95,16 +95,12 @@ s
 Capp/src/main/java/com/nezamipour/mehdi/digikala/network/WooApi.java,7\9\79a6b3d56b10683407946689ee2316bcabbcf60a
 s
 Capp/src/main/java/com/nezamipour/mehdi/digikala/util/ImageUtil.java,9\a\9a9ede569c55e1411a535acd11edede297cab0a9
-Ü
-Vapp/src/main/java/com/nezamipour/mehdi/digikala/viewModel/ProductAdapterViewModel.java,4\d\4d098edcc0b037b8c6725b9759ade9647e8fb402
 É
 Sapp/src/main/java/com/nezamipour/mehdi/digikala/adapter/ProductRecyclerAdapter.java,9\3\931baa3313b4a880e270b6e0d4d318ae186c0840
 Å
 Qapp/src/main/java/com/nezamipour/mehdi/digikala/view/activity/SplashActivity.java,6\5\656edd4b134c44b1b711c564619181b12812bd6f
 Ü
 Vapp/src/main/java/com/nezamipour/mehdi/digikala/data/repository/ProductRepository.java,8\9\89f08a5ea1b1d49bfaf66990aadddd30191239af
-Ü
-Vapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/ProductAdapterViewModel.java,1\5\158c4f47aeabefd62e2d51d0a8d6230839867aa8
 Å
 Qapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/SplashFragment.java,4\4\44bc24f66c52690bb5d32eaf98934200b42f2f59
 Ü
@@ -151,8 +147,6 @@ c
 3app/src/main/res/drawable-anydpi/ic_retry_black.xml,a\0\a0ee5fda32f2ee6b79ee98fd0bf8baf8f559c5a6
 c
 3app/src/main/res/drawable-anydpi/ic_retry_white.xml,4\c\4c31ac8912dba2c158c48ddf662fcf8b5ebaf6c7
-Y
-)app/src/main/res/layout/activity_main.xml,7\6\76b07e40f24cce093536731477540f12e7da3cb6
 S
 #app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e
 Ö
@@ -171,3 +165,11 @@ v
 Fapp/src/main/java/com/nezamipour/mehdi/digikala/util/CategoryUtil.java,0\2\027ccdd7c52ddae487a87de0f4dd17808e64d61c
 à
 Xapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/CategoryFragmentViewModel.java,0\e\0e0fd15b8de098e20037ba1664f7d2f1308c77b2
+
+Oapp/src/main/java/com/nezamipour/mehdi/digikala/util/enums/ConnectionState.java,c\1\c17b1c4809bb8dfc18cc269d6bdaacce4660525c
+Ñ
+Tapp/src/main/java/com/nezamipour/mehdi/digikala/data/repository/RepositoryState.java,0\0\00d910a54eb7483ff026c51598a54014ba5cbdc6
+í
+bapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/CategoryProductsLoadingFragment.java,a\c\ac8dfca32a1966bfea59aa1c6737b602200c39a7
+ó
+gapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/CategoryProductsLoadingFragmentViewModel.java,9\7\97115977532ec16bb57b89c4fbcb8013730c85ff

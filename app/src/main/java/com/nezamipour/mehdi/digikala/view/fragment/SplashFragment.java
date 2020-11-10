@@ -1,5 +1,6 @@
 package com.nezamipour.mehdi.digikala.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,11 +28,7 @@ public class SplashFragment extends Fragment {
     }
 
     public static SplashFragment newInstance() {
-        SplashFragment fragment = new SplashFragment();
-        Bundle args = new Bundle();
-
-        fragment.setArguments(args);
-        return fragment;
+        return new SplashFragment();
     }
 
     @Override
@@ -52,6 +49,7 @@ public class SplashFragment extends Fragment {
                     break;
                 case START_ACTIVITY:
                     getActivity().startActivity(MainActivity.newIntent(getContext()));
+                    getActivity().finish();
                     break;
                 default:
                     break;
@@ -59,6 +57,13 @@ public class SplashFragment extends Fragment {
         });
 
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        getActivity().finish();
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

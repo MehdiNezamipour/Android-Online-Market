@@ -1,24 +1,22 @@
 package com.nezamipour.mehdi.digikala.view.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import android.content.Context;
+import android.content.Intent;
 
-import android.os.Bundle;
+import androidx.fragment.app.Fragment;
 
 import com.nezamipour.mehdi.digikala.view.fragment.SplashFragment;
 
 public class SplashActivity extends SingleFragmentActivity {
+
+    public static Intent newIntent(Context context) {
+        return new Intent(context, SplashActivity.class);
+    }
 
     @Override
     protected Fragment createFragment() {
         return SplashFragment.newInstance();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getIntent().getBooleanExtra("EXIT", false)) {
-            finish();
-        }
-    }
+
 }
