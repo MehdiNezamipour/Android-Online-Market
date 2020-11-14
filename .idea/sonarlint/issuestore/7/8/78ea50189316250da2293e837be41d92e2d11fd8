@@ -1,8 +1,8 @@
 
-t
-java:S1450N"WRemove the "mProduct" field and declare it as a local variable in the relevant methods.(Ùþºö8ÞË›ÐÙ.
-X	java:S125\"<This block of commented-out lines of code should be removed.(žŠ¨ 8é„ÇÒÙ.
 N
 java:S1068",Remove this unused "mOrderBy" private field.(ýÂ’îûÿÿÿÿ8Ã¢€ÐÙ.
+X	java:S125\"<This block of commented-out lines of code should be removed.(žŠ¨ 8é„ÇÒÙ.
 J
 java:S1068"-Remove this unused "mCategory" private field.(ø­‚8ªÐÙ.
+t
+java:S1450N"WRemove the "mProduct" field and declare it as a local variable in the relevant methods.(Ùþºö8ÞË›ÐÙ.
