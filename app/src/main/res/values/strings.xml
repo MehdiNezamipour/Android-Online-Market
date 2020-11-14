@@ -32,7 +32,7 @@
     <string name="price_descending">قیمت از زیاد به کم</string>
     <string name="price_ascending">قیمت از کم به زیاد</string>
     <string name="commit_card">خرید خود را نهایی کنید</string>
-    <string name="card_sum">جمع کل خرید</string>
+    <string name="cart_sum">جمع کل خرید</string>
     <string name="delete">حذف</string>
     <string name="final_price">قیمت نهایی</string>
     <string name="count">تعداد</string>
