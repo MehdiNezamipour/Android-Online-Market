@@ -151,8 +151,6 @@ S
 #app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e
 …
 Uapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/ProductDetailViewModel.java,c\c\cc5e0b141b0b937ef30da3e7e1d814586f0c0dc0
-Y
-)app/src/main/res/layout/fragment_home.xml,3\1\31c5880846ef63ff1963efbe141ddfd56680bb19
 ]
 -app/src/main/res/layout/row_item_category.xml,b\1\b17dab4b403787b76c9ac4cb0b0bc81e0d423d21
 „

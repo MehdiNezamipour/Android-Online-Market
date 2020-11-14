@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding mBinding;
     private HomeFragmentViewModel mViewModel;
 
-    private ProductRecyclerAdapter mOfferedProductsAdapter;
+    private ProductRecyclerAdapter mOnSaleProductsAdapter;
     private ProductRecyclerAdapter mLatestProductsAdapter;
     private ProductRecyclerAdapter mTopRatingProductsAdapter;
     private ProductRecyclerAdapter mPopularProductsAdapter;
@@ -54,7 +54,7 @@ public class HomeFragment extends Fragment {
         initAdapters();
 
         mViewModel.getOfferedProductsLiveData().observe(this, products -> {
-            mOfferedProductsAdapter.notifyDataSetChanged();
+            mOnSaleProductsAdapter.notifyDataSetChanged();
         });
 
         mViewModel.getLatestProductsLiveData().observe(this, products -> {
@@ -96,7 +96,7 @@ public class HomeFragment extends Fragment {
         mBinding.imageSlider.setSliderAdapter(mImageSliderAdapter);
 
 
-        mBinding.recyclerViewOfferedProduct.setAdapter(mOfferedProductsAdapter);
+        mBinding.recyclerViewOnSaleProduct.setAdapter(mOnSaleProductsAdapter);
         mBinding.recyclerViewLatestProduct.setAdapter(mLatestProductsAdapter);
         mBinding.recyclerViewTopRatingProduct.setAdapter(mTopRatingProductsAdapter);
         mBinding.recyclerViewPopularProduct.setAdapter(mPopularProductsAdapter);
@@ -107,37 +107,25 @@ public class HomeFragment extends Fragment {
     }
 
     private void setListeners() {
-        mBinding.textViewWholeLatestProducts.setOnClickListener(v -> {
+        mBinding.textViewWholeOnSaleProducts.setOnClickListener(v -> navigateToWholeProductsFragment(v, "onSale"));
 
-            HomeFragmentDirections.ActionHomeFragmentToWholeProductsFragment action = HomeFragmentDirections
-                    .actionHomeFragmentToWholeProductsFragment("date");
+        mBinding.textViewWholeLatestProducts.setOnClickListener(v -> navigateToWholeProductsFragment(v, "date"));
 
-            Navigation.findNavController(v)
-                    .navigate(action);
+        mBinding.textViewWholePopularProducts.setOnClickListener(v -> navigateToWholeProductsFragment(v, "popularity"));
 
-        });
+        mBinding.textViewWholeTopRatingProducts.setOnClickListener(v -> navigateToWholeProductsFragment(v, "rating"));
+    }
 
-        mBinding.textViewWholePopularProducts.setOnClickListener(v -> {
-            HomeFragmentDirections.ActionHomeFragmentToWholeProductsFragment action = HomeFragmentDirections
-                    .actionHomeFragmentToWholeProductsFragment("popularity");
-
-            Navigation.findNavController(v)
-                    .navigate(action);
-        });
-
-        mBinding.textViewWholeTopRatingProducts.setOnClickListener(v -> {
-            HomeFragmentDirections.ActionHomeFragmentToWholeProductsFragment action = HomeFragmentDirections
-                    .actionHomeFragmentToWholeProductsFragment("rating");
-
-            Navigation.findNavController(v)
-                    .navigate(action);
-
-        });
+    private void navigateToWholeProductsFragment(View v, String orderBy) {
+        HomeFragmentDirections.ActionHomeFragmentToWholeProductsFragment action = HomeFragmentDirections
+                .actionHomeFragmentToWholeProductsFragment(orderBy);
+        Navigation.findNavController(v)
+                .navigate(action);
     }
 
     public void initAdapters() {
-        mOfferedProductsAdapter = new ProductRecyclerAdapter();
-        mOfferedProductsAdapter.setProducts(mViewModel.getOfferedProductsLiveData().getValue());
+        mOnSaleProductsAdapter = new ProductRecyclerAdapter();
+        mOnSaleProductsAdapter.setProducts(mViewModel.getOfferedProductsLiveData().getValue());
 
         mLatestProductsAdapter = new ProductRecyclerAdapter();
         mLatestProductsAdapter.setProducts(mViewModel.getLatestProductsLiveData().getValue());

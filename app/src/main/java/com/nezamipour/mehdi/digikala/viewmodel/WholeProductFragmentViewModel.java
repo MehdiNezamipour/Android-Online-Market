@@ -21,6 +21,9 @@ public class WholeProductFragmentViewModel extends ViewModel {
 
     public void fetchDataFromRepository(String orderBy) {
         switch (orderBy) {
+            case "onSale":
+                mProducts.setValue(mProductRepository.getOnSaleProductsLiveData().getValue());
+                break;
             case "date":
                 mProducts.setValue(mProductRepository.getLatestProductsLiveData().getValue());
                 break;
@@ -32,6 +35,7 @@ public class WholeProductFragmentViewModel extends ViewModel {
                 break;
             case "category":
                 mProducts.setValue(mProductRepository.getCategoryProductsLiveData().getValue());
+                break;
             default:
                 break;
         }
