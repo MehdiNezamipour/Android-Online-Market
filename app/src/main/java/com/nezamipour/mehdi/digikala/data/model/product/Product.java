@@ -6,13 +6,13 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import java.io.Serializable;
-import java.util.List;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Entity
+import java.io.Serializable;
+import java.util.List;
+
+@Entity (tableName = "product")
 public class Product implements Serializable {
 
     @SerializedName("id")
@@ -72,27 +72,6 @@ public class Product implements Serializable {
     @Ignore
     private Integer totalSales;
 
-    @SerializedName("stock_quantity")
-    @Expose
-    @Ignore
-    private Object stockQuantity;
-    @SerializedName("stock_status")
-    @Expose
-    @Ignore
-    private String stockStatus;
-
-    @SerializedName("shipping_required")
-    @Expose
-    @Ignore
-    private Boolean shippingRequired;
-    @SerializedName("shipping_class")
-    @Expose
-    @Ignore
-    private String shippingClass;
-    @SerializedName("shipping_class_id")
-    @Expose
-    @Ignore
-    private Integer shippingClassId;
     @SerializedName("average_rating")
     @Expose
     @Ignore
@@ -129,6 +108,18 @@ public class Product implements Serializable {
 
     private final static long serialVersionUID = -5140714000554515510L;
 
+
+    public Product(Integer id, String name, String description, String shortDescription, String salePrice) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.shortDescription = shortDescription;
+        this.salePrice = salePrice;
+    }
+
+    public Product() {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -152,7 +143,6 @@ public class Product implements Serializable {
     public void setSlug(String slug) {
         this.slug = slug;
     }
-
 
     public String getType() {
         return type;
@@ -241,32 +231,6 @@ public class Product implements Serializable {
 
     public void setTotalSales(Integer totalSales) {
         this.totalSales = totalSales;
-    }
-
-
-    public Boolean getShippingRequired() {
-        return shippingRequired;
-    }
-
-    public void setShippingRequired(Boolean shippingRequired) {
-        this.shippingRequired = shippingRequired;
-    }
-
-
-    public String getShippingClass() {
-        return shippingClass;
-    }
-
-    public void setShippingClass(String shippingClass) {
-        this.shippingClass = shippingClass;
-    }
-
-    public Integer getShippingClassId() {
-        return shippingClassId;
-    }
-
-    public void setShippingClassId(Integer shippingClassId) {
-        this.shippingClassId = shippingClassId;
     }
 
     public String getAverageRating() {

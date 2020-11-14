@@ -14,17 +14,17 @@ import java.util.List;
 public interface CartDao {
 
 
-    @Query("Select * From Product")
+    @Query("Select * From product")
     LiveData<List<Product>> getAll();
 
-    @Query("Select * From Product Where id == :id ")
+    @Query("Select * From product Where id == :id ")
     LiveData<Product> getById(Integer id);
 
     @Insert
-    void insert(Product cardProduct);
+    void insert(Product product);
 
     @Delete
-    void delete(Product cardProduct);
+    void delete(Product product);
 
 
 }

@@ -16,7 +16,7 @@ import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 public class ProductDetailViewModel extends AndroidViewModel {
 
     private final ProductRepository mProductRepository;
-    private CartRepository mCartRepository;
+    private final CartRepository mCartRepository;
     private LiveData<Product> mProduct;
 
     public ProductDetailViewModel(@NonNull Application application) {
