@@ -35,9 +35,7 @@ public class Category implements Serializable {
     @SerializedName("count")
     @Expose
     private Integer count;
-    @SerializedName("_links")
-    @Expose
-    private Links links;
+
     private final static long serialVersionUID = 428469175334491834L;
 
     public Integer getId() {
@@ -110,14 +108,6 @@ public class Category implements Serializable {
 
     public void setCount(Integer count) {
         this.count = count;
-    }
-
-    public Links getLinks() {
-        return links;
-    }
-
-    public void setLinks(Links links) {
-        this.links = links;
     }
 
 }

@@ -123,8 +123,6 @@ Xapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/WholeProductsFrag
 Qapp/src/main/java/com/nezamipour/mehdi/digikala/adapter/WholeProductsAdapter.java,7\8\78ea50189316250da2293e837be41d92e2d11fd8
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-Y
-)app/src/main/res/layout/fragment_cart.xml,d\3\d3847d71b9fb3999d0a292b8bcc79f28a6d6933d
 `
 0app/src/main/res/menu/bottom_navigation_menu.xml,d\6\d6b83c453579d1c62b11597f7bfbba2e903ecd37
 ƒ
@@ -155,8 +153,6 @@ Uapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/ProductDetailViewMode
 -app/src/main/res/layout/row_item_category.xml,b\1\b17dab4b403787b76c9ac4cb0b0bc81e0d423d21
 „
 Tapp/src/main/java/com/nezamipour/mehdi/digikala/adapter/CategoryRecyclerAdapter.java,c\e\ce5f4520f69625e1d30030b8d79fdd31580aa4fe
-]
--app/src/main/res/layout/fragment_category.xml,1\3\137bd709e5680d18a1be69388168e389adaae9ce
 ‡
 Wapp/src/main/java/com/nezamipour/mehdi/digikala/data/repository/CategoryRepository.java,a\3\a3e575b9b131c45c009a21501527f7830c3f9ea0
 v
