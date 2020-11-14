@@ -385,7 +385,7 @@
 
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/button_product_detail_add_card"
+                        android:id="@+id/button_product_detail_add_cart"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginLeft="16dp"
@@ -393,6 +393,7 @@
                         android:layout_marginRight="16dp"
                         android:layout_marginBottom="4dp"
                         android:fontFamily="@font/iran_yekan"
+                        android:onClick="@{viewModel::onClick}"
                         android:text="@string/add_to_cart"
                         app:backgroundTint="@color/digikala_green"
                         app:cornerRadius="0dp"

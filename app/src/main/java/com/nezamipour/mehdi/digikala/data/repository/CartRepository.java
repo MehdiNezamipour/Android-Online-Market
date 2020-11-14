@@ -15,14 +15,11 @@ public class CartRepository {
 
     public static final String CART_DATABASE_NAME = "cardDatabase.db";
     private static CartRepository sCartRepository;
-
-    private MutableLiveData<Product> mProductsLiveData;
     private final CartDatabase mDatabase;
 
     private CartRepository(Context context) {
-        mProductsLiveData = new MutableLiveData<>();
         mDatabase = Room.databaseBuilder(context.getApplicationContext(),
-                CartDatabase.class, CART_DATABASE_NAME).build();
+                CartDatabase.class, CART_DATABASE_NAME).allowMainThreadQueries().build();
     }
 
     public static CartRepository getInstance(Context context) {
@@ -31,21 +28,11 @@ public class CartRepository {
         return sCartRepository;
     }
 
-    public static CartRepository getCartRepository() {
-        return sCartRepository;
-    }
 
     public static void setCartRepository(CartRepository cartRepository) {
         sCartRepository = cartRepository;
     }
 
-    public MutableLiveData<Product> getProductsLiveData() {
-        return mProductsLiveData;
-    }
-
-    public void setProductsLiveData(MutableLiveData<Product> productsLiveData) {
-        mProductsLiveData = productsLiveData;
-    }
 
     public void insertToCard(Product product) {
         mDatabase.cartDao().insert(product);

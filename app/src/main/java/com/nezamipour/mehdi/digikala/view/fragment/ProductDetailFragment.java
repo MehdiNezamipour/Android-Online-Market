@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.adapter.ImageSliderAdapter;
-import com.nezamipour.mehdi.digikala.data.repository.CartRepository;
 import com.nezamipour.mehdi.digikala.databinding.FragmentProductDetailBinding;
 import com.nezamipour.mehdi.digikala.util.ImageUtil;
 import com.nezamipour.mehdi.digikala.viewmodel.ProductDetailViewModel;
@@ -64,5 +63,6 @@ public class ProductDetailFragment extends Fragment {
                                 mViewModel.getProductMutableLiveData().getValue()));
 
         mBinding.imageSliderProductDetailImages.setSliderAdapter(mImageSliderAdapter);
+
     }
 }

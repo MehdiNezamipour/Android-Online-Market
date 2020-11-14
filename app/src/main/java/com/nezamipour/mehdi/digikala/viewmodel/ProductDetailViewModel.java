@@ -1,6 +1,7 @@
 package com.nezamipour.mehdi.digikala.viewmodel;
 
 import android.app.Application;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -8,17 +9,21 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
+import com.nezamipour.mehdi.digikala.data.repository.CartRepository;
 import com.nezamipour.mehdi.digikala.data.repository.ProductRepository;
 import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 
 public class ProductDetailViewModel extends AndroidViewModel {
 
     private final ProductRepository mProductRepository;
-
+    private CartRepository mCartRepository;
+    private LiveData<Product> mProduct;
 
     public ProductDetailViewModel(@NonNull Application application) {
         super(application);
+        mProduct = new MutableLiveData<>();
         mProductRepository = ProductRepository.getInstance();
+        mCartRepository = CartRepository.getInstance(getApplication());
     }
 
 
@@ -27,11 +32,18 @@ public class ProductDetailViewModel extends AndroidViewModel {
     }
 
     public LiveData<Product> getProductMutableLiveData() {
+        mProduct = mProductRepository.getProductByIdMutableLiveData();
         return mProductRepository.getProductByIdMutableLiveData();
     }
 
     public MutableLiveData<ConnectionState> getConnectionStateLiveData() {
         return mProductRepository.getConnectionStateLiveData();
     }
+
+
+    public void onClick(View v) {
+        mCartRepository.insertToCard(mProduct.getValue());
+    }
+
 
 }
