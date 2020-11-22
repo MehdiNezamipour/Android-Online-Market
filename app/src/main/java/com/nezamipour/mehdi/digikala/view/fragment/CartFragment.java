@@ -35,7 +35,7 @@ public class CartFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(CartFragmentViewModel.class);
 
-        mViewModel.getProductsLiveData().observe(this, products -> mCartRecyclerAdapter.notifyDataSetChanged());
+//        mViewModel.getProductsLiveData().observe(this, products -> mCartRecyclerAdapter.notifyDataSetChanged());
     }
 
     @Override

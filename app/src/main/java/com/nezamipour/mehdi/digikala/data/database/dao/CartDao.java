@@ -4,9 +4,10 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.nezamipour.mehdi.digikala.data.model.product.Product;
+import com.nezamipour.mehdi.digikala.data.database.entity.CartProduct;
 
 import java.util.List;
 
@@ -14,17 +15,17 @@ import java.util.List;
 public interface CartDao {
 
 
-    @Query("Select * From product")
-    LiveData<List<Product>> getAll();
+    @Query("Select * From cart_product")
+    List<CartProduct> getAll();
 
-    @Query("Select * From product Where id == :id ")
-    LiveData<Product> getById(Integer id);
+    @Query("Select * From cart_product Where productId == :productId ")
+    LiveData<CartProduct> getById(int productId);
 
-    @Insert
-    void insert(Product product);
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insert(CartProduct cartProduct);
 
     @Delete
-    void delete(Product product);
+    void delete(CartProduct cartProduct);
 
 
 }

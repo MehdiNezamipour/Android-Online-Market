@@ -30,6 +30,10 @@
         <action
             android:id="@+id/action_wholeProductsFragment_to_loadingFragment"
             app:destination="@id/loadingFragment" />
+        <argument
+            android:name="categoryId"
+            app:argType="integer"
+            android:defaultValue="-1" />
     </fragment>
     <fragment
         android:id="@+id/nav_fragCategory"

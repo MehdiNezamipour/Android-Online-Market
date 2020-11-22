@@ -44,7 +44,6 @@ public class CategoryProductsLoadingFragment extends Fragment {
         mViewModel.fetchCategoryProducts(mCategoryId);
 
 
-
         //TODO : refactor boilerplate here and loading fragment are same
         mViewModel.getConnectionStateLiveData().observe(this, connectionState -> {
             switch (connectionState) {
@@ -57,7 +56,9 @@ public class CategoryProductsLoadingFragment extends Fragment {
                 case START_ACTIVITY:
                     CategoryProductsLoadingFragmentDirections.ActionCategoryProductsLoadingFragmentToWholeProductsFragment action =
                             CategoryProductsLoadingFragmentDirections
-                                    .actionCategoryProductsLoadingFragmentToWholeProductsFragment("category");
+                                    .actionCategoryProductsLoadingFragmentToWholeProductsFragment("category")
+                                    .setCategoryId(mCategoryId);
+
                     Navigation.findNavController(getView()).navigate(action);
                     break;
                 default:

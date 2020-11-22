@@ -1,109 +1,79 @@
 
 package com.nezamipour.mehdi.digikala.data.model.product;
 
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Entity (tableName = "product")
 public class Product implements Serializable {
 
     @SerializedName("id")
     @Expose
-    @PrimaryKey
     public Integer id;
     @SerializedName("name")
     @Expose
-    @ColumnInfo(name = "name")
     public String name;
     @SerializedName("slug")
     @Expose
-    @Ignore
     private String slug;
     @SerializedName("type")
     @Expose
-    @Ignore
     private String type;
     @SerializedName("status")
     @Expose
-    @Ignore
     private String status;
     @SerializedName("featured")
     @Expose
-    @Ignore
     private Boolean featured;
     @SerializedName("description")
     @Expose
-    @ColumnInfo(name = "description")
     public String description;
     @SerializedName("short_description")
     @Expose
-    @ColumnInfo(name = "short_description")
     public String shortDescription;
     @SerializedName("price")
     @Expose
-    @Ignore
     private String price;
     @SerializedName("regular_price")
     @Expose
-    @Ignore
     private String regularPrice;
     @SerializedName("sale_price")
     @Expose
-    @ColumnInfo(name = "sale_price")
     public String salePrice;
     @SerializedName("on_sale")
     @Expose
-    @Ignore
     private Boolean onSale;
     @SerializedName("purchasable")
     @Expose
-    @Ignore
     private Boolean purchasable;
     @SerializedName("total_sales")
     @Expose
-    @Ignore
     private Integer totalSales;
-
     @SerializedName("average_rating")
     @Expose
-    @Ignore
     private String averageRating;
     @SerializedName("rating_count")
     @Expose
-    @Ignore
     private Integer ratingCount;
     @SerializedName("related_ids")
     @Expose
-    @Ignore
     private List<Integer> relatedIds = null;
-
     @SerializedName("categories")
     @Expose
-    @Ignore
     private List<Category> categories = null;
     @SerializedName("tags")
     @Expose
-    @Ignore
     private List<Tag> tags = null;
     @SerializedName("images")
     @Expose
-    @Ignore
     private List<Image> images = null;
     @SerializedName("attributes")
     @Expose
-    @Ignore
     private List<Attribute> attributes = null;
     @SerializedName("default_attributes")
     @Expose
-    @Ignore
     private List<Attribute> defaultAttributes = null;
 
     private final static long serialVersionUID = -5140714000554515510L;

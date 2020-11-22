@@ -8,6 +8,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.nezamipour.mehdi.digikala.data.database.entity.CartProduct;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.data.repository.CartRepository;
 import com.nezamipour.mehdi.digikala.data.repository.ProductRepository;
@@ -42,7 +43,8 @@ public class ProductDetailViewModel extends AndroidViewModel {
 
 
     public void onClick(View v) {
-        mCartRepository.insertToCard(mProduct.getValue());
+        CartProduct cartProduct = new CartProduct(mProduct.getValue().getId(), "", 1);
+        mCartRepository.insertToCard(cartProduct);
     }
 
 

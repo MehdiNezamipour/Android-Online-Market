@@ -1,8 +1,6 @@
 
-U
-java:S1874M"3Remove this use of "isConnected"; it is deprecated.(õ§¼ïýÿÿÿÿ8‘æù°Û.
-Y
-java:S1874L"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ÿ»¶Ã8‘æù°Û.
-Q	java:S110"<This class has 9 parents which is greater than 5 authorized.(²Ú±Ž
-P
-java:S1874L"3Remove this use of "NetworkInfo"; it is deprecated.(ÿ»¶Ã8‘æù°Û.
+X	java:S125F"<This block of commented-out lines of code should be removed.(»­Ðá8€ä”Þ.
+X	java:S110"<This class has 9 parents which is greater than 5 authorized.(²Ú±Ž8˜’Þ.
+]	java:S125'"<This block of commented-out lines of code should be removed.(ÑÏÉýÿÿÿÿ8âŠ•Þ.
+t
+java:S1450"WRemove the "mBinding" field and declare it as a local variable in the relevant methods.(á“¯è8âŠ•Þ.

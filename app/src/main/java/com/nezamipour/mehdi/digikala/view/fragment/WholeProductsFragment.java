@@ -9,12 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.adapter.WholeProductsAdapter;
+import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.databinding.FragmentWholeProductsBinding;
 import com.nezamipour.mehdi.digikala.viewmodel.WholeProductFragmentViewModel;
+
+import java.util.List;
 
 public class WholeProductsFragment extends Fragment {
 
@@ -22,6 +26,8 @@ public class WholeProductsFragment extends Fragment {
     private FragmentWholeProductsBinding mBinding;
     private WholeProductFragmentViewModel mViewModel;
     private WholeProductsAdapter mWholeProductsAdapter;
+    private String mOrderBy;
+    private Integer mCategoryId;
 
 
     public WholeProductsFragment() {
@@ -40,14 +46,23 @@ public class WholeProductsFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         assert getArguments() != null;
-        String orderBy = WholeProductsFragmentArgs.fromBundle(getArguments()).getOrderBy();
+        mOrderBy = WholeProductsFragmentArgs.fromBundle(getArguments()).getOrderBy();
+        mCategoryId = WholeProductsFragmentArgs.fromBundle(getArguments()).getCategoryId();
 
         mViewModel = new ViewModelProvider(this).get(WholeProductFragmentViewModel.class);
-        mViewModel.fetchDataFromRepository(orderBy);
+        mViewModel.fetchDataFromRepository(mOrderBy);
         initAdapter();
+
 
         mViewModel.getProducts().observe(this, products -> {
             mWholeProductsAdapter.notifyDataSetChanged();
+        });
+
+        mWholeProductsAdapter.getProducts().observe(this, new Observer<List<Product>>() {
+            @Override
+            public void onChanged(List<Product> products) {
+                mWholeProductsAdapter.notifyDataSetChanged();
+            }
         });
 
     }
@@ -70,6 +85,8 @@ public class WholeProductsFragment extends Fragment {
 
     public void initAdapter() {
         mWholeProductsAdapter = new WholeProductsAdapter();
+        mWholeProductsAdapter.setOrderBy(mOrderBy);
+        mWholeProductsAdapter.setCategoryId(mCategoryId);
         mWholeProductsAdapter.setProducts(mViewModel.getProducts().getValue());
     }
 }

@@ -53,6 +53,7 @@ public class ProductRepository {
 
     }
 
+
     public static ProductRepository getInstance() {
         if (sRepository == null) {
             sRepository = new ProductRepository();
@@ -97,6 +98,14 @@ public class ProductRepository {
         return mPopularProductsLiveData;
     }
 
+    public Product findProductById(Integer id) {
+        for (Product product : mAllProductsLiveData.getValue()) {
+            if (product.getId().equals(id))
+                return product;
+        }
+        return null;
+    }
+
 
     public void fetchProductById(Integer productId) {
         //TODO : later handle error when internet state enable and disable
@@ -118,12 +127,12 @@ public class ProductRepository {
         });
     }
 
-    public void fetchCategoryProducts (Integer categoryId){
+    public void fetchCategoryProducts(Integer categoryId) {
         mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
         mWooApi.getCategoryProducts(categoryId, 10, 1).enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     mCategoryProductsLiveData.setValue(response.body());
                     mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
                 }
@@ -138,6 +147,25 @@ public class ProductRepository {
 
     public void fetchInitData() {
         mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
+        //get all products
+        mWooApi.getAllProducts().enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    mAllProductsLiveData.setValue(response.body());
+                    fetchOnSaleProducts();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                initInternetError();
+            }
+        });
+
+    }
+
+    private void fetchOnSaleProducts() {
         //on sale products
         mWooApi.getOnSaleProducts(10, 1).enqueue(new Callback<List<Product>>() {
             @Override
@@ -230,6 +258,9 @@ public class ProductRepository {
             }
         });
     }
+
+
+
 
     private void initInternetError() {
         mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);

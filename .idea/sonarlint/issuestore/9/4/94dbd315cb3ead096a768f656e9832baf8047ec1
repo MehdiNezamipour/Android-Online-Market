@@ -1,3 +1,4 @@
 
-E
-java:S1185"(Remove this method to simply inherit it.(ßìê¯8ÉÖ²âÙ.
+…
+java:S1450"cRemove the "mCartRecyclerAdapter" field and declare it as a local variable in the relevant methods.(ÈÓÄÿÿÿÿÿ8²ØèŞ.
+W	java:S125&"<This block of commented-out lines of code should be removed.(Œ±_8²ØèŞ.

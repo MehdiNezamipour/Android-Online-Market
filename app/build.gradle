@@ -1,6 +1,4 @@
-plugins {
-    id 'com.android.application'
-}
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 30
@@ -32,14 +30,13 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     def lifecycle_version = "2.2.0"
     def room_version = "2.2.5"
     def nav_version = "2.3.1"
-    def paging_version = "3.0.0-alpha08"
+    def paging_version = "3.0.0-alpha09"
 
 
-
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -59,6 +56,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+
     //room
     annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-runtime:$room_version"

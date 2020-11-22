@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.databinding.RowItemCartBinding;
+import com.nezamipour.mehdi.digikala.util.ImageUtil;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +45,7 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
 
     public static class CartRecyclerViewHolder extends RecyclerView.ViewHolder {
 
-        private RowItemCartBinding mBinding;
+        private final RowItemCartBinding mBinding;
 
         public CartRecyclerViewHolder(RowItemCartBinding binding) {
             super(binding.getRoot());
@@ -54,10 +56,10 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
             mBinding.textViewCartItemTitle.setText(product.getName());
             mBinding.textViewCartItemPrice.setText(product.getSalePrice());
 
-            /*Picasso.get()
+            Picasso.get()
                     .load(ImageUtil.getFirstImageUrlOfProduct(product))
                     .placeholder(R.drawable.place_holder)
-                    .into(mBinding.imageViewCartItemImage);*/
+                    .into(mBinding.imageViewCartItemImage);
 
         }
     }
