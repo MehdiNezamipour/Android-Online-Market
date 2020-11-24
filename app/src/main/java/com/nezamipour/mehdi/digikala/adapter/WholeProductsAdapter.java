@@ -224,8 +224,9 @@ public class WholeProductsAdapter extends RecyclerView.Adapter<WholeProductsAdap
                     .into(mBinding.rowItemWholeProductsImage);
 
             mBinding.cardViewRowItemWholeProducts.setOnClickListener(v -> {
-                WholeProductsFragmentDirections.ActionWholeProductsFragmentToLoadingFragment action =
-                        WholeProductsFragmentDirections.actionWholeProductsFragmentToLoadingFragment(mProduct.getId());
+                WholeProductsFragmentDirections.ActionWholeProductsFragmentToProductDetailLoadingFragment action =
+                        WholeProductsFragmentDirections
+                                .actionWholeProductsFragmentToProductDetailLoadingFragment(mProduct.getId());
                 Navigation.findNavController(v).navigate(action);
 
             });

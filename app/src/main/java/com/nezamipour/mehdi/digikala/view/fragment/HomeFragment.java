@@ -1,6 +1,7 @@
 package com.nezamipour.mehdi.digikala.view.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import androidx.navigation.Navigation;
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.adapter.ImageSliderAdapter;
 import com.nezamipour.mehdi.digikala.adapter.ProductRecyclerAdapter;
+import com.nezamipour.mehdi.digikala.data.repository.CartRepository;
 import com.nezamipour.mehdi.digikala.databinding.FragmentHomeBinding;
 import com.nezamipour.mehdi.digikala.util.ImageUtil;
 import com.nezamipour.mehdi.digikala.viewmodel.HomeFragmentViewModel;
@@ -50,6 +52,11 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         mViewModel = new ViewModelProvider(this).get(HomeFragmentViewModel.class);
+
+        //test room
+        /*CartRepository cartRepository = CartRepository.getInstance(getContext());
+        Log.d("HomeFragment", cartRepository.get(1).toString());*/
+
 
         initAdapters();
 

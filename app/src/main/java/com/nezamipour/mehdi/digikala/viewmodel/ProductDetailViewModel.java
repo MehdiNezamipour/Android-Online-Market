@@ -44,7 +44,7 @@ public class ProductDetailViewModel extends AndroidViewModel {
 
     public void onClick(View v) {
         CartProduct cartProduct = new CartProduct(mProduct.getValue().getId(), "", 1);
-        mCartRepository.insertToCard(cartProduct);
+        mCartRepository.insert(cartProduct);
     }
 
 

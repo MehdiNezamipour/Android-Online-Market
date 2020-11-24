@@ -9,13 +9,13 @@ import androidx.room.PrimaryKey;
 public class CartProduct {
 
     @PrimaryKey(autoGenerate = true)
-    public int mId;
+    private int mId;
     @ColumnInfo(name = "productId")
-    public int mProductId;
+    private Integer mProductId;
     @ColumnInfo(name = "color")
-    public String mColor;
+    private String mColor;
     @ColumnInfo(name = "count")
-    public int mCount;
+    private int mCount;
 
     public int getId() {
         return mId;
@@ -25,11 +25,11 @@ public class CartProduct {
         mId = id;
     }
 
-    public int getProductId() {
+    public Integer getProductId() {
         return mProductId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Integer productId) {
         mProductId = productId;
     }
 
@@ -50,7 +50,7 @@ public class CartProduct {
     }
 
     @Ignore
-    public CartProduct(int productId, String color, int count) {
+    public CartProduct(Integer productId, String color, int count) {
         mProductId = productId;
         mColor = color;
         mCount = count;

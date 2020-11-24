@@ -125,8 +125,6 @@ Oapp/src/main/java/com/nezamipour/mehdi/digikala/adapter/ImageSliderAdapter.java
 ,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
 f
 6app/src/main/res/layout/image_slider_custom_layout.xml,6\e\6e13eb94db62a509b0d2fe2d6ec4a57e8d2f771e
-Ç
-Rapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/LoadingFragment.java,5\b\5bbf1e959db24b1500e30b6f85732ed060866369
 à
 Xapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/ProductDetailFragment.java,0\1\01a522aab39d4b3d12785accdfe7e7c159beb70a
 ]
@@ -195,3 +193,7 @@ F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 X
 (gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
+é
+^app/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/CartProductsLoadingFragment.java,6\1\6126701c6111654e8e07755ef68bc7d66b0e33d5
+è
+_app/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/ProductDetailLoadingFragment.java,9\3\93dca010b54bacac323d3dd04bf780c43b335d5d

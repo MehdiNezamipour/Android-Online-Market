@@ -13,12 +13,11 @@ import com.nezamipour.mehdi.digikala.databinding.RowItemCartBinding;
 import com.nezamipour.mehdi.digikala.util.ImageUtil;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapter.CartRecyclerViewHolder> {
 
-    private List<Product> mProducts = new ArrayList<>();
+    private List<Product> mProducts;
 
 
     public void setProducts(List<Product> products) {

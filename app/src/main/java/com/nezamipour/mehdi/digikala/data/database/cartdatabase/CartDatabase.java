@@ -16,11 +16,9 @@ import java.util.concurrent.Executors;
 public abstract class CartDatabase extends RoomDatabase {
 
     private static final String CART_DATABASE_NAME = "cardDatabase.db";
-   // private static volatile CartDatabase INSTANCE;
 
- /*   private static final int NUMBER_OF_THREADS = 4;
-    public static final ExecutorService databaseWriteExecutor =
-            Executors.newFixedThreadPool(NUMBER_OF_THREADS);*/
+    private static final int NUMBER_OF_THREADS = 4;
+    public static ExecutorService dataBaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     public abstract CartDao cartDao();
 
@@ -33,17 +31,5 @@ public abstract class CartDatabase extends RoomDatabase {
                 .build();
     }
 
-/*    public static CartDatabase getDataBase(final Context context) {
-        if (INSTANCE == null) {
-            synchronized (CartDatabase.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            CartDatabase.class, CART_DATABASE_NAME)
-                            .build();
-                }
-            }
-        }
-        return INSTANCE;
-    }*/
 
 }
