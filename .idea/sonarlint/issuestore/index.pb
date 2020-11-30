@@ -51,8 +51,6 @@ c
 -app/src/main/res/drawable-anydpi/ic_phone.xml,f\1\f1738dcc9fd9afde53287f7a52a5a3fac1e81422
 \
 ,app/src/main/res/drawable-anydpi/ic_plus.xml,6\e\6e5dcd28532c8c2c43e4eb616e93400f2be5cf00
-^
-.app/src/main/res/drawable-anydpi/ic_search.xml,a\6\a69b4ab31e38277b28e57d0114ee25ca5d9dd69a
 _
 /app/src/main/res/drawable-anydpi/ic_setting.xml,6\a\6a9c7c1b10cab236bde42866a78862d4fcc6d88f
 ]
@@ -133,8 +131,6 @@ c
 3app/src/main/res/drawable-anydpi/ic_retry_black.xml,a\0\a0ee5fda32f2ee6b79ee98fd0bf8baf8f559c5a6
 c
 3app/src/main/res/drawable-anydpi/ic_retry_white.xml,4\c\4c31ac8912dba2c158c48ddf662fcf8b5ebaf6c7
-S
-#app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e
 Ö
 Uapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/ProductDetailViewModel.java,c\c\cc5e0b141b0b937ef30da3e7e1d814586f0c0dc0
 ]
@@ -155,8 +151,6 @@ Tapp/src/main/java/com/nezamipour/mehdi/digikala/data/repository/RepositoryState
 bapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/CategoryProductsLoadingFragment.java,a\c\ac8dfca32a1966bfea59aa1c6737b602200c39a7
 ó
 gapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/CategoryProductsLoadingFragmentViewModel.java,9\7\97115977532ec16bb57b89c4fbcb8013730c85ff
-Y
-)app/src/main/res/layout/fragment_home.xml,3\1\31c5880846ef63ff1963efbe141ddfd56680bb19
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 Y
@@ -197,3 +191,5 @@ X
 ^app/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/CartProductsLoadingFragment.java,6\1\6126701c6111654e8e07755ef68bc7d66b0e33d5
 è
 _app/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/ProductDetailLoadingFragment.java,9\3\93dca010b54bacac323d3dd04bf780c43b335d5d
+\
+,app/src/main/res/layout/fragment_loading.xml,b\c\bcf840eed15b0326f37b14741db67a1a0dfa690a

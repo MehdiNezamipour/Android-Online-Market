@@ -1,7 +1,6 @@
 package com.nezamipour.mehdi.digikala.view.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,6 @@ import androidx.navigation.Navigation;
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.adapter.ImageSliderAdapter;
 import com.nezamipour.mehdi.digikala.adapter.ProductRecyclerAdapter;
-import com.nezamipour.mehdi.digikala.data.repository.CartRepository;
 import com.nezamipour.mehdi.digikala.databinding.FragmentHomeBinding;
 import com.nezamipour.mehdi.digikala.util.ImageUtil;
 import com.nezamipour.mehdi.digikala.viewmodel.HomeFragmentViewModel;
@@ -82,7 +80,11 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
+
+
         return mBinding.getRoot();
     }
 
@@ -90,6 +92,10 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+/*        Toolbar toolbar = getActivity().findViewById(R.id.main_toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);*/
+
         mImageSliderAdapter = new ImageSliderAdapter(getContext());
         List<String> stringsResource = new ArrayList<>();
 

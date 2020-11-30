@@ -2,243 +2,260 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
 
-        <LinearLayout
-            android:id="@+id/linearLayout11"
+        <include
+            android:id="@+id/include"
+            layout="@layout/toolbar_home"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/digikala_light_gray"
-            android:gravity="center|top"
-            android:isScrollContainer="true"
-            android:orientation="vertical"
-
-            >
-
-
-            <com.smarteist.autoimageslider.SliderView
-                android:id="@+id/imageSlider"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                app:sliderAnimationDuration="600"
-                app:sliderAutoCycleDirection="left"
-                app:sliderAutoCycleEnabled="true"
-                app:sliderIndicatorEnabled="true"
-                app:sliderIndicatorAnimationDuration="600"
-                app:sliderIndicatorGravity="start|bottom"
-                app:sliderIndicatorMarginLeft="16dp"
-                app:sliderIndicatorOrientation="horizontal"
-                app:sliderIndicatorRadius="2dp"
-                app:sliderIndicatorSelectedColor="@color/digikala_gray"
-                app:sliderIndicatorUnselectedColor="@color/digikala_white"
-                app:sliderScrollTimeInSec="3"
-                app:sliderStartAutoCycle="true"
-                />
-
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView_whole_onSale_products"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="end"
-                    android:padding="4dp"
-                    android:text="@string/whole_list"
-                    android:textColor="@color/digikala_blue"
-                    android:textSize="12sp"
-                    app:fontFamily="@font/far_roya_bd" />
-
-
-                <ImageView
-                    android:layout_width="136dp"
-                    android:layout_height="29dp"
-                    android:layout_gravity="right"
-                    android:src="@drawable/digikala_offer" />
-
-
-            </FrameLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView_onSale_product"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layoutDirection="rtl"
-                android:orientation="horizontal"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include"
+            app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                android:orientation="horizontal">
+                android:background="@color/digikala_light_gray"
+                android:gravity="center|top"
+                android:isScrollContainer="true"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView_whole_latest_products"
+
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/imageSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    app:sliderAnimationDuration="600"
+                    app:sliderAutoCycleDirection="left"
+                    app:sliderAutoCycleEnabled="true"
+                    app:sliderIndicatorAnimationDuration="600"
+                    app:sliderIndicatorEnabled="true"
+                    app:sliderIndicatorGravity="start|bottom"
+                    app:sliderIndicatorMarginLeft="16dp"
+                    app:sliderIndicatorOrientation="horizontal"
+                    app:sliderIndicatorRadius="2dp"
+                    app:sliderIndicatorSelectedColor="@color/digikala_gray"
+                    app:sliderIndicatorUnselectedColor="@color/digikala_white"
+                    app:sliderScrollTimeInSec="3"
+                    app:sliderStartAutoCycle="true" />
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView_whole_onSale_products"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="end"
+                        android:padding="4dp"
+                        android:text="@string/whole_list"
+                        android:textColor="@color/digikala_blue"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/far_roya_bd" />
+
+
+                    <ImageView
+                        android:layout_width="136dp"
+                        android:layout_height="29dp"
+                        android:layout_gravity="right"
+                        android:src="@drawable/digikala_offer" />
+
+
+                </FrameLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_onSale_product"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="end"
-                    android:padding="4dp"
-                    android:text="@string/whole_list"
-                    android:textColor="@color/digikala_blue"
-                    android:textSize="12sp"
-                    app:fontFamily="@font/far_roya_bd" />
+                    android:layout_gravity="end"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layoutDirection="rtl"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:gravity="start"
-                    android:text="@string/latest"
-                    android:textColor="@android:color/black"
-                    app:fontFamily="@font/far_trafc_bd" />
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView_whole_latest_products"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="end"
+                        android:padding="4dp"
+                        android:text="@string/whole_list"
+                        android:textColor="@color/digikala_blue"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/far_roya_bd" />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:gravity="start"
+                        android:text="@string/latest"
+                        android:textColor="@android:color/black"
+                        app:fontFamily="@font/far_trafc_bd" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_latest_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layoutDirection="rtl"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView_whole_popular_products"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="end"
+                        android:padding="4dp"
+                        android:text="@string/whole_list"
+                        android:textColor="@color/digikala_blue"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/far_roya_bd" />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:gravity="start"
+                        android:text="@string/popular"
+                        android:textColor="@android:color/black"
+                        app:fontFamily="@font/far_trafc_bd" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_popular_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layoutDirection="rtl"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/textView_whole_topRating_products"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="start"
+                        android:padding="4dp"
+                        android:text="@string/whole_list"
+                        android:textColor="@color/digikala_blue"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/far_roya_bd" />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:gravity="start"
+                        android:text="@string/topRating"
+                        android:textColor="@android:color/black"
+                        app:fontFamily="@font/far_trafc_bd" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_topRating_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layoutDirection="rtl"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+                </androidx.recyclerview.widget.RecyclerView>
 
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView_latest_product"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layoutDirection="rtl"
-                android:orientation="horizontal"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                android:orientation="horizontal">
+        </ScrollView>
 
-                <TextView
-                    android:id="@+id/textView_whole_popular_products"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="end"
-                    android:padding="4dp"
-                    android:text="@string/whole_list"
-                    android:textColor="@color/digikala_blue"
-                    android:textSize="12sp"
-                    app:fontFamily="@font/far_roya_bd" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:gravity="start"
-                    android:text="@string/popular"
-                    android:textColor="@android:color/black"
-                    app:fontFamily="@font/far_trafc_bd" />
-
-
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView_popular_product"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layoutDirection="rtl"
-                android:orientation="horizontal"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                android:orientation="horizontal">
-
-
-                <TextView
-                    android:id="@+id/textView_whole_topRating_products"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="start"
-                    android:padding="4dp"
-                    android:text="@string/whole_list"
-                    android:textColor="@color/digikala_blue"
-                    android:textSize="12sp"
-                    app:fontFamily="@font/far_roya_bd" />
-
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:gravity="start"
-                    android:text="@string/topRating"
-                    android:textColor="@android:color/black"
-                    app:fontFamily="@font/far_trafc_bd" />
-
-
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView_topRating_product"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layoutDirection="rtl"
-                android:orientation="horizontal"
-                android:paddingTop="8dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-
-        </LinearLayout>
-
-    </ScrollView>
 
 
 </layout>

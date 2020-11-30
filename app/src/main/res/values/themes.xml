@@ -1,9 +1,19 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Theme.DigiKala" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.DigiKalaWhiteStatusBar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="android:statusBarColor">@android:color/white</item>
     </style>
+
+
+    <style name="Theme.DigiKala.darkStatusBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/digikala_gray</item>
+    </style>
+
+
 </resources>

@@ -8,17 +8,16 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.MenuItem;
 import android.view.View;
 
-import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.nezamipour.mehdi.digikala.R;
@@ -43,6 +42,15 @@ public class MainActivity extends AppCompatActivity {
         mBinding.bottomNavigation.setSelectedItemId(R.id.nav_fragHome);
         NavigationUI.setupWithNavController(mBinding.bottomNavigation, navController);
 
+  /*      getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.main_search_toolbar);*/
+
+
+
+
+
+
 
         mInternetState = new BroadcastReceiver() {
             @Override
@@ -57,6 +65,20 @@ public class MainActivity extends AppCompatActivity {
         };
 
     }
+
+/*    @Override
+    public void onAttachFragment(@NonNull Fragment fragment) {
+        super.onAttachFragment(fragment);
+        switch (fragment.getId()) {
+            case R.id.nav_fragHome:
+            case R.id.nav_fragCategory:
+
+                break;
+            default:
+                break;
+        }
+
+    }*/
 
     public static float convertDpToPixel(float dp, Context context) {
         return dp * ((float) context.getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT);
