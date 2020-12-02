@@ -24,6 +24,12 @@ public interface WooApi {
                                     @Query("orderby") String orderBy);
 
     @GET(BASE_URL + "products" + API_KEY)
+    Call<List<Product>> getProductsBySearch(@Query("per_page") int perPage,
+                                            @Query("page") int numberOfPage,
+                                            @Query("search") String search);
+    
+
+    @GET(BASE_URL + "products" + API_KEY)
     Call<List<Product>> getAllProducts();
 
 

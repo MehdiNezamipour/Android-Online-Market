@@ -1,5 +1,6 @@
 package com.nezamipour.mehdi.digikala.adapter;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -216,8 +217,12 @@ public class WholeProductsAdapter extends RecyclerView.Adapter<WholeProductsAdap
             mBinding.rowItemWholeProductsRegularPrice.setText(mProduct.getRegularPrice());
 
 
-            //TODO : Later
-            //mBinding.rowItemWholeProductsDescription.setText(mProduct.getDescription());
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                mBinding.rowItemWholeProductsDescription.setText(Html.fromHtml(mProduct.getDescription(), Html.FROM_HTML_MODE_LEGACY));
+            } else {
+                mBinding.rowItemWholeProductsDescription.setText(Html.fromHtml(mProduct.getDescription()));
+            }
+
             Picasso.get()
                     .load(ImageUtil.getFirstImageUrlOfProduct(mProduct))
                     .placeholder(R.drawable.logo)

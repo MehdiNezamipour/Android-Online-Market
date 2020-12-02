@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_row_item_whole_products"
@@ -30,17 +31,19 @@
                     android:layout_marginRight="8dp"
                     android:gravity="right"
                     android:textColor="@android:color/black"
-                    android:textSize="13dp" />
+                    android:textSize="12dp" />
 
                 <TextView
                     android:id="@+id/row_item_whole_products_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
                     android:layout_marginTop="8dp"
-                    android:gravity="left"
+                    android:gravity="start"
+                    tools:text="سسسسسسسسسسسسس"
                     android:textColor="@color/digikala_gray"
-                    android:textSize="9dp" />
+                    android:textSize="8sp" />
 
                 <View
                     android:id="@+id/row_item_whole_products_devider"
@@ -54,19 +57,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginTop="8dp"
-                    android:gravity="left"
+                    android:layout_marginRight="8dp"
+                    android:gravity="start"
                     android:textColor="@color/digikala_red"
-                    android:textSize="12dp" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/row_item_whole_products_sales_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
-                    android:gravity="left"
+                    android:layout_marginRight="8dp"                    android:gravity="start"
                     android:textColor="@color/digikala_green"
-                    android:textSize="12dp" />
+                    android:textSize="12sp" />
 
             </LinearLayout>
 

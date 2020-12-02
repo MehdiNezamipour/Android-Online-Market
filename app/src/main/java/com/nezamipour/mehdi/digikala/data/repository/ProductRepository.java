@@ -9,6 +9,7 @@ import com.nezamipour.mehdi.digikala.network.RetrofitInstance;
 import com.nezamipour.mehdi.digikala.network.WooApi;
 import com.nezamipour.mehdi.digikala.util.CategoryUtil;
 import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
+import com.nezamipour.mehdi.digikala.util.enums.SearchState;
 
 import java.util.List;
 
@@ -32,7 +33,10 @@ public class ProductRepository {
     private MutableLiveData<List<Product>> mCategoryProductsLiveData;
 
     private final MutableLiveData<ConnectionState> mConnectionStateMutableLiveData;
+    private final MutableLiveData<SearchState> mSearchStateMutableLiveData;
+
     private final MutableLiveData<Product> mProductByIdMutableLiveData;
+    private final MutableLiveData<List<Product>> mProductSearchMutableLiveData;
 
     private final WooApi mWooApi;
 
@@ -49,7 +53,10 @@ public class ProductRepository {
         mCategoryProductsLiveData = new MutableLiveData<>();
 
         mConnectionStateMutableLiveData = new MutableLiveData<>();
+        mSearchStateMutableLiveData = new MutableLiveData<>();
+
         mProductByIdMutableLiveData = new MutableLiveData<>();
+        mProductSearchMutableLiveData = new MutableLiveData<>();
 
     }
 
@@ -68,6 +75,10 @@ public class ProductRepository {
 
     public MutableLiveData<ConnectionState> getConnectionStateLiveData() {
         return mConnectionStateMutableLiveData;
+    }
+
+    public LiveData<SearchState> getSearchStateLiveData() {
+        return mSearchStateMutableLiveData;
     }
 
     public LiveData<Product> getProductByIdMutableLiveData() {
@@ -99,6 +110,28 @@ public class ProductRepository {
     }
 
 
+    public LiveData<List<Product>> getProductSearchLiveData() {
+        return mProductSearchMutableLiveData;
+    }
+
+    public void fetchProductsBySearch(String search) {
+        mSearchStateMutableLiveData.postValue(SearchState.SEARCHING);
+        mWooApi.getProductsBySearch(10, 1, search).enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    mProductSearchMutableLiveData.setValue(response.body());
+                    mSearchStateMutableLiveData.setValue(SearchState.RESULT_BACKED);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                mSearchStateMutableLiveData.setValue(SearchState.ERROR);
+            }
+        });
+    }
+
     public void fetchProductById(Integer productId) {
         //TODO : later handle error when internet state enable and disable
         mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
@@ -118,7 +151,6 @@ public class ProductRepository {
             }
         });
     }
-
 
 
     public void fetchCategoryProducts(Integer categoryId) {

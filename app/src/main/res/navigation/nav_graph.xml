@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_nav_fragHome_to_productDetailLoadingFragment"
             app:destination="@id/productDetailLoadingFragment" />
+        <action
+            android:id="@+id/action_nav_fragHome_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
 
     <fragment
@@ -100,6 +103,15 @@
         android:id="@+id/cartFragment"
         android:name="com.nezamipour.mehdi.digikala.view.fragment.CartFragment"
         android:label="CartFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.nezamipour.mehdi.digikala.view.fragment.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_productDetailLoadingFragment"
+            app:destination="@id/productDetailLoadingFragment" />
+    </fragment>
 
 
 </navigation>

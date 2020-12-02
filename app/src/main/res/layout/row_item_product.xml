@@ -48,9 +48,9 @@
                 android:id="@+id/textView_product_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="4dp"
-                android:gravity="end"
+                android:layout_gravity="left"
+                android:layout_marginLeft="8dp"
+                android:gravity="left"
                 android:text="Price"
                 android:textColor="@color/digikala_green"
                 android:textSize="9sp" />

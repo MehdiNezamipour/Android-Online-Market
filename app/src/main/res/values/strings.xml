@@ -15,6 +15,7 @@
     <string name="about_us">درباره ما</string>
     <string name="add_to_cart">اضافه کردن به سبد خرید</string>
     <string name="tomans">تومان</string>
+    <string name="price">%s%s</string>
     <string name="product_name">نام محصول : </string>
     <string name="product_detail">مشخصات</string>
     <string name="product_comments">نظرات کاربران</string>
@@ -27,6 +28,7 @@
     <string name="no_internet">خطا در برقراری ارتباط</string>
     <string name="retry">تلاش مجدد</string>
     <string name="search_hint">جستجو در </string>
+    <string name="search_hint_complete">جستجو در ديجی كالا… </string>
     <string name="sort">مرتب سازی</string>
     <string name="filter">فیلتر کردن</string>
     <string name="price_descending">قیمت از زیاد به کم</string>

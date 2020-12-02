@@ -1,11 +1,12 @@
 
+X	java:S125-"<This block of commented-out lines of code should be removed.(ë€üğ8¾“òÁá.
+X	java:S125F"<This block of commented-out lines of code should be removed.(ÖÉÉÀ8Ê”Åªà.
+X	java:S110"<This class has 9 parents which is greater than 5 authorized.(²Ú±8ı‘Œ…à.
 P
 java:S1874h"3Remove this use of "NetworkInfo"; it is deprecated.(ÿ»¶Ã8Ê”Åªà.
-X	java:S125F"<This block of commented-out lines of code should be removed.(ÖÉÉÀ8Ê”Åªà.
-`
-java:S1128">Remove this unused import 'androidx.appcompat.widget.Toolbar'.(ÔËûİùÿÿÿÿ8ş«à.
-Y
-java:S1874h"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ÿ»¶Ã8Ê”Åªà.
-X	java:S110"<This class has 9 parents which is greater than 5 authorized.(²Ú±8ı‘Œ…à.
 U
 java:S1874i"3Remove this use of "isConnected"; it is deprecated.(õ§¼ïıÿÿÿÿ8úá¹ùŞ.
+Y
+java:S1874h"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ÿ»¶Ã8Ê”Åªà.
+`
+java:S1128">Remove this unused import 'androidx.appcompat.widget.Toolbar'.(ÔËûİùÿÿÿÿ8ş«à.
