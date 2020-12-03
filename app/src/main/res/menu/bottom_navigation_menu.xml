@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_login"
+        android:enabled="true"
+        android:icon="@drawable/ic_user"
+        android:title="@string/my_digikala" />
 
     <item
         android:id="@+id/nav_fragCart"
@@ -14,12 +19,12 @@
         android:id="@+id/nav_fragCategory"
         android:enabled="true"
         android:icon="@drawable/ic_category"
-        android:title="@string/category"/>
+        android:title="@string/category" />
 
     <item
         android:id="@+id/nav_fragHome"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="@string/home_page"/>
+        android:title="@string/home_page" />
 
 </menu>

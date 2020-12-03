@@ -51,7 +51,7 @@
 
         <com.wang.avi.AVLoadingIndicatorView
             android:id="@+id/progressBar"
-            style="@style/AVLoadingIndicatorView"
+            style="@style/AVLoadingIndicatorView.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"

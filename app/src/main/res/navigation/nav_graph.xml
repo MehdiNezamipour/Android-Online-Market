@@ -18,7 +18,12 @@
             app:destination="@id/productDetailLoadingFragment" />
         <action
             android:id="@+id/action_nav_fragHome_to_searchFragment"
-            app:destination="@id/searchFragment" />
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom"
+            />
     </fragment>
 
     <fragment
@@ -108,9 +113,12 @@
         android:name="com.nezamipour.mehdi.digikala.view.fragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
+
         <action
             android:id="@+id/action_searchFragment_to_productDetailLoadingFragment"
-            app:destination="@id/productDetailLoadingFragment" />
+            app:destination="@id/productDetailLoadingFragment"
+            />
+
     </fragment>
 
 

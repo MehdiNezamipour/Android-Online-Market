@@ -33,7 +33,7 @@
                         android:layout_width="?actionBarSize"
                         android:layout_height="match_parent"
                         android:padding="8dp"
-                        android:src="@drawable/ic_back"
+                        android:src="@drawable/ic_back_dark"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -42,10 +42,9 @@
                         android:id="@+id/editText_search"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:focusable="true"
                         android:layout_marginStart="8dp"
                         android:fontFamily="@font/iran_yekan"
-                        android:gravity="start"
+                        android:gravity="right"
                         android:hint="@string/search_hint_complete"
                         android:inputType="text"
                         android:orientation="horizontal"
@@ -55,8 +54,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/imageView_back_to_home"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        />
+                        app:layout_constraintTop_toTopOf="parent" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
