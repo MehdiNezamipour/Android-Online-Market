@@ -19,7 +19,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
-                android:gravity="center"
                 android:orientation="vertical">
 
 
@@ -28,22 +27,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginRight="8dp"
                     android:gravity="right"
                     android:textColor="@android:color/black"
-                    android:textSize="12dp" />
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/row_item_whole_products_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginRight="8dp"
-                    android:layout_marginTop="8dp"
                     android:gravity="start"
-                    tools:text="سسسسسسسسسسسسس"
                     android:textColor="@color/digikala_gray"
-                    android:textSize="8sp" />
+                    android:textSize="6sp"
+                    />
 
                 <View
                     android:id="@+id/row_item_whole_products_devider"
@@ -60,16 +60,17 @@
                     android:layout_marginRight="8dp"
                     android:gravity="start"
                     android:textColor="@color/digikala_red"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/row_item_whole_products_sales_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"                    android:gravity="start"
+                    android:layout_marginRight="8dp"
+                    android:gravity="start"
                     android:textColor="@color/digikala_green"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
 
             </LinearLayout>
 

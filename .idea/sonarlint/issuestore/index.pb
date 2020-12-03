@@ -29,8 +29,6 @@ _
 /app/src/main/res/drawable-anydpi/ic_comment.xml,f\7\f7eb1401f4ed24fed654830356c8565115c6de7c
 ^
 .app/src/main/res/drawable-anydpi/ic_detail.xml,d\8\d8710594097ddca03cc1929fa84ac6c721d606c3
-^
-.app/src/main/res/drawable-anydpi/ic_filter.xml,5\6\560d4174391c2693dfc3fc07b1c7a3311eeb9460
 \
 ,app/src/main/res/drawable-anydpi/ic_help.xml,8\a\8adc11368c53277a326bfd071ae50e13d6a08cc7
 \
@@ -59,8 +57,6 @@ e
 5app/src/main/res/drawable-anydpi/ic_shopping_cart.xml,9\9\993eb23219a17ea14a554d5f46df36c2300100d1
 j
 :app/src/main/res/drawable-anydpi/ic_shopping_cart_dark.xml,0\c\0cc5df0def885e28116412fc21284941dd502adb
-\
-,app/src/main/res/drawable-anydpi/ic_sort.xml,1\0\102ebe543ed343f6eb7721d698c022b6d8f768a6
 \
 ,app/src/main/res/drawable-anydpi/ic_star.xml,8\c\8c0f150b91a8beb2cd357ab2ebde2dbc0de017fd
 \
@@ -205,13 +201,7 @@ Rapp/src/main/java/com/nezamipour/mehdi/digikala/adapter/SearchRecyclerAdapter.j
 Kapp/src/main/java/com/nezamipour/mehdi/digikala/util/enums/SearchState.java,2\c\2c84bd71b5b93df1e70664aa42a38a9c4c35c170
 †
 Vapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/SearchFragmentViewModel.java,2\2\22ec86af1a1411ff80f4831a2af8a492aef6dcf2
-Y
-)app/src/main/res/layout/fragment_home.xml,3\1\31c5880846ef63ff1963efbe141ddfd56680bb19
 \
 ,app/src/main/res/layout/row_item_product.xml,b\6\b666380125f9e60d7e7162d314f127feb8861392
 b
 2app/src/main/res/layout/row_item_search_result.xml,3\a\3a2c9760d2b81ad7989a9350ccc2c0916186344d
-c
-3app/src/main/res/layout/row_item_whole_products.xml,b\4\b4cc668364df0ce586c2795b99cf2f4115ef02f4
-X
-(app/src/main/res/layout/toolbar_home.xml,d\f\dfd0533773e48abd71d7e23d25d187867af34c8c

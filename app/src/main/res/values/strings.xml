@@ -30,7 +30,7 @@
     <string name="search_hint">جستجو در </string>
     <string name="search_hint_complete">جستجو در ديجی كالا… </string>
     <string name="sort">مرتب سازی</string>
-    <string name="filter">فیلتر کردن</string>
+    <string name="filter">فیلترها</string>
     <string name="price_descending">قیمت از زیاد به کم</string>
     <string name="price_ascending">قیمت از کم به زیاد</string>
     <string name="commit_card">خرید خود را نهایی کنید</string>
@@ -47,6 +47,10 @@
     <string name="size">سایز</string>
     <string name="press_again_for_exit">برای خروج دوباره فشار دهید</string>
     <string name="my_digikala">دیجی‌کالای من</string>
+    <string name="login_sentence">برای ورود و با ثبت نام در دیجی کالا شماره موبایل یا پست الکترونیکی خود را وارد نمایید</string>
+    <string name="login_hint_phone">شماره موبایل خود را وارد کنید</string>
+    <string name="login_to_digi">ورود به دیجی‌کالا</string>
+    <string name="digi_login_rules">با ورود یا ثبت نام در دیجی‌کالا شما شرایط و قوانین استفاده از سرویس های سایت دیجی‌کالا و قوانین حریم خصوصی آن را می پذیرید.</string>
 
 
 </resources>

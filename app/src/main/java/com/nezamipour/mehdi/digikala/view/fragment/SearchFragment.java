@@ -33,7 +33,6 @@ public class SearchFragment extends Fragment {
     private FragmentSearchBinding mBinding;
     private SearchRecyclerAdapter mSearchRecyclerAdapter;
     private SearchFragmentViewModel mViewModel;
-    private ActivityMainBinding mMainBinding;
 
     public SearchFragment() {
         // Required empty public constructor

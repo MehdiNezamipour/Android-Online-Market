@@ -3,17 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_whole_products"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:spanCount="1"
-        tools:context=".view.fragment.WholeProductsFragment"
-        tools:listitem="@layout/row_item_whole_products">
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar_search" />
 
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <include layout="@layout/toolbar_filter_and_sort"
+
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_whole_products"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:spanCount="1"
+            tools:context=".view.fragment.WholeProductsFragment"
+            tools:listitem="@layout/row_item_whole_products">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </LinearLayout>
+
 
 </layout>

@@ -128,7 +128,8 @@ public class HomeFragment extends Fragment {
 
         mBinding.textViewWholeTopRatingProducts.setOnClickListener(v -> navigateToWholeProductsFragment(v, "rating"));
 
-        mBinding.homeToolbar.setOnClickListener(v -> Navigation.findNavController(v).navigate(HomeFragmentDirections.actionNavFragHomeToSearchFragment()));
+        mBinding.mainSearchToolbar.setOnClickListener(v -> Navigation.findNavController(v)
+                .navigate(HomeFragmentDirections.actionNavFragHomeToSearchFragment()));
     }
 
     private void navigateToWholeProductsFragment(View v, String orderBy) {

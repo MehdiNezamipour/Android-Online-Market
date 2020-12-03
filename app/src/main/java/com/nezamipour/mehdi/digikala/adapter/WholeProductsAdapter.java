@@ -218,9 +218,9 @@ public class WholeProductsAdapter extends RecyclerView.Adapter<WholeProductsAdap
 
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                mBinding.rowItemWholeProductsDescription.setText(Html.fromHtml(mProduct.getDescription(), Html.FROM_HTML_MODE_LEGACY));
+                mBinding.rowItemWholeProductsDescription.setText(Html.fromHtml(mProduct.getShortDescription(), Html.FROM_HTML_MODE_LEGACY));
             } else {
-                mBinding.rowItemWholeProductsDescription.setText(Html.fromHtml(mProduct.getDescription()));
+                mBinding.rowItemWholeProductsDescription.setText(Html.fromHtml(mProduct.getShortDescription()));
             }
 
             Picasso.get()

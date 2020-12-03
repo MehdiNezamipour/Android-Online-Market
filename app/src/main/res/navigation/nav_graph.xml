@@ -22,8 +22,7 @@
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/slide_out_top"
             app:popEnterAnim="@anim/slide_in_top"
-            app:popExitAnim="@anim/slide_out_bottom"
-            />
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
 
     <fragment
@@ -52,6 +51,9 @@
         <action
             android:id="@+id/action_nav_fragCategory_to_categoryProductsLoadingFragment"
             app:destination="@id/categoryProductsLoadingFragment" />
+        <action
+            android:id="@+id/action_nav_fragCategory_to_searchFragment2"
+            app:destination="@id/searchFragment" />
     </fragment>
 
     <fragment
@@ -98,7 +100,7 @@
     <fragment
         android:id="@+id/nav_fragCart"
         android:name="com.nezamipour.mehdi.digikala.view.fragment.CartProductsLoadingFragment"
-        android:label="CartProductsLoadingFragment" >
+        android:label="CartProductsLoadingFragment">
         <action
             android:id="@+id/action_nav_fragCart_to_cartFragment"
             app:destination="@id/cartFragment" />
@@ -112,14 +114,21 @@
         android:id="@+id/searchFragment"
         android:name="com.nezamipour.mehdi.digikala.view.fragment.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" >
+        tools:layout="@layout/fragment_search">
 
         <action
             android:id="@+id/action_searchFragment_to_productDetailLoadingFragment"
-            app:destination="@id/productDetailLoadingFragment"
-            />
+            app:destination="@id/productDetailLoadingFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_wholeProductsFragment"
+            app:destination="@id/wholeProductsFragment" />
 
     </fragment>
+    <fragment
+        android:id="@+id/nav_fragLogin"
+        android:name="com.nezamipour.mehdi.digikala.view.fragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 
 
 </navigation>
