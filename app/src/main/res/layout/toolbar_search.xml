@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout_filter_and_sort"
+        android:id="@+id/appBarLayout_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"

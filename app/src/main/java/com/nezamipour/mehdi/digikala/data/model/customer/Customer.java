@@ -39,9 +39,6 @@ public class Customer implements Serializable {
     @SerializedName("avatar_url")
     @Expose
     private String avatarUrl;
-    @SerializedName("meta_data")
-    @Expose
-    private List<Object> metaData = null;
 
 
     private final static long serialVersionUID = 1006749390067400703L;
@@ -127,13 +124,6 @@ public class Customer implements Serializable {
         this.avatarUrl = avatarUrl;
     }
 
-    public List<Object> getMetaData() {
-        return metaData;
-    }
-
-    public void setMetaData(List<Object> metaData) {
-        this.metaData = metaData;
-    }
 
 
 }

@@ -2,15 +2,20 @@ package com.nezamipour.mehdi.digikala.adapter;
 
 import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.databinding.RowItemSearchResultBinding;
+import com.nezamipour.mehdi.digikala.view.fragment.SearchFragment;
+import com.nezamipour.mehdi.digikala.view.fragment.SearchFragmentDirections;
+import com.nezamipour.mehdi.digikala.view.fragment.WholeProductsFragmentDirections;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,13 +66,19 @@ public class SearchRecyclerAdapter extends RecyclerView.Adapter<SearchRecyclerAd
         public void bindSearchItem(Product product) {
             mProduct = product;
             mBinding.textViewSearchTitle.setText(mProduct.getName());
+            mBinding.getRoot().setOnClickListener(v -> {
+                SearchFragmentDirections.ActionSearchFragmentToProductDetailLoadingFragment action =
+                        SearchFragmentDirections
+                                .actionSearchFragmentToProductDetailLoadingFragment(mProduct.getId());
+                Navigation.findNavController(v).navigate(action);
+            });
+
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
                 mBinding.textViewSearchDescription.setText(Html.fromHtml(mProduct.getDescription(), Html.FROM_HTML_MODE_LEGACY));
             } else {
                 mBinding.textViewSearchDescription.setText(Html.fromHtml(mProduct.getDescription()));
             }
-
 
         }
 

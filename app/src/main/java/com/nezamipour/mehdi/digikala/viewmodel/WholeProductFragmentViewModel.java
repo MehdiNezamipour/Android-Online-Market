@@ -36,6 +36,9 @@ public class WholeProductFragmentViewModel extends ViewModel {
             case "category":
                 mProducts.setValue(mProductRepository.getCategoryProductsLiveData().getValue());
                 break;
+            case "search":
+                mProducts.setValue(mProductRepository.getProductSearchLiveData().getValue());
+                break;
             default:
                 break;
         }

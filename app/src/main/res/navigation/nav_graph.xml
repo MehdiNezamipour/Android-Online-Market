@@ -126,9 +126,32 @@
     </fragment>
     <fragment
         android:id="@+id/nav_fragLogin"
-        android:name="com.nezamipour.mehdi.digikala.view.fragment.LoginFragment"
+        android:name="com.nezamipour.mehdi.digikala.view.fragment.RegistrationCheckFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_registration_check" >
+        <action
+            android:id="@+id/action_nav_fragLogin_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_nav_fragLogin_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.nezamipour.mehdi.digikala.view.fragment.LoginFragment"
+        android:label="LoginFragment" >
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.nezamipour.mehdi.digikala.view.fragment.SignUpFragment"
+        android:label="SignUpFragment" >
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
 
 
 </navigation>

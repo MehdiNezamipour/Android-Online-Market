@@ -1,12 +1,15 @@
 package com.nezamipour.mehdi.digikala.network;
 
+import com.nezamipour.mehdi.digikala.data.model.customer.Customer;
 import com.nezamipour.mehdi.digikala.data.model.product.Category;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -27,7 +30,7 @@ public interface WooApi {
     Call<List<Product>> getProductsBySearch(@Query("per_page") int perPage,
                                             @Query("page") int numberOfPage,
                                             @Query("search") String search);
-    
+
 
     @GET(BASE_URL + "products" + API_KEY)
     Call<List<Product>> getAllProducts();
@@ -47,6 +50,15 @@ public interface WooApi {
     Call<List<Product>> getCategoryProducts(@Query("category") int categoryId,
                                             @Query("per_page") int perPage,
                                             @Query("page") int page);
+
+
+
+    //customers
+    @POST(BASE_URL + "customers" + API_KEY)
+    Call<Customer> registerCustomer(@Body Customer customer);
+
+    @GET(BASE_URL + "customers" + API_KEY)
+    Call<List<Customer>> getCustomer(@Query("email") String email);
 
 
 }
