@@ -37,6 +37,18 @@ public class Shipping implements Serializable {
     private String state;
     private final static long serialVersionUID = -6075387147230539384L;
 
+
+    //create shipping info
+    public Shipping(String firstName, String lastName, String address1, String postcode, String city, String state, String country) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address1 = address1;
+        this.city = city;
+        this.postcode = postcode;
+        this.country = country;
+        this.state = state;
+    }
+
     public String getFirstName() {
         return firstName;
     }

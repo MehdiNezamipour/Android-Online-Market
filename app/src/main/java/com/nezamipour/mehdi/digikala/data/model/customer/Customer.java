@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 public class Customer implements Serializable {
 
@@ -42,6 +43,16 @@ public class Customer implements Serializable {
 
 
     private final static long serialVersionUID = 1006749390067400703L;
+
+    //create a simple customer
+    public Customer(String email, String firstName, String lastName, Shipping shipping) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.role = "simpleCustomer";
+        this.shipping = shipping;
+    }
+
 
     public Integer getId() {
         return id;
@@ -123,7 +134,6 @@ public class Customer implements Serializable {
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
-
 
 
 }

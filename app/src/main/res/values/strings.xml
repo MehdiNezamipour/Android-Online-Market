@@ -65,6 +65,7 @@
     <string name="address_one">آدرس اول</string>
     <string name="next_step">مرحله بعد</string>
     <string name="use_map">استفاده از نقشه</string>
+    <string name="postalCode">کدپستی</string>
 
 
 </resources>
