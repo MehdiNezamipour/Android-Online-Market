@@ -48,21 +48,35 @@ public class MainActivity extends AppCompatActivity {
         mBinding.bottomNavigation.setSelectedItemId(R.id.nav_fragHome);
         NavigationUI.setupWithNavController(mBinding.bottomNavigation, navController);
 
+        mBinding.mainSearchToolbar.setOnClickListener(v -> navController.navigate(R.id.action_global_searchFragment));
 
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             switch (destination.getId()) {
                 case R.id.nav_fragHome:
                 case R.id.nav_fragCategory:
                     mBinding.bottomNavigation.setVisibility(View.VISIBLE);
+                    mBinding.mainSearchToolbar.setVisibility(View.VISIBLE);
                     break;
+                case R.id.categoryProductsLoadingFragment:
+                case R.id.productDetailLoadingFragment:
+                case R.id.signUpFragment:
+                case R.id.shippingFragment:
+                case R.id.cartFragment:
+                case R.id.nav_fragLogin:
+                case R.id.nav_fragCart:
+                case R.id.loginFragment:
                 case R.id.wholeProductsFragment:
-                    mBinding.bottomNavigation.setVisibility(View.VISIBLE);
                 case R.id.productDetailFragment:
-                    //TODO : But add a special tool bar to this fragment to click on close button to return to before fragment
-                    mBinding.bottomNavigation.setVisibility(View.GONE);
+                    mBinding.mainSearchToolbar.setVisibility(View.GONE);
+                    mBinding.bottomNavigation.setVisibility(View.VISIBLE);
+                    break;
+
                 case R.id.searchFragment:
                     mBinding.bottomNavigation.setVisibility(View.GONE);
+                    mBinding.mainSearchToolbar.setVisibility(View.GONE);
                     break;
+
+
                 default:
                     break;
             }

@@ -1,5 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <data>
@@ -109,11 +110,12 @@
                         android:id="@+id/textView_product_detail_short_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
                         android:fontFamily="@font/iran_yekan"
                         android:gravity="right"
-                        android:text="@{viewModel.productMutableLiveData.shortDescription}"
+                        tools:text="گوشی سامسونگ a50"
+                        android:text="@{viewModel.shortDescription}"
                         android:textColor="@color/digikala_gray"
                         android:textSize="12sp" />
 

@@ -11,6 +11,19 @@
         android:padding="16dp"
         tools:context=".view.fragment.LoginFragment">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/iran_yekan"
+            android:text="@string/password"
+            android:layout_marginBottom="32dp"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
@@ -29,7 +42,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editText_email_or_phone"
+                android:id="@+id/editText_login_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/digikala_dark_white"
@@ -39,7 +52,7 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_login_step_one"
+            android:id="@+id/button_login"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginTop="20dp"
@@ -57,27 +70,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/far_roya_bd"
-            android:text="@string/login_to_digi"
+            android:text="@string/accept"
             android:textColor="@android:color/white"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/button_login_step_one"
-            app:layout_constraintEnd_toEndOf="@+id/button_login_step_one"
-            app:layout_constraintStart_toStartOf="@+id/button_login_step_one"
-            app:layout_constraintTop_toTopOf="@+id/button_login_step_one" />
+            app:layout_constraintBottom_toBottomOf="@+id/button_login"
+            app:layout_constraintEnd_toEndOf="@+id/button_login"
+            app:layout_constraintStart_toStartOf="@+id/button_login"
+            app:layout_constraintTop_toTopOf="@+id/button_login" />
 
 
         <com.wang.avi.AVLoadingIndicatorView
-            android:id="@+id/progressBar_check_registration"
+            android:id="@+id/progressBar_login"
             style="@style/AVLoadingIndicatorView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
             app:indicatorName="BallPulseIndicator"
 
-            app:layout_constraintBottom_toBottomOf="@+id/button_login_step_one"
-            app:layout_constraintEnd_toEndOf="@+id/button_login_step_one"
-            app:layout_constraintStart_toStartOf="@+id/button_login_step_one"
-            app:layout_constraintTop_toTopOf="@+id/button_login_step_one" />
+            app:layout_constraintBottom_toBottomOf="@+id/button_login"
+            app:layout_constraintEnd_toEndOf="@+id/button_login"
+            app:layout_constraintStart_toStartOf="@+id/button_login"
+            app:layout_constraintTop_toTopOf="@+id/button_login" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

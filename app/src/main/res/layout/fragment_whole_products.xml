@@ -12,9 +12,7 @@
         <include layout="@layout/toolbar_search" />
 
 
-        <include layout="@layout/toolbar_filter_and_sort"
-
-            />
+        <include layout="@layout/toolbar_filter_and_sort" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_whole_products"

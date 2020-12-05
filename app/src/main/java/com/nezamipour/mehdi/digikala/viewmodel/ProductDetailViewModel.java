@@ -1,6 +1,8 @@
 package com.nezamipour.mehdi.digikala.viewmodel;
 
 import android.app.Application;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -45,6 +47,14 @@ public class ProductDetailViewModel extends AndroidViewModel {
     public void onClick(View v) {
         CartProduct cartProduct = new CartProduct(mProduct.getValue().getId(), "", 1);
         mCartRepository.insert(cartProduct);
+    }
+
+    public Spanned getShortDescription() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            return Html.fromHtml(mProduct.getValue().getShortDescription(), Html.FROM_HTML_MODE_LEGACY);
+        } else {
+            return Html.fromHtml(mProduct.getValue().getShortDescription());
+        }
     }
 
 

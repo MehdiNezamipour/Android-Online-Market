@@ -106,10 +106,12 @@
             android:text="@string/digi_login_rules"
             android:textColor="@color/digikala_gray"
             android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/row_item_whole_products_devider" />
+            app:layout_constraintTop_toBottomOf="@+id/row_item_whole_products_devider"
+            app:layout_constraintVertical_bias="0.0" />
 
 
         <com.wang.avi.AVLoadingIndicatorView
