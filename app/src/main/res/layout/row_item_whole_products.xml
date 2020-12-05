@@ -1,92 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView_row_item_whole_products"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:orientation="vertical">
+        app:cardCornerRadius="6dp"
 
-        <LinearLayout
+        >
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
-            <LinearLayout
+
+            <TextView
+                android:id="@+id/row_item_whole_products_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="right"
+                android:fontFamily="@font/iran_yekan"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:textSize="12dp"
+                tools:text="گوشی سامسونگ a70"
+                app:layout_constraintEnd_toStartOf="@+id/row_item_whole_products_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_editor_absoluteY="10dp" />
+
+            <TextView
+                android:id="@+id/row_item_whole_products_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="start"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                tools:text="کشخهثلدمشخهلذشصخهلذصخهذرصکخ خها خهاکخه اکثصخلهامصشخها کخشسهلاشکخصهقالمصشخلهاکصخلها  کشخصلهاکصخهلاصشکخلهاصشهخصقالصلهخا کص   کخصهالشصلکهخاشمخها  شک  کخصهشلاشصکخهاشکخه ال4صکخه ا ک خها4کخلشها شصکخهصلا صکثخهلا"
+                app:layout_constraintEnd_toStartOf="@+id/row_item_whole_products_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/row_item_whole_products_title"
+                app:layout_editor_absoluteY="20dp" />
+
+            <View
+                android:id="@+id/row_item_whole_products_devider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="4dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintBottom_toTopOf="@+id/row_item_whole_products_sales_price"
+                app:layout_constraintEnd_toStartOf="@+id/row_item_whole_products_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_editor_absoluteY="40dp" />
+
+
+            <TextView
+                android:id="@+id/row_item_whole_products_sales_price"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="start"
+                android:textColor="@color/digikala_green"
+                android:textSize="15sp"
+                android:fontFamily="@font/far_trafc_bd"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/row_item_whole_products_regular_price"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_editor_absoluteY="150dp"
+                tools:text="12000000" />
 
 
-                <TextView
-                    android:id="@+id/row_item_whole_products_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginRight="8dp"
-                    android:gravity="right"
-                    android:textColor="@android:color/black"
-                    android:textSize="10sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="left"
+                android:text="@string/tomans"
+                android:textColor="@color/digikala_green"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/row_item_whole_products_regular_price"
+                app:layout_constraintEnd_toStartOf="@+id/row_item_whole_products_image"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/row_item_whole_products_regular_price"
+                app:layout_constraintTop_toTopOf="@+id/row_item_whole_products_regular_price" />
 
-                <TextView
-                    android:id="@+id/row_item_whole_products_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="8dp"
-                    android:gravity="start"
-                    android:textColor="@color/digikala_gray"
-                    android:textSize="6sp"
-                    />
 
-                <View
-                    android:id="@+id/row_item_whole_products_devider"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="8dp"
-                    android:background="?android:attr/listDivider" />
+            <TextView
+                android:id="@+id/row_item_whole_products_regular_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="start"
+                android:fontFamily="@font/far_trafc_bd"
+                android:textColor="@color/digikala_red"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_editor_absoluteY="170dp"
+                tools:text="15000000" />
 
-                <TextView
-                    android:id="@+id/row_item_whole_products_regular_price"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:gravity="start"
-                    android:textColor="@color/digikala_red"
-                    android:textSize="10sp" />
-
-                <TextView
-                    android:id="@+id/row_item_whole_products_sales_price"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:gravity="start"
-                    android:textColor="@color/digikala_green"
-                    android:textSize="10sp" />
-
-            </LinearLayout>
-
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginStart="8dp"
+                android:gravity="left"
+                android:text="@string/tomans"
+                android:textColor="@color/digikala_green"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/row_item_whole_products_sales_price"
+                app:layout_constraintEnd_toStartOf="@+id/row_item_whole_products_image"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/row_item_whole_products_sales_price"
+                app:layout_constraintTop_toTopOf="@+id/row_item_whole_products_sales_price"
+                />
 
             <ImageView
                 android:id="@+id/row_item_whole_products_image"
-                android:layout_width="300dp"
-                android:layout_height="150dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_weight="0.5"
-                android:src="@drawable/logo" />
+                android:layout_width="133dp"
+                android:layout_height="200dp"
+                android:src="@drawable/logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:layout_editor_absoluteY="500dp" />
 
-        </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </layout>

@@ -201,8 +201,6 @@ Rapp/src/main/java/com/nezamipour/mehdi/digikala/adapter/SearchRecyclerAdapter.j
 Kapp/src/main/java/com/nezamipour/mehdi/digikala/util/enums/SearchState.java,2\c\2c84bd71b5b93df1e70664aa42a38a9c4c35c170
 Ü
 Vapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/SearchFragmentViewModel.java,2\2\22ec86af1a1411ff80f4831a2af8a492aef6dcf2
-\
-,app/src/main/res/layout/row_item_product.xml,b\6\b666380125f9e60d7e7162d314f127feb8861392
 b
 2app/src/main/res/layout/row_item_search_result.xml,3\a\3a2c9760d2b81ad7989a9350ccc2c0916186344d
 Y
@@ -225,8 +223,6 @@ a
 ,app/src/main/res/drawable-anydpi/ic_sort.xml,1\0\102ebe543ed343f6eb7721d698c022b6d8f768a6
 `
 0app/src/main/res/menu/bottom_navigation_menu.xml,d\6\d6b83c453579d1c62b11597f7bfbba2e903ecd37
-c
-3app/src/main/res/layout/row_item_whole_products.xml,b\4\b4cc668364df0ce586c2795b99cf2f4115ef02f4
 å
 \app/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/RegistrationCheckFragment.java,2\4\248483cdf49df73996af12ad2b6bc96973983e41
 Å

@@ -12,7 +12,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
 
         <LinearLayout
@@ -37,7 +38,7 @@
                     <com.smarteist.autoimageslider.SliderView
                         android:id="@+id/imageSlider_product_detail_images"
                         android:layout_width="match_parent"
-                        android:layout_height="320dp"
+                        android:layout_height="250dp"
                         app:sliderAnimationDuration="600"
                         app:sliderAutoCycleDirection="back_and_forth"
                         app:sliderAutoCycleEnabled="false"
@@ -100,7 +101,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:fontFamily="@font/far_roya_bd"
+                        android:textColor="@android:color/black"
+                        tools:text="گوشی سامسونگ A50"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/iran_yekan"
                         android:gravity="right"
                         android:text="@{viewModel.productMutableLiveData.name}"
                         android:textSize="16sp" />
@@ -366,6 +370,7 @@
                             android:layout_marginStart="4dp"
                             android:fontFamily="@font/far_trafc_bd"
                             android:gravity="left"
+                            tools:text="150000"
                             android:text="@{viewModel.productMutableLiveData.salePrice}"
                             android:textColor="@color/digikala_green"
                             android:textSize="17sp" />
@@ -377,10 +382,23 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/far_trafc_bd"
+                            tools:text="150000"
                             android:gravity="left"
                             android:text="@{viewModel.productMutableLiveData.regularPrice}"
                             android:textColor="@color/digikala_red"
                             android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginStart="16dp"
+                            android:gravity="left"
+                            android:text="@string/tomans"
+                            android:textColor="@color/digikala_green"
+                            android:textSize="18sp"
+                            />
 
 
                     </LinearLayout>
