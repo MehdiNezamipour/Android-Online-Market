@@ -263,3 +263,15 @@ dapp/src/main/java/com/nezamipour/mehdi/digikala/data/database/customerdatabase/
 Rapp/src/main/java/com/nezamipour/mehdi/digikala/data/database/entity/Customer.java,f\2\f2f60edd6bfee2b8fbbc1a66db4a08901233fe7f
 ‡
 Wapp/src/main/java/com/nezamipour/mehdi/digikala/data/repository/CustomerRepository.java,4\c\4c3220cebdc94228b4878e5c46f2915821ee5cf0
+]
+-app/src/main/res/layout/fragment_customer.xml,1\8\18e3333c3128434d7ef6a8630230adbf2b696d0a
+g
+7app/src/main/res/layout/fragment_registration_check.xml,4\9\49a94a0efda05c9c4ff428935e16bf8eb7932fb5
+]
+-app/src/main/res/layout/fragment_shipping.xml,0\5\0591a95d3b244dfe1c07f944c70a762cf925d031
+`
+0app/src/main/res/menu/bottom_navigation_menu.xml,d\6\d6b83c453579d1c62b11597f7bfbba2e903ecd37
+Y
+)app/src/main/res/navigation/nav_graph.xml,b\a\baffce053da291d96fb575a09f2bbe9aaa9c4be9
+S
+#app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e

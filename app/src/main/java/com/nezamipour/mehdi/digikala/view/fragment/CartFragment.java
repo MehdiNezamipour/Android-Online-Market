@@ -49,7 +49,7 @@ public class CartFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mCartRecyclerAdapter = new CartRecyclerAdapter();
+        mCartRecyclerAdapter = new CartRecyclerAdapter(getContext());
         mCartRecyclerAdapter.setProducts(mViewModel.getCartProducts().getValue());
         mBinding.recyclerViewCart.setAdapter(mCartRecyclerAdapter);
     }
