@@ -41,12 +41,14 @@ public class RegistrationCheckFragment extends Fragment {
             switch (connectionState) {
                 case START_ACTIVITY:
                     if (mViewModel.getCustomerLiveData().getValue() != null) {
-                        RegistrationCheckFragmentDirections.ActionNavFragLoginToLoginFragment action =
-                                RegistrationCheckFragmentDirections.actionNavFragLoginToLoginFragment(mBinding.editTextEmail.getText().toString());
+                        RegistrationCheckFragmentDirections.ActionCheckRegistrationFragmentToLoginFragment action =
+                                RegistrationCheckFragmentDirections
+                                        .actionCheckRegistrationFragmentToLoginFragment(mBinding.editTextEmail.getText().toString());
                         Navigation.findNavController(getView()).navigate(action);
                     } else {
-                        RegistrationCheckFragmentDirections.ActionNavFragLoginToSignUpFragment action =
-                                RegistrationCheckFragmentDirections.actionNavFragLoginToSignUpFragment(mBinding.editTextEmail.getText().toString());
+                        RegistrationCheckFragmentDirections.ActionCheckRegistrationFragmentToSignUpFragment action =
+                                RegistrationCheckFragmentDirections
+                                        .actionCheckRegistrationFragmentToSignUpFragment(mBinding.editTextEmail.getText().toString());
                         Navigation.findNavController(getView()).navigate(action);
                     }
                     break;
@@ -76,7 +78,7 @@ public class RegistrationCheckFragment extends Fragment {
 
         mBinding.buttonLoginStepOne.setOnClickListener(v -> {
             if (isValidEmail(mBinding.editTextEmail.getText().toString())) {
-                mViewModel.getCustomerByEmail(mBinding.editTextEmail.getText().toString());
+                mViewModel.fetchCustomerFromServer(mBinding.editTextEmail.getText().toString());
             }
         });
     }

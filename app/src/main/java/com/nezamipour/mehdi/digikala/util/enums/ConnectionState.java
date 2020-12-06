@@ -1,5 +1,5 @@
 package com.nezamipour.mehdi.digikala.util.enums;
 
 public enum ConnectionState {
-    ERROR, LOADING, START_ACTIVITY
+    ERROR, LOADING, START_ACTIVITY, NOTHING
 }

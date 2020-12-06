@@ -116,29 +116,38 @@
 
     </fragment>
     <fragment
-        android:id="@+id/nav_fragLogin"
+        android:id="@+id/checkRegistrationFragment"
         android:name="com.nezamipour.mehdi.digikala.view.fragment.RegistrationCheckFragment"
-        android:label="fragment_login"
+        android:label="checkRegistrationFragment"
         tools:layout="@layout/fragment_registration_check" >
+
+
         <action
-            android:id="@+id/action_nav_fragLogin_to_loginFragment"
-            app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_nav_fragLogin_to_signUpFragment"
+            android:id="@+id/action_checkRegistrationFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_checkRegistrationFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.nezamipour.mehdi.digikala.view.fragment.LoginFragment"
-        android:label="LoginFragment" >
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login"
+        >
         <argument
             android:name="email"
             app:argType="string" />
+        <action
+            android:id="@+id/action_loginFragment_to_customerFragment"
+            app:destination="@id/customerFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.nezamipour.mehdi.digikala.view.fragment.SignUpFragment"
-        android:label="SignUpFragment" >
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up"
+        >
         <argument
             android:name="email"
             app:argType="string" />
@@ -162,6 +171,9 @@
             app:argType="string" />
         <argument android:name="email"
             app:argType="string" />
+        <action
+            android:id="@+id/action_shippingFragment_to_loginLoadingFragment"
+            app:destination="@id/loginLoadingFragment" />
     </fragment>
 
     <action
@@ -171,6 +183,32 @@
         app:exitAnim="@anim/slide_out_top"
         app:popEnterAnim="@anim/slide_in_top"
         app:popExitAnim="@anim/slide_out_bottom" />
+    <fragment
+        android:id="@+id/loginLoadingFragment"
+        android:name="com.nezamipour.mehdi.digikala.view.fragment.LoginLoadingFragment"
+        android:label="LoginLoadingFragment"
+        >
+
+        <action
+            android:id="@+id/action_loginLoadingFragment_to_customerFragment"
+            app:destination="@id/customerFragment" />
+
+        <argument
+            android:name="email"
+            app:argType="string"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_loginLoadingFragment_to_checkRegistrationFragment"
+            app:destination="@id/checkRegistrationFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/customerFragment"
+        android:name="com.nezamipour.mehdi.digikala.view.fragment.CustomerFragment"
+        android:label="CustomerFragment"
+        tools:layout="@layout/fragment_customer"
+        />
 
 
 </navigation>

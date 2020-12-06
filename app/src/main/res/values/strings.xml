@@ -66,6 +66,11 @@
     <string name="next_step">مرحله بعد</string>
     <string name="use_map">استفاده از نقشه</string>
     <string name="postalCode">کدپستی</string>
+    <string name="activation_wallet">فعال‌سازی کیف پول</string>
+    <string name="point">امتیاز</string>
+    <string name="my_orders">سفارشات من</string>
+    <string name="delivered_orders">تحویل شده</string>
+    <string name="in_process_orders">در حال پردازش</string>
 
 
 </resources>

@@ -15,7 +15,7 @@ import java.util.List;
 public interface CartDao {
 
 
-    //TODO : use live data with room
+    //TODO : use live data with room i test it but return null pointer
     @Query("select * from cart_product")
     List<CartProduct> getAll();
 

@@ -6,18 +6,27 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.nezamipour.mehdi.digikala.data.database.entity.Customer;
 import com.nezamipour.mehdi.digikala.data.repository.CustomerRepository;
 import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 
-public class RegistrationCheckViewModel extends AndroidViewModel {
+public class LoadingLoginViewModel extends AndroidViewModel {
 
     private final CustomerRepository mCustomerRepository;
 
-    public RegistrationCheckViewModel(@NonNull Application application) {
+
+    public LoadingLoginViewModel(@NonNull Application application) {
         super(application);
         mCustomerRepository = CustomerRepository.getInstance(application);
     }
 
+    public Customer getCurrentLoginCustomerFromDataBase() {
+        return mCustomerRepository.getCurrentLoginCustomer();
+    }
+
+    public Customer getCustomerByEmailFromDatabase(String email) {
+        return mCustomerRepository.getCustomerByEmail(email);
+    }
 
     public void fetchCustomerFromServer(String email) {
         mCustomerRepository.fetchCustomerByEmail(email);

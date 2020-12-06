@@ -1,50 +1,40 @@
 package com.nezamipour.mehdi.digikala.viewmodel;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.nezamipour.mehdi.digikala.data.model.customer.Customer;
-import com.nezamipour.mehdi.digikala.network.RetrofitInstance;
-import com.nezamipour.mehdi.digikala.network.WooApi;
+import com.nezamipour.mehdi.digikala.data.repository.CustomerRepository;
 import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+public class ShippingFragmentViewModel extends AndroidViewModel {
 
-public class ShippingFragmentViewModel extends ViewModel {
-
-    private MutableLiveData<ConnectionState> mConnectionStateMutableLiveData;
-    private WooApi mWooApi;
+    private final CustomerRepository mCustomerRepository;
 
 
-    public ShippingFragmentViewModel() {
-        mWooApi = RetrofitInstance.getInstance().create(WooApi.class);
-        mConnectionStateMutableLiveData = new MutableLiveData<>();
+    public ShippingFragmentViewModel(@NonNull Application application) {
+        super(application);
+        mCustomerRepository = CustomerRepository.getInstance(application);
     }
+
+
+    public void postCustomerToServer(Customer customer) {
+        mCustomerRepository.postCustomerToServer(customer);
+    }
+
+    public void postCustomerToDataBase(String email, String password) {
+        com.nezamipour.mehdi.digikala.data.database.entity.Customer customerEntity =
+                new com.nezamipour.mehdi.digikala.data.database.entity.Customer(email, password);
+        mCustomerRepository.insert(customerEntity);
+    }
+
 
     public LiveData<ConnectionState> getConnectionStateLiveData() {
-        return mConnectionStateMutableLiveData;
+        return mCustomerRepository.getConnectionStateLiveData();
     }
-
-    public void postCustomer(Customer customer) {
-        mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
-        mWooApi.registerCustomer(customer).enqueue(new Callback<Customer>() {
-            @Override
-            public void onResponse(Call<Customer> call, Response<Customer> response) {
-                if (response.isSuccessful()) {
-                    mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Customer> call, Throwable t) {
-                mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
-            }
-        });
-    }
-
 
 
 

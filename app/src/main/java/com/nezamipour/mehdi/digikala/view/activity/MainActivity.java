@@ -10,24 +10,16 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.databinding.ActivityMainBinding;
-import com.nezamipour.mehdi.digikala.view.fragment.HomeFragmentDirections;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.signUpFragment:
                 case R.id.shippingFragment:
                 case R.id.cartFragment:
-                case R.id.nav_fragLogin:
                 case R.id.nav_fragCart:
                 case R.id.loginFragment:
                 case R.id.wholeProductsFragment:
                 case R.id.productDetailFragment:
+                case R.id.loginLoadingFragment:
                     mBinding.mainSearchToolbar.setVisibility(View.GONE);
                     mBinding.bottomNavigation.setVisibility(View.VISIBLE);
                     break;

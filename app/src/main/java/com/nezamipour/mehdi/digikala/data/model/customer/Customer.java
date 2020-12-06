@@ -5,8 +5,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.UUID;
 
 public class Customer implements Serializable {
 
@@ -134,6 +132,11 @@ public class Customer implements Serializable {
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
+
+    public String getFullName() {
+        return firstName.concat(" ").concat(lastName);
+    }
+
 
 
 }
