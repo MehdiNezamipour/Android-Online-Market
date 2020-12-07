@@ -195,6 +195,25 @@ public class ProductRepository {
         });
     }
 
+    public void sortCategoryProducts(Integer categoryId, String orderBy, String order) {
+        mSearchStateMutableLiveData.setValue(SearchState.SEARCHING);
+        mWooApi.sortCategoryProducts(categoryId, 10, 1, orderBy, order).enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    mCategoryProductsLiveData.setValue(response.body());
+                    mSearchStateMutableLiveData.setValue(SearchState.RESULT_BACKED);
+                }
+                mSearchStateMutableLiveData.setValue(SearchState.NOTHING);
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                mSearchStateMutableLiveData.setValue(SearchState.ERROR);
+            }
+        });
+    }
+
     public void fetchInitData() {
         mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
         //get all products

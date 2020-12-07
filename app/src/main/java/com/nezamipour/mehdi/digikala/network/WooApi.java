@@ -50,12 +50,6 @@ public interface WooApi {
                                           @Query("orderby") String orderBy,
                                           @Query("order") String order);
 
-    @GET(BASE_URL + "products" + API_KEY)
-    Call<List<Product>> searchWithSorting(@Query("per_page") int perPage,
-                                          @Query("page") int numberOfPage,
-                                          @Query("search") String search,
-                                          @Query("orderby") String orderBy);
-
 
     //this api has 18 categories right now
     //so for get all of them page = 1 and per_page= 18
@@ -76,12 +70,6 @@ public interface WooApi {
                                             @Query("page") int page,
                                             @Query("orderby") String orderBy,
                                             @Query("order") String order);
-
-    @GET(BASE_URL + "products" + API_KEY)
-    Call<List<Product>> sortCategoryProducts(@Query("category") int categoryId,
-                                             @Query("per_page") int perPage,
-                                             @Query("page") int page,
-                                             @Query("orderby") String orderBy);
 
 
     //customers

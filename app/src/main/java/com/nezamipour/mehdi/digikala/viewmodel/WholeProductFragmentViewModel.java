@@ -50,6 +50,10 @@ public class WholeProductFragmentViewModel extends ViewModel {
         mProductRepository.searchWithSorting(search, orderBy, order);
     }
 
+    public void sortCategoryProducts(Integer categoryId, String orderBy, String order) {
+        mProductRepository.sortCategoryProducts(categoryId, orderBy, order);
+    }
+
     public LiveData<SearchState> getSearchState() {
         return mProductRepository.getSearchStateLiveData();
     }

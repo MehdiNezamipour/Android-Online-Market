@@ -115,6 +115,19 @@ public class WholeProductsFragment extends Fragment {
                     } else {
                         mViewModel.searchWithSorting(mToolbarWord, "price", "asc");
                     }
+                else if (mCategory != null) {
+                    if (selectedItem.equals(getResources().getString(R.string.latest_sort))) {
+                        mViewModel.sortCategoryProducts(mCategory.getId(), "date", "desc");
+                    } else if (selectedItem.equals(getResources().getString(R.string.popular_sort))) {
+                        mViewModel.sortCategoryProducts(mCategory.getId(), "popularity", "desc");
+                    } else if (selectedItem.equals(getResources().getString(R.string.topRating_sort))) {
+                        mViewModel.sortCategoryProducts(mCategory.getId(), "rating", "desc");
+                    } else if (selectedItem.equals(getResources().getString(R.string.price_descending))) {
+                        mViewModel.sortCategoryProducts(mCategory.getId(), "price", "desc");
+                    } else {
+                        mViewModel.sortCategoryProducts(mCategory.getId(), "price", "asc");
+                    }
+                }
             }
 
             @Override
