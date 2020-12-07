@@ -65,4 +65,5 @@ public class ProductDetailFragment extends Fragment {
         mBinding.imageSliderProductDetailImages.setSliderAdapter(mImageSliderAdapter);
 
     }
+
 }

@@ -115,7 +115,12 @@ public class SearchFragment extends Fragment {
                     event.getAction() == KeyEvent.ACTION_DOWN &&
                             event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
                 SearchFragmentDirections.ActionSearchFragmentToWholeProductsFragment action =
-                        SearchFragmentDirections.actionSearchFragmentToWholeProductsFragment("search");
+                        SearchFragmentDirections
+                                .actionSearchFragmentToWholeProductsFragment(
+                                        "search",
+                                        mBinding.toolbarSearch.editTextSearch.getText().toString(),
+                                        null);
+
                 Navigation.findNavController(v).navigate(action);
 
                 return true;

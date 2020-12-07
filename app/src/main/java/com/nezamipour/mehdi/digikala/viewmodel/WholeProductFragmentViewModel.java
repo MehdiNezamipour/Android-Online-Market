@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.data.repository.ProductRepository;
+import com.nezamipour.mehdi.digikala.util.enums.SearchState;
 
 import java.util.List;
 
@@ -44,6 +45,14 @@ public class WholeProductFragmentViewModel extends ViewModel {
         }
     }
 
+
+    public void searchWithSorting(String search, String orderBy, String order) {
+        mProductRepository.searchWithSorting(search, orderBy, order);
+    }
+
+    public LiveData<SearchState> getSearchState() {
+        return mProductRepository.getSearchStateLiveData();
+    }
 
     public LiveData<List<Product>> getProducts() {
         return mProducts;

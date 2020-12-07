@@ -76,7 +76,7 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
                 CategoryFragmentDirections
                         .ActionNavFragCategoryToCategoryProductsLoadingFragment action =
                         CategoryFragmentDirections
-                                .actionNavFragCategoryToCategoryProductsLoadingFragment(mCategory.getId());
+                                .actionNavFragCategoryToCategoryProductsLoadingFragment(mCategory);
                 Navigation.findNavController(v).navigate(action);
             });
         }

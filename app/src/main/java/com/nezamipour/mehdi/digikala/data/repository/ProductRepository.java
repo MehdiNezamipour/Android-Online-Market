@@ -114,6 +114,27 @@ public class ProductRepository {
         return mProductSearchMutableLiveData;
     }
 
+
+    public void searchWithSorting(String search, String orderBy, String order) {
+        mSearchStateMutableLiveData.setValue(SearchState.SEARCHING);
+        mWooApi.searchWithSorting(10, 1, search, orderBy, order).enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    mProductSearchMutableLiveData.setValue(response.body());
+                    mSearchStateMutableLiveData.setValue(SearchState.RESULT_BACKED);
+
+                }
+                mSearchStateMutableLiveData.setValue(SearchState.NOTHING);
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                mSearchStateMutableLiveData.setValue(SearchState.ERROR);
+            }
+        });
+    }
+
     public void fetchProductsBySearch(String search) {
         mSearchStateMutableLiveData.postValue(SearchState.SEARCHING);
         mWooApi.getProductsBySearch(10, 1, search).enqueue(new Callback<List<Product>>() {
@@ -123,6 +144,7 @@ public class ProductRepository {
                     mProductSearchMutableLiveData.setValue(response.body());
                     mSearchStateMutableLiveData.setValue(SearchState.RESULT_BACKED);
                 }
+                mSearchStateMutableLiveData.setValue(SearchState.NOTHING);
             }
 
             @Override
@@ -143,6 +165,7 @@ public class ProductRepository {
                     mProductByIdMutableLiveData.setValue(response.body());
                     mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
                 }
+                mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);
             }
 
             @Override
@@ -162,6 +185,7 @@ public class ProductRepository {
                     mCategoryProductsLiveData.setValue(response.body());
                     mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
                 }
+                mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);
             }
 
             @Override
@@ -274,8 +298,8 @@ public class ProductRepository {
                     categoryRepository.setParentCategories(CategoryUtil.parentsCategory(response.body()));
                     //live data flag to start activity in Ui (SplashFragment) with observe this field
                     mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
-
                 }
+                mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);
             }
 
             @Override

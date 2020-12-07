@@ -26,11 +26,6 @@ public interface WooApi {
                                     @Query("page") int numberOfPage,
                                     @Query("orderby") String orderBy);
 
-    @GET(BASE_URL + "products" + API_KEY)
-    Call<List<Product>> getProductsBySearch(@Query("per_page") int perPage,
-                                            @Query("page") int numberOfPage,
-                                            @Query("search") String search);
-
 
     @GET(BASE_URL + "products" + API_KEY)
     Call<List<Product>> getAllProducts();
@@ -38,6 +33,29 @@ public interface WooApi {
 
     @GET(BASE_URL + "products/{productId}" + API_KEY)
     Call<Product> getProductById(@Path("productId") Integer productId);
+
+
+
+    //get products with search
+    @GET(BASE_URL + "products" + API_KEY)
+    Call<List<Product>> getProductsBySearch(@Query("per_page") int perPage,
+                                            @Query("page") int numberOfPage,
+                                            @Query("search") String search);
+
+    //search with sort (order and orderBy)
+    @GET(BASE_URL + "products" + API_KEY)
+    Call<List<Product>> searchWithSorting(@Query("per_page") int perPage,
+                                          @Query("page") int numberOfPage,
+                                          @Query("search") String search,
+                                          @Query("orderby") String orderBy,
+                                          @Query("order") String order);
+
+    @GET(BASE_URL + "products" + API_KEY)
+    Call<List<Product>> searchWithSorting(@Query("per_page") int perPage,
+                                          @Query("page") int numberOfPage,
+                                          @Query("search") String search,
+                                          @Query("orderby") String orderBy);
+
 
     //this api has 18 categories right now
     //so for get all of them page = 1 and per_page= 18
@@ -51,6 +69,19 @@ public interface WooApi {
                                             @Query("per_page") int perPage,
                                             @Query("page") int page);
 
+    //sort products of category
+    @GET(BASE_URL + "products" + API_KEY)
+    Call<List<Product>> sortCategoryProducts(@Query("category") int categoryId,
+                                            @Query("per_page") int perPage,
+                                            @Query("page") int page,
+                                            @Query("orderby") String orderBy,
+                                            @Query("order") String order);
+
+    @GET(BASE_URL + "products" + API_KEY)
+    Call<List<Product>> sortCategoryProducts(@Query("category") int categoryId,
+                                             @Query("per_page") int perPage,
+                                             @Query("page") int page,
+                                             @Query("orderby") String orderBy);
 
 
     //customers

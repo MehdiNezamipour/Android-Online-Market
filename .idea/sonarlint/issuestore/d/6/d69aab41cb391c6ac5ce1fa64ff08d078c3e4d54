@@ -1,13 +1,11 @@
 
 „
 java:S1450""bRemove the "mImageSliderAdapter" field and declare it as a local variable in the relevant methods.(´Ð²°ùÿÿÿÿ8µ…Ýªà.
-X	java:S1257"<This block of commented-out lines of code should be removed.(êžÖô8È·°‚à.
 H
-java:S1602E",Remove useless curly braces around statement(â³Â8È·°‚à.
-]	java:S125`"<This block of commented-out lines of code should be removed.(¯êÉŽøÿÿÿÿ8  öÁá.
+java:S1602@",Remove useless curly braces around statement(â³Â8È·°‚à.
 I
-java:S1602=",Remove useless curly braces around statement(†È½›8È·°‚à.
-I
-java:S1602I",Remove useless curly braces around statement(×ß×8È·°‚à.
+java:S16028",Remove useless curly braces around statement(†È½›8È·°‚à.
 N
-java:S1602A",Remove useless curly braces around statement(ÄÏÕ˜ýÿÿÿÿ8È·°‚à.
+java:S1602<",Remove useless curly braces around statement(ÄÏÕ˜ýÿÿÿÿ8È·°‚à.
+I
+java:S1602D",Remove useless curly braces around statement(×ß×8È·°‚à.

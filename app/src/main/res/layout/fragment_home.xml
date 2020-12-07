@@ -18,7 +18,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/digikala_light_gray"
+                android:background="@color/digikala_dark_white"
                 android:gravity="center|top"
                 android:isScrollContainer="true"
                 android:orientation="vertical">

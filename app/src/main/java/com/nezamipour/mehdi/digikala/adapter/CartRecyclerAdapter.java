@@ -71,6 +71,8 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
             });
 
 
+
+
             Picasso.get()
                     .load(ImageUtil.getFirstImageUrlOfProduct(product))
                     .placeholder(R.drawable.place_holder)

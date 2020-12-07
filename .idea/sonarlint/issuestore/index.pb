@@ -223,12 +223,8 @@ a
 \app/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/RegistrationCheckFragment.java,2\4\248483cdf49df73996af12ad2b6bc96973983e41
 Å
 Qapp/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/SignUpFragment.java,3\f\3f6ddc34f2f1c05e1f772526887ebd4ce927e7ee
-c
-3app/src/main/res/layout/toolbar_filter_and_sort.xml,0\3\039d427a3bba1eb035c7e8291c19b79caf219017
 X
 (app/src/main/res/layout/toolbar_home.xml,d\f\dfd0533773e48abd71d7e23d25d187867af34c8c
-Z
-*app/src/main/res/layout/toolbar_search.xml,4\3\43e4e37da2758ebf7a307cc41f2274511cf64bff
 â
 Yapp/src/main/java/com/nezamipour/mehdi/digikala/viewmodel/RegistrationCheckViewModel.java,2\a\2a9ac83e8137780db0de178c77773c56f7cd8eea
 É
@@ -237,8 +233,6 @@ Y
 )app/src/main/res/layout/activity_main.xml,7\6\76b07e40f24cce093536731477540f12e7da3cb6
 ]
 -app/src/main/res/layout/fragment_category.xml,1\3\137bd709e5680d18a1be69388168e389adaae9ce
-Y
-)app/src/main/res/layout/fragment_home.xml,3\1\31c5880846ef63ff1963efbe141ddfd56680bb19
 \
 ,app/src/main/res/layout/fragment_sign_up.xml,f\2\f24a32d45f7391e6c10a74acae66ba9a27de29bf
 \
@@ -271,7 +265,5 @@ g
 -app/src/main/res/layout/fragment_shipping.xml,0\5\0591a95d3b244dfe1c07f944c70a762cf925d031
 `
 0app/src/main/res/menu/bottom_navigation_menu.xml,d\6\d6b83c453579d1c62b11597f7bfbba2e903ecd37
-Y
-)app/src/main/res/navigation/nav_graph.xml,b\a\baffce053da291d96fb575a09f2bbe9aaa9c4be9
-S
-#app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e
+è
+_app/src/main/java/com/nezamipour/mehdi/digikala/view/fragment/WholeProductsLoadingFragment.java,d\5\d5b3bee9d7386aaa3a14eeeb58cae1c42830ce3e

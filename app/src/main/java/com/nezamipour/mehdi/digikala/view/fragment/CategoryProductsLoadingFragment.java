@@ -9,23 +9,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.nezamipour.mehdi.digikala.R;
-import com.nezamipour.mehdi.digikala.data.model.product.Product;
+import com.nezamipour.mehdi.digikala.data.model.product.Category;
 import com.nezamipour.mehdi.digikala.databinding.FragmentLoadingBinding;
 import com.nezamipour.mehdi.digikala.viewmodel.CategoryProductsLoadingFragmentViewModel;
-
-import java.util.List;
 
 
 public class CategoryProductsLoadingFragment extends Fragment {
 
     private CategoryProductsLoadingFragmentViewModel mViewModel;
     private FragmentLoadingBinding mBinding;
-    private Integer mCategoryId;
+    private Category mCategory;
 
     public CategoryProductsLoadingFragment() {
         // Required empty public constructor
@@ -38,10 +35,10 @@ public class CategoryProductsLoadingFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCategoryId = CategoryProductsLoadingFragmentArgs.fromBundle(getArguments()).getCategoryId();
+        mCategory = CategoryProductsLoadingFragmentArgs.fromBundle(getArguments()).getCategory();
 
         mViewModel = new ViewModelProvider(this).get(CategoryProductsLoadingFragmentViewModel.class);
-        mViewModel.fetchCategoryProducts(mCategoryId);
+        mViewModel.fetchCategoryProducts(mCategory.getId());
 
 
         //TODO : refactor boilerplate here and loading fragment are same
@@ -56,8 +53,10 @@ public class CategoryProductsLoadingFragment extends Fragment {
                 case START_ACTIVITY:
                     CategoryProductsLoadingFragmentDirections.ActionCategoryProductsLoadingFragmentToWholeProductsFragment action =
                             CategoryProductsLoadingFragmentDirections
-                                    .actionCategoryProductsLoadingFragmentToWholeProductsFragment("category")
-                                    .setCategoryId(mCategoryId);
+                                    .actionCategoryProductsLoadingFragmentToWholeProductsFragment(
+                                            "category",
+                                            null,
+                                            mCategory);
 
                     Navigation.findNavController(getView()).navigate(action);
                     break;

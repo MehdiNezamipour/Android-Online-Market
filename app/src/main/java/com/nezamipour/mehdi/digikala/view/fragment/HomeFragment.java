@@ -51,11 +51,6 @@ public class HomeFragment extends Fragment {
 
         mViewModel = new ViewModelProvider(this).get(HomeFragmentViewModel.class);
 
-        //test room
-        /*CartRepository cartRepository = CartRepository.getInstance(getContext());
-        Log.d("HomeFragment", cartRepository.get(1).toString());*/
-
-
         initAdapters();
 
         mViewModel.getOfferedProductsLiveData().observe(this, products -> {
@@ -93,9 +88,6 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-/*        Toolbar toolbar = getActivity().findViewById(R.id.main_toolbar);
-        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);*/
-
         mImageSliderAdapter = new ImageSliderAdapter(getContext());
         List<String> stringsResource = new ArrayList<>();
 
@@ -105,7 +97,6 @@ public class HomeFragment extends Fragment {
         stringsResource.add(ImageUtil.convertResourceIdToUrl(R.drawable.main_slider_image02));
 
         mImageSliderAdapter.setStringImageUrl(stringsResource);
-
         mBinding.imageSlider.setSliderAdapter(mImageSliderAdapter);
 
 
@@ -132,9 +123,8 @@ public class HomeFragment extends Fragment {
 
     private void navigateToWholeProductsFragment(View v, String orderBy) {
         HomeFragmentDirections.ActionHomeFragmentToWholeProductsFragment action = HomeFragmentDirections
-                .actionHomeFragmentToWholeProductsFragment(orderBy);
-        Navigation.findNavController(v)
-                .navigate(action);
+                .actionHomeFragmentToWholeProductsFragment(orderBy, null, null);
+        Navigation.findNavController(v).navigate(action);
     }
 
     public void initAdapters() {
