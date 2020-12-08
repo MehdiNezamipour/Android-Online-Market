@@ -275,3 +275,5 @@ a
 1app/src/main/res/values/sorting_spinner_items.xml,c\e\ce7e2f6c574acb875e8b118f9c09cbef8bea55d6
 S
 #app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e
+]
+-app/src/main/res/layout/fragment_category.xml,1\3\137bd709e5680d18a1be69388168e389adaae9ce

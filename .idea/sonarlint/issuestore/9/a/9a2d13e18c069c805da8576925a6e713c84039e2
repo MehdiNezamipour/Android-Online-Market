@@ -1,5 +1,9 @@
 
-£
-java:S1186y"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹Æº×şÿÿÿÿ8²²óñã.
 S
 java:S5261m"1Add explicit curly braces to avoid dangling else.(üìüÿÿÿÿ8éÛñã.
+h
+java:S1192r"FDefine a constant instead of duplicating this literal "price" 4 times.(ä÷™ˆûÿÿÿÿ8§“éôã.
+¤
+java:S1186†"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹Æº×şÿÿÿÿ8¤Ô˜õã.
+o
+java:S3776\"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(¡Œşø8§“éôã.
