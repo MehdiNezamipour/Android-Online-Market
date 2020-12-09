@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,11 +16,11 @@ import android.view.ViewGroup;
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.data.model.customer.Customer;
 import com.nezamipour.mehdi.digikala.databinding.FragmentCustomerBinding;
-import com.nezamipour.mehdi.digikala.viewmodel.LoadingLoginViewModel;
+import com.nezamipour.mehdi.digikala.viewmodel.LoginViewModel;
 
 public class CustomerFragment extends Fragment {
 
-    private LoadingLoginViewModel mViewModel;
+    private LoginViewModel mViewModel;
     private FragmentCustomerBinding mBinding;
     private String mEmail;
 
@@ -36,7 +37,7 @@ public class CustomerFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mViewModel = new ViewModelProvider(this).get(LoadingLoginViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
     }
 
@@ -54,6 +55,9 @@ public class CustomerFragment extends Fragment {
         Customer customer = mViewModel.getCustomerLiveData().getValue();
         mBinding.textViewCustomerName.setText(customer.getFullName());
         mBinding.textViewCustomerUserName.setText(customer.getUsername());
-
+        mBinding.imageViewSignOut.setOnClickListener(v -> {
+            mViewModel.changeStateToLogOut();
+            Navigation.findNavController(v).navigate(CustomerFragmentDirections.actionCustomerFragmentToNavFragHome());
+        });
     }
 }

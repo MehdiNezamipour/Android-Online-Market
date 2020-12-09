@@ -23,8 +23,6 @@ a
 1app/src/main/res/drawable-anydpi/ic_back_dark.xml,d\a\da03a7f6a2101f598bf4197655397da1a8713da3
 `
 0app/src/main/res/drawable-anydpi/ic_category.xml,7\9\79744a05475c42ec2bb59fe3cca7d0646f249e11
-]
--app/src/main/res/drawable-anydpi/ic_close.xml,2\6\263ff59cc4126c64955eb059e9b500ff8946be3b
 _
 /app/src/main/res/drawable-anydpi/ic_comment.xml,f\7\f7eb1401f4ed24fed654830356c8565115c6de7c
 ^
@@ -255,8 +253,6 @@ dapp/src/main/java/com/nezamipour/mehdi/digikala/data/database/customerdatabase/
 Rapp/src/main/java/com/nezamipour/mehdi/digikala/data/database/entity/Customer.java,f\2\f2f60edd6bfee2b8fbbc1a66db4a08901233fe7f
 ‡
 Wapp/src/main/java/com/nezamipour/mehdi/digikala/data/repository/CustomerRepository.java,4\c\4c3220cebdc94228b4878e5c46f2915821ee5cf0
-]
--app/src/main/res/layout/fragment_customer.xml,1\8\18e3333c3128434d7ef6a8630230adbf2b696d0a
 g
 7app/src/main/res/layout/fragment_registration_check.xml,4\9\49a94a0efda05c9c4ff428935e16bf8eb7932fb5
 ]
@@ -275,5 +271,3 @@ a
 1app/src/main/res/values/sorting_spinner_items.xml,c\e\ce7e2f6c574acb875e8b118f9c09cbef8bea55d6
 S
 #app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e
-]
--app/src/main/res/layout/fragment_category.xml,1\3\137bd709e5680d18a1be69388168e389adaae9ce

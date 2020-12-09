@@ -9,19 +9,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.data.database.entity.Customer;
 import com.nezamipour.mehdi.digikala.databinding.FragmentLoadingBinding;
-import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
-import com.nezamipour.mehdi.digikala.viewmodel.LoadingLoginViewModel;
+import com.nezamipour.mehdi.digikala.viewmodel.LoginViewModel;
 
 public class LoginLoadingFragment extends Fragment {
 
-    private LoadingLoginViewModel mViewModel;
+    private LoginViewModel mViewModel;
     private FragmentLoadingBinding mBinding;
     private Customer mCustomer;
 
@@ -37,7 +35,7 @@ public class LoginLoadingFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mViewModel = new ViewModelProvider(this).get(LoadingLoginViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         mCustomer = mViewModel.getCurrentLoginCustomerFromDataBase();
 
         mViewModel.getConnectionStateLiveData().observe(this, connectionState -> {

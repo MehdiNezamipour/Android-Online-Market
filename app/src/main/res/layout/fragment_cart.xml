@@ -23,21 +23,36 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:padding="8dp">
+                android:padding="8dp"
+                android:weightSum="3">
 
                 <TextView
+
                     android:id="@+id/textView_sum_of_cart"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
                     android:gravity="left"
+                    android:textColor="@color/digikala_green"
+                    app:fontFamily="@font/far_roya_bd"
+                    tools:text="1500000" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="@string/tomans"
                     android:textColor="@color/digikala_green"
                     app:fontFamily="@font/iran_yekan" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/cart_sum"
                     android:textColor="@color/digikala_green"

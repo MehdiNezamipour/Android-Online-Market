@@ -216,7 +216,11 @@
         android:name="com.nezamipour.mehdi.digikala.view.fragment.CustomerFragment"
         android:label="CustomerFragment"
         tools:layout="@layout/fragment_customer"
-        />
+        >
+        <action
+            android:id="@+id/action_customerFragment_to_nav_fragHome"
+            app:destination="@id/nav_fragHome" />
+    </fragment>
 
 
 </navigation>

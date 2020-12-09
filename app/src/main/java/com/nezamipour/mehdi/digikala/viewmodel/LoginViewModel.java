@@ -10,12 +10,12 @@ import com.nezamipour.mehdi.digikala.data.database.entity.Customer;
 import com.nezamipour.mehdi.digikala.data.repository.CustomerRepository;
 import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 
-public class LoadingLoginViewModel extends AndroidViewModel {
+public class LoginViewModel extends AndroidViewModel {
 
     private final CustomerRepository mCustomerRepository;
 
 
-    public LoadingLoginViewModel(@NonNull Application application) {
+    public LoginViewModel(@NonNull Application application) {
         super(application);
         mCustomerRepository = CustomerRepository.getInstance(application);
     }
@@ -40,5 +40,16 @@ public class LoadingLoginViewModel extends AndroidViewModel {
         return mCustomerRepository.getCustomerLiveData();
     }
 
+    public void changeStateToLogOut() {
+        mCustomerRepository.changeStateToLogOut();
+    }
+
+    public void changeStateToLogIn(String email) {
+        mCustomerRepository.changeStateToLogIn(email);
+    }
+
+    public boolean authorizePassword(String email, String password) {
+        return mCustomerRepository.authorizePassword(email, password);
+    }
 
 }

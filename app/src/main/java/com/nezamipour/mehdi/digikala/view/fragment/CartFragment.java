@@ -36,7 +36,11 @@ public class CartFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(CartFragmentViewModel.class);
 
         mViewModel.getCartProducts().observe(
-                this, products -> mCartRecyclerAdapter.notifyDataSetChanged());
+                this, products -> {
+                    mCartRecyclerAdapter.notifyDataSetChanged();
+                    if (products.isEmpty())
+                        mBinding.buttonFinishShopping.setEnabled(false);
+                });
 
         mViewModel.getTotalPriceLiveData().observe(this, s -> mBinding.textViewSumOfCart.setText(s));
     }
@@ -51,12 +55,15 @@ public class CartFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initUi();
+    }
 
+    private void initUi() {
+        if (mViewModel.getCartProducts().getValue().isEmpty())
+            mBinding.buttonFinishShopping.setEnabled(false);
         mBinding.textViewSumOfCart.setText(mViewModel.getTotalPriceLiveData().getValue());
         mCartRecyclerAdapter = new CartRecyclerAdapter(getContext());
         mCartRecyclerAdapter.setProducts(mViewModel.getCartProducts().getValue());
         mBinding.recyclerViewCart.setAdapter(mCartRecyclerAdapter);
-
-
     }
 }
