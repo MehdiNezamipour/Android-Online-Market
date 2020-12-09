@@ -17,6 +17,7 @@ public class CartFragmentViewModel extends AndroidViewModel {
     private final CartRepository mCartRepository;
 
 
+
     public CartFragmentViewModel(@NonNull Application application) {
         super(application);
         mCartRepository = CartRepository.getInstance(application);
@@ -32,6 +33,10 @@ public class CartFragmentViewModel extends AndroidViewModel {
 
     public LiveData<ConnectionState> getConnectionStateLiveData() {
         return mCartRepository.getConnectionStateMutableLiveData();
+    }
+
+    public LiveData <String> getTotalPriceLiveData (){
+        return mCartRepository.getTotalPriceMutableLiveData();
     }
 
 

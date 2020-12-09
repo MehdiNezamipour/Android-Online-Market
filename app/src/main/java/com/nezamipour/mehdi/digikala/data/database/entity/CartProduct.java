@@ -47,6 +47,7 @@ public class CartProduct {
         mCount = count;
     }
 
+
     public CartProduct() {
     }
 }
