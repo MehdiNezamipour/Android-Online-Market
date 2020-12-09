@@ -12,7 +12,7 @@ import com.nezamipour.mehdi.digikala.R;
 
 public class LoginFragment extends Fragment {
 
-
+//add
     public LoginFragment() {
         // Required empty public constructor
     }
