@@ -2,6 +2,7 @@ package com.nezamipour.mehdi.digikala.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -60,10 +61,15 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
 
         public void bindProduct(Product product) {
             mBinding.textViewCartItemTitle.setText(product.getName());
-            mBinding.textViewCartItemPrice.setText(product.getSalePrice());
+            mBinding.textViewCartItemPrice.setText(product.getPrice());
+            mBinding.textViewCartItemCount.setText(String.valueOf(mCartRepository.get(product.getId()).getCount()));
             CartProduct cartProduct = mCartRepository.get(product.getId());
 
-            //implementation of delete orders from cart fragment
+
+            mBinding.getRoot().setOnClickListener(v -> {
+
+            });
+
             mBinding.buttonCartItemDelete.setOnClickListener(v -> {
                 mCartRepository.delete(cartProduct);
                 mProducts.remove(product);
@@ -71,6 +77,15 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
             });
 
 
+            mBinding.buttonCartItemIncrease.setOnClickListener(v -> {
+                mCartRepository.increaseCountOfCart(product);
+                mBinding.textViewCartItemCount.setText(String.valueOf(mCartRepository.get(product.getId()).getCount()));
+            });
+
+            mBinding.buttonCartItemDecrease.setOnClickListener(v -> {
+                mCartRepository.decreaseCountOfCart(product);
+                mBinding.textViewCartItemCount.setText(String.valueOf(mCartRepository.get(product.getId()).getCount()));
+            });
 
 
             Picasso.get()

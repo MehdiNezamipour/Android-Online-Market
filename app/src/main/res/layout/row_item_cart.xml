@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <androidx.cardview.widget.CardView
@@ -37,7 +38,7 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="4dp"
                         android:gravity="right"
-                        android:textSize="14dp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/iran_yekan" />
 
                     <TextView
@@ -47,7 +48,7 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="4dp"
                         android:gravity="right"
-                        android:textSize="10dp"
+                        android:textSize="10sp"
                         app:fontFamily="@font/iran_yekan" />
 
                     <TextView
@@ -57,7 +58,7 @@
                         android:layout_marginTop="8dp"
                         android:gravity="right"
                         android:text="@string/color"
-                        android:textSize="10dp"
+                        android:textSize="10sp"
                         app:fontFamily="@font/iran_yekan" />
 
 
@@ -81,7 +82,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="12dp"
-                            android:textSize="10dp"
+                            android:textSize="10sp"
                             app:fontFamily="@font/iran_yekan" />
 
                         <com.google.android.material.button.MaterialButton
@@ -97,7 +98,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/count"
-                            android:textSize="10dp"
+                            android:textSize="10sp"
                             app:fontFamily="@font/iran_yekan" />
 
 
@@ -123,6 +124,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:weightSum="3"
                 android:background="@color/digikala_white">
 
                 <TextView
@@ -130,25 +132,38 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
-                    android:layout_weight="0.5"
+                    android:layout_weight="1"
                     android:gravity="left"
+                    tools:text="150000"
                     android:padding="2dp"
                     android:textColor="@color/digikala_green"
-                    android:textSize="12dp"
-                    app:fontFamily="@font/iran_yekan" />
+                    android:textSize="12sp"
+                    app:fontFamily="@font/far_roya_bd" />
 
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="12dp"
-                    android:layout_weight="0.5"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:padding="2dp"
+                    android:textColor="@color/digikala_green"
+                    android:textSize="12sp"
+                    android:text="@string/tomans"
+                    app:fontFamily="@font/iran_yekan" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="right"
                     android:padding="2dp"
                     android:text="@string/final_price"
                     android:textColor="@color/digikala_green"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     app:fontFamily="@font/iran_yekan" />
+
+
 
             </LinearLayout>
 
@@ -167,7 +182,7 @@
                 android:paddingRight="12dp"
                 android:text="@string/delete"
                 android:textColor="@color/digikala_raw_white"
-                android:textSize="10dp"
+                android:textSize="10sp"
                 app:fontFamily="@font/iran_yekan" />
 
 

@@ -73,6 +73,23 @@ public class CartRepository {
     }
 
 
+    public void increaseCountOfCart(Product product) {
+        CartProduct cartProduct = get(product.getId());
+        int newCount = cartProduct.getCount() + 1;
+        cartProduct.setCount(newCount);
+        update(cartProduct);
+    }
+
+    public void decreaseCountOfCart(Product product) {
+        CartProduct cartProduct = get(product.getId());
+        if (cartProduct.getCount() > 1) {
+            int newCount = cartProduct.getCount() - 1;
+            cartProduct.setCount(newCount);
+            update(cartProduct);
+        }
+    }
+
+
     public void fetchCartProducts() {
         mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
         mProductsLiveData.postValue(new ArrayList<>());
