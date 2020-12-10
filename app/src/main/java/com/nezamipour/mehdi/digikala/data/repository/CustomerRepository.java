@@ -114,6 +114,8 @@ public class CustomerRepository {
         });
     }
 
+
+
     public void fetchCustomerByEmail(String email) {
         mConnectionStateMutableLiveData.postValue(ConnectionState.LOADING);
         mWooApi.getCustomer(email).enqueue(new Callback<List<com.nezamipour.mehdi.digikala.data.model.customer.Customer>>() {

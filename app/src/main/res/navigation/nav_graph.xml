@@ -108,6 +108,9 @@
         <action
             android:id="@+id/action_cartFragment_to_productDetailLoadingFragment"
             app:destination="@id/productDetailLoadingFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_finishShoppingFragment"
+            app:destination="@id/finishShoppingFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -220,6 +223,18 @@
         <action
             android:id="@+id/action_customerFragment_to_nav_fragHome"
             app:destination="@id/nav_fragHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/finishShoppingFragment"
+        android:name="com.nezamipour.mehdi.digikala.view.fragment.FinishShoppingFragment"
+        android:label="fragment_finish_shopping"
+        tools:layout="@layout/fragment_finish_shopping" >
+        <argument
+            android:name="customer"
+            app:argType="com.nezamipour.mehdi.digikala.data.model.customer.Customer" />
+        <argument
+            android:name="totalPrice"
+            app:argType="string" />
     </fragment>
 
 

@@ -75,6 +75,12 @@
     <string name="my_orders">سفارشات من</string>
     <string name="delivered_orders">تحویل شده</string>
     <string name="in_process_orders">در حال پردازش</string>
+    <string name="send_orders">ثبت سفارش</string>
+    <string name="sent_to">ارسال به</string>
+    <string name="coupon">کد تخفیف</string>
+    <string name="add_coupon">اعمال کد تخفیف</string>
+    <string name="finish_payment">پرداخت نهایی</string>
+    <string name="no_address_from_map">موقعیت این آدرس بر روی نقشه تعیین نشده، برای ادامه وجود موقعیت الزامی است.</string>
 
 
 </resources>

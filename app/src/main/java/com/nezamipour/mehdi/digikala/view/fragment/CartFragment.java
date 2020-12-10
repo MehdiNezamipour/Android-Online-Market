@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.adapter.CartRecyclerAdapter;
@@ -56,10 +57,21 @@ public class CartFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initUi();
+        mBinding.buttonFinishShopping.setOnClickListener(v -> {
+            //TODO Later Fix Bug : when app come up and not click on
+            // login fragment at least for one time customer live data is null
+
+            if (mViewModel.getCustomerLiveData().getValue() != null) {
+                CartFragmentDirections.ActionCartFragmentToFinishShoppingFragment action =
+                        CartFragmentDirections.actionCartFragmentToFinishShoppingFragment(mViewModel.getCustomerLiveData().getValue()
+                                , mViewModel.getTotalPriceLiveData().getValue());
+                Navigation.findNavController(v).navigate(action);
+            }
+        });
     }
 
     private void initUi() {
-        if (mViewModel.getCartProducts().getValue().isEmpty())
+        if (mViewModel.getCartProducts().getValue().isEmpty() && mViewModel.getCurrentLoginCustomer() != null)
             mBinding.buttonFinishShopping.setEnabled(false);
         mBinding.textViewSumOfCart.setText(mViewModel.getTotalPriceLiveData().getValue());
         mCartRecyclerAdapter = new CartRecyclerAdapter(getContext());

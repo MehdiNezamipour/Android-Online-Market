@@ -28,6 +28,7 @@ public class CartRepository {
     private final CartDao mCartDao;
     private final MutableLiveData<List<Product>> mProductsLiveData;
     private final MutableLiveData<String> mTotalPriceMutableLiveData;
+    private CustomerRepository mCustomerRepository;
 
     private CartRepository(Context context) {
         CartDatabase dataBase = CartDatabase.getDataBase(context.getApplicationContext());
@@ -36,6 +37,7 @@ public class CartRepository {
         mProductsLiveData = new MutableLiveData<>();
         mConnectionStateMutableLiveData = new MutableLiveData<>();
         mTotalPriceMutableLiveData = new MutableLiveData<>();
+
     }
 
     public static CartRepository getInstance(Context context) {
@@ -137,5 +139,6 @@ public class CartRepository {
             });
         }
     }
+
 
 }

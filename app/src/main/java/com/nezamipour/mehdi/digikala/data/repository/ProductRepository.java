@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.nezamipour.mehdi.digikala.data.model.product.Category;
+import com.nezamipour.mehdi.digikala.data.model.product.Coupon;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.network.RetrofitInstance;
 import com.nezamipour.mehdi.digikala.network.WooApi;
@@ -37,6 +38,7 @@ public class ProductRepository {
 
     private final MutableLiveData<Product> mProductByIdMutableLiveData;
     private final MutableLiveData<List<Product>> mProductSearchMutableLiveData;
+    private final MutableLiveData<Coupon> mCouponMutableLiveData;
 
     private final WooApi mWooApi;
 
@@ -58,6 +60,7 @@ public class ProductRepository {
         mProductByIdMutableLiveData = new MutableLiveData<>();
         mProductSearchMutableLiveData = new MutableLiveData<>();
 
+        mCouponMutableLiveData = new MutableLiveData<>();
     }
 
 
@@ -114,6 +117,28 @@ public class ProductRepository {
         return mProductSearchMutableLiveData;
     }
 
+    public LiveData<Coupon> getCouponLiveData() {
+        return mCouponMutableLiveData;
+    }
+
+    public void fetchCouponByCode(String code) {
+        mConnectionStateMutableLiveData.postValue(ConnectionState.LOADING);
+        mWooApi.getCouponByCode(code).enqueue(new Callback<List<Coupon>>() {
+            @Override
+            public void onResponse(Call<List<Coupon>> call, Response<List<Coupon>> response) {
+                if (response.isSuccessful() && !response.body().isEmpty()) {
+                    mCouponMutableLiveData.setValue(response.body().get(0));
+                    mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
+                }
+                mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);
+            }
+
+            @Override
+            public void onFailure(Call<List<Coupon>> call, Throwable t) {
+                mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
+            }
+        });
+    }
 
     public void searchWithSorting(String search, String orderBy, String order) {
         mSearchStateMutableLiveData.setValue(SearchState.SEARCHING);

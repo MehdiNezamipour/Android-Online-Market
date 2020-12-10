@@ -12,4 +12,8 @@ public class StringUtil {
         return result;
     }
 
+    public static String approveCouponAmount(String totalPrice, String couponAmount) {
+        return String.valueOf(Double.parseDouble(totalPrice) - Double.parseDouble(couponAmount));
+    }
+
 }
