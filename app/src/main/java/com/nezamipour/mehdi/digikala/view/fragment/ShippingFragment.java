@@ -93,6 +93,7 @@ public class ShippingFragment extends Fragment {
                     mBinding.editTextState.getText().toString(),
                     mBinding.editTextCountry.getText().toString()
             );
+
             Customer customer = new Customer(mEmail, mFirstName, mLastName, shipping);
             mViewModel.postCustomerToDataBase(mEmail, mPassword);
             mViewModel.postCustomerToServer(customer);

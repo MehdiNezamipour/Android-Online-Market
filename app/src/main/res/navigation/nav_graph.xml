@@ -95,10 +95,13 @@
     <fragment
         android:id="@+id/nav_fragCart"
         android:name="com.nezamipour.mehdi.digikala.view.fragment.CartProductsLoadingFragment"
-        android:label="CartProductsLoadingFragment">
+        android:label="CartProductsLoadingFragment"
+        >
         <action
             android:id="@+id/action_nav_fragCart_to_cartFragment"
-            app:destination="@id/cartFragment" />
+            app:destination="@id/cartFragment"
+            app:popUpTo="@id/nav_fragHome"
+            />
     </fragment>
 
     <fragment
@@ -130,7 +133,8 @@
         android:id="@+id/checkRegistrationFragment"
         android:name="com.nezamipour.mehdi.digikala.view.fragment.RegistrationCheckFragment"
         android:label="checkRegistrationFragment"
-        tools:layout="@layout/fragment_registration_check" >
+        tools:layout="@layout/fragment_registration_check"
+        >
 
 
         <action
@@ -202,7 +206,9 @@
 
         <action
             android:id="@+id/action_loginLoadingFragment_to_customerFragment"
-            app:destination="@id/customerFragment" />
+            app:destination="@id/customerFragment"
+            app:popUpTo="@id/nav_fragHome"
+            />
 
         <argument
             android:name="email"
@@ -211,7 +217,10 @@
 
         <action
             android:id="@+id/action_loginLoadingFragment_to_checkRegistrationFragment"
-            app:destination="@id/checkRegistrationFragment" />
+            app:destination="@id/checkRegistrationFragment"
+            app:popUpTo="@id/nav_fragHome"
+
+            />
 
     </fragment>
     <fragment

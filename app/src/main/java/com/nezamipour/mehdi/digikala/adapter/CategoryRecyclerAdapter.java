@@ -72,7 +72,6 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
                     .into(mBinding.imageViewProductCover);
 
             mBinding.rowLayoutCardView.setOnClickListener(v -> {
-                //TODO : later
                 CategoryFragmentDirections
                         .ActionNavFragCategoryToCategoryProductsLoadingFragment action =
                         CategoryFragmentDirections

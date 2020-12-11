@@ -234,4 +234,12 @@ public class Order implements Serializable {
     }
 
 
+
+    public Order(String total, Integer customerId, Billing billing, Shipping shipping, List<LineItem> lineItems) {
+        this.total = total;
+        this.customerId = customerId;
+        this.billing = billing;
+        this.shipping = shipping;
+        this.lineItems = lineItems;
+    }
 }

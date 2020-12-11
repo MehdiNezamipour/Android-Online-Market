@@ -62,6 +62,10 @@ public class CartRepository {
         mCartDao.delete(cartProduct);
     }
 
+    public void deleteAll() {
+        mCartDao.deleteAll();
+    }
+
     public void update(CartProduct cartProduct) {
         mCartDao.update(cartProduct);
     }

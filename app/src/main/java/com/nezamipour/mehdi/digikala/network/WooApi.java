@@ -84,7 +84,7 @@ public interface WooApi {
 
     //orders
     @POST(BASE_URL + "orders" + API_KEY)
-    Call<Customer> postOrder(@Body Order order);
+    Call<Order> postOrder(@Body Order order);
 
     @GET(BASE_URL + "orders" + API_KEY)
     Call<List<Order>> getOrdersOfCustomer(@Query("customer") int customerId,
@@ -98,7 +98,6 @@ public interface WooApi {
     @PUT(BASE_URL + "coupons/{couponId}" + API_KEY)
     Call<Coupon> updateCoupon(@Path("couponId") int couponId,
                               @Body Coupon coupon);
-
 
 
 }

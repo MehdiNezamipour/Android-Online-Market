@@ -19,6 +19,7 @@
     <string name="faq">سوالات متداول</string>
     <string name="about_us">درباره ما</string>
     <string name="add_to_cart">اضافه کردن به سبد خرید</string>
+    <string name="added_to_cart">به سبد خرید اضافه شد</string>
     <string name="tomans">تومان</string>
     <string name="price">%s%s</string>
     <string name="product_name">نام محصول : </string>

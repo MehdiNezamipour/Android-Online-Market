@@ -57,7 +57,38 @@ public class CustomerFragment extends Fragment {
         mBinding.textViewCustomerUserName.setText(customer.getUsername());
         mBinding.imageViewSignOut.setOnClickListener(v -> {
             mViewModel.changeStateToLogOut();
+            mViewModel.deleteAllCarts();
             Navigation.findNavController(v).navigate(CustomerFragmentDirections.actionCustomerFragmentToNavFragHome());
         });
+
+        mBinding.imageViewInProcessOrders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO later
+            }
+        });
+
+        mBinding.imageViewNotificationBell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO later
+            }
+        });
+
+        mBinding.imageViewSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO later
+            }
+        });
+
+        mBinding.imageViewActivationWallet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO later
+            }
+        });
+
+
     }
 }

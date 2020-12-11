@@ -34,5 +34,9 @@ public interface CartDao {
     @Query("delete from cart_product where mProductId = :productId ")
     void delete(Integer productId);
 
+    @Query("delete from cart_product")
+    void deleteAll();
+
+
 
 }

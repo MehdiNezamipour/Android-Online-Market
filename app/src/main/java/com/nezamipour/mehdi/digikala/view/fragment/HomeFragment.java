@@ -141,4 +141,6 @@ public class HomeFragment extends Fragment {
         mPopularProductsAdapter.setProducts(mViewModel.getPopularProductsLiveData().getValue());
     }
 
+
+
 }

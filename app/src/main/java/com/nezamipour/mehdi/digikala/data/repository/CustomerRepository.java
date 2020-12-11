@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.nezamipour.mehdi.digikala.data.database.customerdatabase.CustomerDatabase;
 import com.nezamipour.mehdi.digikala.data.database.dao.CustomerDoa;
 import com.nezamipour.mehdi.digikala.data.database.entity.Customer;
+import com.nezamipour.mehdi.digikala.data.model.customer.Order;
 import com.nezamipour.mehdi.digikala.network.RetrofitInstance;
 import com.nezamipour.mehdi.digikala.network.WooApi;
 import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
@@ -95,6 +96,26 @@ public class CustomerRepository {
         return mCustomerMutableLiveData;
     }
 
+    public void postOrdersToServer(List<Order> orders) {
+        mConnectionStateMutableLiveData.postValue(ConnectionState.LOADING);
+        for (Order order : orders) {
+            mWooApi.postOrder(order).enqueue(new Callback<Order>() {
+                @Override
+                public void onResponse(Call<Order> call, Response<Order> response) {
+                    if (orders.indexOf(order) == orders.size() - 1) {
+                        mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Order> call, Throwable t) {
+                    mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
+                }
+            });
+        }
+        mConnectionStateMutableLiveData.postValue(ConnectionState.NOTHING);
+    }
+
     public void postCustomerToServer(com.nezamipour.mehdi.digikala.data.model.customer.Customer customer) {
         mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
         mWooApi.registerCustomer(customer).enqueue(new Callback<com.nezamipour.mehdi.digikala.data.model.customer.Customer>() {
@@ -113,7 +134,6 @@ public class CustomerRepository {
             }
         });
     }
-
 
 
     public void fetchCustomerByEmail(String email) {

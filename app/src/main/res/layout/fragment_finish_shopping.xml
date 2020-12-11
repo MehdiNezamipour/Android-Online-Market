@@ -13,7 +13,7 @@
 
 
         <include
-            android:id="@+id/include"
+            android:id="@+id/toolbar_finish_shopping"
             layout="@layout/toolbar_finish_shopping" />
 
         <com.google.android.material.card.MaterialCardView
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include">
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_finish_shopping">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -43,8 +43,8 @@
                     android:id="@+id/textView_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:clickable="true"
                     android:layout_marginTop="8dp"
+                    android:clickable="true"
                     android:focusable="true"
                     android:fontFamily="@font/far_roya_bd"
                     android:padding="25dp"
@@ -93,11 +93,11 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/far_roya_bd"
                     android:padding="25dp"
+                    android:text="@string/no_address_from_map"
                     android:textColor="@android:color/holo_orange_dark"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view4"
-                    android:text="@string/no_address_from_map" />
+                    app:layout_constraintTop_toBottomOf="@+id/view4" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -223,6 +223,7 @@
 
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_final_payment"
                     android:layout_width="match_parent"
                     android:layout_height="72dp"
                     android:backgroundTint="@color/digikala_green"

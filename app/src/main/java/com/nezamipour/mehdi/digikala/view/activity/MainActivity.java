@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.View;
 
@@ -20,6 +21,7 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.databinding.ActivityMainBinding;
+import com.nezamipour.mehdi.digikala.util.UiUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!internetConnected(MainActivity.this)) {
                     Snackbar snackbar = Snackbar.make(mBinding.getRoot(), R.string.no_internet, BaseTransientBottomBar.LENGTH_SHORT);
                     View snackBarView = snackbar.getView();
-                    snackBarView.setTranslationY(-(convertDpToPixel(48, MainActivity.this)));
+                    snackBarView.setTranslationY(-(UiUtil.convertDpToPixel(48, MainActivity.this)));
                     snackbar.show();
                 }
             }
@@ -89,9 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public static float convertDpToPixel(float dp, Context context) {
-        return dp * ((float) context.getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT);
-    }
+
 
     @Override
     protected void onStart() {
@@ -117,5 +117,6 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     }
+
 
 }
