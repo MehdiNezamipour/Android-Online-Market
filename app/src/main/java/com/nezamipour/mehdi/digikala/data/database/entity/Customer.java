@@ -21,6 +21,12 @@ public class Customer {
     @ColumnInfo(name = "LoginState", defaultValue = "false")
     private boolean mLoginState;
 
+    @ColumnInfo(name = "latitude")
+    private Double mLatitude;
+
+    @ColumnInfo(name = "longitude")
+    private Double mLongitude;
+
 
     public Integer getId() {
         return mId;
@@ -54,6 +60,22 @@ public class Customer {
         mLoginState = loginState;
     }
 
+    public Double getLatitude() {
+        return mLatitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        mLatitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return mLongitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        mLongitude = longitude;
+    }
+
     @Ignore
     public Customer(String email, String password) {
         mEmail = email;
@@ -61,6 +83,14 @@ public class Customer {
         mLoginState = true;
     }
 
+    @Ignore
+    public Customer(String email, String password, Double latitude, Double longitude) {
+        mEmail = email;
+        mPassword = password;
+        mLoginState = true;
+        mLatitude = latitude;
+        mLongitude = longitude;
+    }
 
     public Customer() {
     }

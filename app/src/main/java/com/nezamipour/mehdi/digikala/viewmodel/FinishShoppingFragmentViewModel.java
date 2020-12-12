@@ -16,7 +16,6 @@ import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.data.repository.CartRepository;
 import com.nezamipour.mehdi.digikala.data.repository.CustomerRepository;
 import com.nezamipour.mehdi.digikala.data.repository.ProductRepository;
-import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +41,6 @@ public class FinishShoppingFragmentViewModel extends AndroidViewModel {
     public LiveData<Coupon> getCouponLiveData() {
         return mProductRepository.getCouponLiveData();
     }
-
-
 
 
     public void postOrdersToServer(Customer customer) {

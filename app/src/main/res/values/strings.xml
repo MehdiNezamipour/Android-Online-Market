@@ -84,6 +84,9 @@
     <string name="add_coupon">اعمال کد تخفیف</string>
     <string name="finish_payment">پرداخت نهایی</string>
     <string name="no_address_from_map">موقعیت این آدرس بر روی نقشه تعیین نشده، برای ادامه وجود موقعیت الزامی است.</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="add_location">اضافه کردن موقعیت</string>
+    <string name="long_click_for_add_map_marker">برای انتخاب موقعیت انگشت خود را نگهدارید.</string>
 
 
 </resources>

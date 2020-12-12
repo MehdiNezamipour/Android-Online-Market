@@ -146,6 +146,9 @@
         <action
             android:id="@+id/action_shippingFragment_to_loginLoadingFragment"
             app:destination="@id/loginLoadingFragment" />
+        <action
+            android:id="@+id/action_shippingFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
     </fragment>
 
     <action
@@ -202,6 +205,10 @@
             android:name="totalPrice"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.nezamipour.mehdi.digikala.view.fragment.MapFragment"
+        android:label="MapFragment" />
 
 
 </navigation>

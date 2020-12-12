@@ -1,6 +1,7 @@
 package com.nezamipour.mehdi.digikala.view.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.data.model.customer.Customer;
 import com.nezamipour.mehdi.digikala.data.model.customer.Shipping;
@@ -21,15 +27,16 @@ import com.nezamipour.mehdi.digikala.viewmodel.ShippingFragmentViewModel;
 public class ShippingFragment extends Fragment {
 
 
-    public static final String PREF_KEY_CUSTOMER_EMAIL = "com.nezamipour.mehdi.digikala.customerEmail";
-    public static final String CURRENT_CUSTOMER_IN_APP = "com.nezamipour.mehdi.digikala.currentCustomerInApp";
-
+    public static final String KEY = "latLng";
+    public static final String SHIPPING_TAG = "shipping";
     private ShippingFragmentViewModel mViewModel;
     private FragmentShippingBinding mBinding;
     private String mEmail;
     private String mFirstName;
     private String mLastName;
     private String mPassword;
+    private Double mLat;
+    private Double mLon;
 
     public ShippingFragment() {
         // Required empty public constructor
@@ -68,6 +75,7 @@ public class ShippingFragment extends Fragment {
                     break;
             }
         });
+
     }
 
 
@@ -95,9 +103,33 @@ public class ShippingFragment extends Fragment {
             );
 
             Customer customer = new Customer(mEmail, mFirstName, mLastName, shipping);
-            mViewModel.postCustomerToDataBase(mEmail, mPassword);
+            if (mLat != null && mLon != null)
+                mViewModel.postCustomerToDataBase(mEmail, mPassword, mLat, mLon);
+            else
+                mViewModel.postCustomerToDataBase(mEmail, mPassword);
             mViewModel.postCustomerToServer(customer);
+
         });
+
+        mBinding.buttonUseMap.setOnClickListener(v ->
+                Navigation.findNavController(v)
+                        .navigate(ShippingFragmentDirections.actionShippingFragmentToMapFragment()));
+
+        //result back form map fragment
+        NavController navController = NavHostFragment.findNavController(this);
+        // We use a String here, but any type that can be put in a Bundle is supported
+        MutableLiveData<LatLng> liveData = navController.getCurrentBackStackEntry()
+                .getSavedStateHandle()
+                .getLiveData(KEY);
+        liveData.observe(getViewLifecycleOwner(), new Observer<LatLng>() {
+            @Override
+            public void onChanged(LatLng latLng) {
+                mLat = latLng.latitude;
+                mLon = latLng.longitude;
+                Log.d(SHIPPING_TAG, "onChanged: " + mLat + "    " + mLon);
+            }
+        });
+
     }
 
     private void showLoadingUi() {
