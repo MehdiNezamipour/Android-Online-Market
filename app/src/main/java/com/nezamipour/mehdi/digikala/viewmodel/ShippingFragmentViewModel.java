@@ -31,6 +31,12 @@ public class ShippingFragmentViewModel extends AndroidViewModel {
         mCustomerRepository.insert(customerEntity);
     }
 
+    public void postCustomerToDataBase(String email, String password, Double lat, Double lon) {
+        com.nezamipour.mehdi.digikala.data.database.entity.Customer customerEntity =
+                new com.nezamipour.mehdi.digikala.data.database.entity.Customer(email, password, lat, lon);
+        mCustomerRepository.insert(customerEntity);
+    }
+
 
     public LiveData<ConnectionState> getConnectionStateLiveData() {
         return mCustomerRepository.getConnectionStateLiveData();

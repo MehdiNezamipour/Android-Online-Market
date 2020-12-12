@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.searchFragment:
+                case R.id.mapFragment:
                     mBinding.bottomNavigation.setVisibility(View.GONE);
                     mBinding.mainSearchToolbar.setVisibility(View.GONE);
                     break;
