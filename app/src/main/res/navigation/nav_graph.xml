@@ -14,8 +14,8 @@
             android:id="@+id/action_homeFragment_to_wholeProductsFragment"
             app:destination="@id/wholeProductsFragment" />
         <action
-            android:id="@+id/action_nav_fragHome_to_productDetailLoadingFragment"
-            app:destination="@id/productDetailLoadingFragment" />
+            android:id="@+id/action_nav_fragHome_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
 
     </fragment>
 
@@ -28,9 +28,6 @@
             android:name="orderBy"
             app:argType="string"
             app:nullable="true" />
-        <action
-            android:id="@+id/action_wholeProductsFragment_to_productDetailLoadingFragment"
-            app:destination="@id/productDetailLoadingFragment" />
         <argument
             android:name="toolbarWord"
             app:argType="string"
@@ -39,6 +36,9 @@
             android:name="category"
             app:argType="com.nezamipour.mehdi.digikala.data.model.product.Category"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_wholeProductsFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
     </fragment>
 
     <fragment
@@ -76,23 +76,6 @@
             app:argType="com.nezamipour.mehdi.digikala.data.model.product.Category" />
     </fragment>
     <fragment
-        android:id="@+id/productDetailLoadingFragment"
-        android:name="com.nezamipour.mehdi.digikala.view.fragment.ProductDetailLoadingFragment"
-        android:label="ProductDetailLoadingFragment">
-        <action
-            android:id="@+id/action_loadingFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment"
-            app:popUpTo="@id/productDetailLoadingFragment"
-            app:popUpToInclusive="true"
-
-            />
-
-        <argument
-            android:name="productId"
-            app:argType="integer" />
-
-    </fragment>
-    <fragment
         android:id="@+id/nav_fragCart"
         android:name="com.nezamipour.mehdi.digikala.view.fragment.CartProductsLoadingFragment"
         android:label="CartProductsLoadingFragment"
@@ -109,11 +92,11 @@
         android:name="com.nezamipour.mehdi.digikala.view.fragment.CartFragment"
         android:label="CartFragment" >
         <action
-            android:id="@+id/action_cartFragment_to_productDetailLoadingFragment"
-            app:destination="@id/productDetailLoadingFragment" />
-        <action
             android:id="@+id/action_cartFragment_to_finishShoppingFragment"
             app:destination="@id/finishShoppingFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -122,11 +105,11 @@
         tools:layout="@layout/fragment_search">
 
         <action
-            android:id="@+id/action_searchFragment_to_productDetailLoadingFragment"
-            app:destination="@id/productDetailLoadingFragment" />
-        <action
             android:id="@+id/action_searchFragment_to_wholeProductsFragment"
             app:destination="@id/wholeProductsFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
 
     </fragment>
     <fragment

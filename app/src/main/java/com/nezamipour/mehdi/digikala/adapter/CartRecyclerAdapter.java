@@ -74,9 +74,9 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
 
 
             mBinding.getRoot().setOnClickListener(v -> {
-                CartFragmentDirections.ActionCartFragmentToProductDetailLoadingFragment action =
+                CartFragmentDirections.ActionCartFragmentToProductDetailFragment action =
                         CartFragmentDirections
-                                .actionCartFragmentToProductDetailLoadingFragment(product.getId());
+                                .actionCartFragmentToProductDetailFragment(product);
                 Navigation.findNavController(v).navigate(action);
             });
 

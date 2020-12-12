@@ -176,9 +176,7 @@ public class ProductRepository {
     }
 
     public void fetchProductById(Integer productId) {
-        //TODO : later handle error when internet state enable and disable
         mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
-
         mWooApi.getProductById(productId).enqueue(new Callback<Product>() {
             @Override
             public void onResponse(Call<Product> call, Response<Product> response) {
