@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FinishShoppingFragmentViewModel extends AndroidViewModel {
-
+    //
     private final ProductRepository mProductRepository;
     private final CustomerRepository mCustomerRepository;
     private final CartRepository mCartRepository;
