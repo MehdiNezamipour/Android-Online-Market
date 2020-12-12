@@ -20,7 +20,7 @@ import com.nezamipour.mehdi.digikala.viewmodel.FinishShoppingFragmentViewModel;
 
 public class FinishShoppingFragment extends Fragment {
 
-    //
+    ///
     private FinishShoppingFragmentViewModel mViewModel;
     private FragmentFinishShoppingBinding mBinding;
     private Customer mCustomer;
