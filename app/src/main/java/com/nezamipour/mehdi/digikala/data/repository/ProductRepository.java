@@ -122,20 +122,16 @@ public class ProductRepository {
     }
 
     public void fetchCouponByCode(String code) {
-        mConnectionStateMutableLiveData.postValue(ConnectionState.LOADING);
         mWooApi.getCouponByCode(code).enqueue(new Callback<List<Coupon>>() {
             @Override
             public void onResponse(Call<List<Coupon>> call, Response<List<Coupon>> response) {
                 if (response.isSuccessful() && !response.body().isEmpty()) {
                     mCouponMutableLiveData.setValue(response.body().get(0));
-                    mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
                 }
-                mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);
             }
 
             @Override
             public void onFailure(Call<List<Coupon>> call, Throwable t) {
-                mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
             }
         });
     }

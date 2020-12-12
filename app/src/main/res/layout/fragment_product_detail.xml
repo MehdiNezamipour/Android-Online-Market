@@ -12,8 +12,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
 
         <LinearLayout
@@ -101,13 +100,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
-                        android:textColor="@android:color/black"
-                        tools:text="گوشی سامسونگ A50"
-                        android:textStyle="bold"
                         android:fontFamily="@font/iran_yekan"
                         android:gravity="right"
                         android:text="@{viewModel.productMutableLiveData.name}"
-                        android:textSize="16sp" />
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:text="گوشی سامسونگ A50" />
 
 
                     <TextView
@@ -118,10 +117,10 @@
                         android:layout_marginEnd="16dp"
                         android:fontFamily="@font/iran_yekan"
                         android:gravity="right"
-                        tools:text="گوشی سامسونگ a50"
                         android:text="@{viewModel.shortDescription}"
                         android:textColor="@color/digikala_gray"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        tools:text="گوشی سامسونگ a50" />
 
 
                 </LinearLayout>
@@ -370,10 +369,10 @@
                             android:layout_marginStart="4dp"
                             android:fontFamily="@font/far_trafc_bd"
                             android:gravity="left"
-                            tools:text="150000"
                             android:text="@{viewModel.productMutableLiveData.salePrice}"
                             android:textColor="@color/digikala_green"
-                            android:textSize="17sp" />
+                            android:textSize="17sp"
+                            tools:text="150000" />
 
 
                         <TextView
@@ -382,23 +381,22 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/far_trafc_bd"
-                            tools:text="150000"
                             android:gravity="left"
                             android:text="@{viewModel.productMutableLiveData.regularPrice}"
                             android:textColor="@color/digikala_red"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            tools:text="150000" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
-                            android:layout_marginBottom="2dp"
                             android:layout_marginStart="16dp"
+                            android:layout_marginBottom="2dp"
                             android:gravity="left"
                             android:text="@string/tomans"
                             android:textColor="@color/digikala_green"
-                            android:textSize="18sp"
-                            />
+                            android:textSize="18sp" />
 
 
                     </LinearLayout>
@@ -463,7 +461,7 @@
                         android:background="?android:attr/listDivider" />
 
                     <TextView
-                        android:id="@+id/product_detail_activity__product_name6"
+                        android:id="@+id/textView_more_content"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="?attr/selectableItemBackground"

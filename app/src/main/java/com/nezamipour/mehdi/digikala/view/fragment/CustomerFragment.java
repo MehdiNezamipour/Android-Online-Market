@@ -57,7 +57,7 @@ public class CustomerFragment extends Fragment {
         mBinding.textViewCustomerUserName.setText(customer.getUsername());
         mBinding.imageViewSignOut.setOnClickListener(v -> {
             mViewModel.changeStateToLogOut();
-            mViewModel.deleteAllCarts();
+            mViewModel.clearCart();
             Navigation.findNavController(v).navigate(CustomerFragmentDirections.actionCustomerFragmentToNavFragHome());
         });
 

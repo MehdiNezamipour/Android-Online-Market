@@ -1,8 +1,13 @@
 
+X	java:S110"<This class has 9 parents which is greater than 5 authorized.(²Ú±8ı‘Œ…à.
+Z
+java:S1128"8Remove this unused import 'android.util.DisplayMetrics'.(Æ…Ú×ùÿÿÿÿ8ƒŞ¬›å.
 U
 java:S1874r"3Remove this use of "isConnected"; it is deprecated.(õ§¼ïıÿÿÿÿ8¼„Á’ã.
-X	java:S110"<This class has 9 parents which is greater than 5 authorized.(²Ú±8ı‘Œ…à.
-P
-java:S1874q"3Remove this use of "NetworkInfo"; it is deprecated.(ÿ»¶Ã8Â¢Ãâ.
 Y
 java:S1874q"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ÿ»¶Ã8»„Á’ã.
+P
+java:S1874q"3Remove this use of "NetworkInfo"; it is deprecated.(ÿ»¶Ã8Â¢Ãâ.
+L
+java:S1128
+"/Remove this unused import 'android.os.Handler'.(ûÛ’¡8Ş†•›å.

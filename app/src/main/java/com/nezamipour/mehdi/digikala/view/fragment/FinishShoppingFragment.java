@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,7 +16,6 @@ import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.data.model.customer.Customer;
 import com.nezamipour.mehdi.digikala.databinding.FragmentFinishShoppingBinding;
 import com.nezamipour.mehdi.digikala.util.StringUtil;
-import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 import com.nezamipour.mehdi.digikala.viewmodel.FinishShoppingFragmentViewModel;
 
 public class FinishShoppingFragment extends Fragment {
@@ -42,17 +42,20 @@ public class FinishShoppingFragment extends Fragment {
 
         mViewModel = new ViewModelProvider(this).get(FinishShoppingFragmentViewModel.class);
 
-        mViewModel.getConnectionStateLiveData().observe(this, connectionState -> {
-            if (connectionState == ConnectionState.START_ACTIVITY) {
-                //TODO Send customer id to server to save which customer used this coupon once
-                mTotalPrice = StringUtil
-                        .approveCouponAmount(mTotalPrice
-                                , mViewModel.getCouponLiveData().getValue().getAmount());
-                mBinding.textViewTotalPriceNumber
-                        .setText(mTotalPrice);
-
-            }
+        mViewModel.getCouponLiveData().observe(this, coupon -> {
+            //TODO Send customer id to server to save which customer used this coupon once
+            mTotalPrice = StringUtil
+                    .approveCouponAmount(mTotalPrice
+                            , coupon.getAmount());
+            mBinding.textViewTotalPriceNumber
+                    .setText(mTotalPrice);
         });
+
+        mViewModel.getOrderLiveData().observe(this, order -> {
+            Toast.makeText(getContext(), R.string.order_sent_successful, Toast.LENGTH_SHORT).show();
+            mViewModel.clearCart();
+        });
+
     }
 
     @Override
@@ -76,13 +79,7 @@ public class FinishShoppingFragment extends Fragment {
 
         mBinding.toolbarFinishShopping.imageViewBack.setOnClickListener(v -> getActivity().onBackPressed());
 
-        mBinding.buttonFinalPayment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO send orders to server
-
-            }
-        });
+        mBinding.buttonFinalPayment.setOnClickListener(v -> mViewModel.postOrdersToServer(mCustomer));
 
 
     }

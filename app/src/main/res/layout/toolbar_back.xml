@@ -7,7 +7,6 @@
         android:id="@+id/appBarLayout_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_red_dark"
         android:fitsSystemWindows="true"
 
         >
@@ -19,10 +18,10 @@
             android:background="?android:attr/windowBackground"
             app:layout_scrollFlags="scroll|snap">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/digikala_red"
+                app:cardBackgroundColor="@android:color/white"
 
                 >
 
@@ -35,7 +34,7 @@
                         android:layout_width="?actionBarSize"
                         android:layout_height="match_parent"
                         android:padding="8dp"
-                        android:src="@drawable/ic_back"
+                        android:src="@drawable/ic_back_dark"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -44,7 +43,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>

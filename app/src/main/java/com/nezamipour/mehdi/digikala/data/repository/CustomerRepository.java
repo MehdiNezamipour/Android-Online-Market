@@ -27,6 +27,7 @@ public class CustomerRepository {
     private static CustomerRepository sCustomerRepository;
     private final CustomerDoa mCustomerDoa;
     private final MutableLiveData<com.nezamipour.mehdi.digikala.data.model.customer.Customer> mCustomerMutableLiveData;
+    private final MutableLiveData<Order> mOrderMutableLiveData;
 
     private CustomerRepository(Context context) {
         CustomerDatabase customerDatabase = CustomerDatabase.getInstance(context);
@@ -34,6 +35,7 @@ public class CustomerRepository {
         mConnectionStateMutableLiveData = new MutableLiveData<>();
         mWooApi = RetrofitInstance.getInstance().create(WooApi.class);
         mCustomerMutableLiveData = new MutableLiveData<>();
+        mOrderMutableLiveData = new MutableLiveData<>();
     }
 
 
@@ -96,24 +98,23 @@ public class CustomerRepository {
         return mCustomerMutableLiveData;
     }
 
-    public void postOrdersToServer(List<Order> orders) {
-        mConnectionStateMutableLiveData.postValue(ConnectionState.LOADING);
-        for (Order order : orders) {
-            mWooApi.postOrder(order).enqueue(new Callback<Order>() {
-                @Override
-                public void onResponse(Call<Order> call, Response<Order> response) {
-                    if (orders.indexOf(order) == orders.size() - 1) {
-                        mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
-                    }
-                }
+    public LiveData<Order> getOrderLiveData() {
+        return mOrderMutableLiveData;
+    }
 
-                @Override
-                public void onFailure(Call<Order> call, Throwable t) {
-                    mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
+    public void postOrderToServer(Order order) {
+        mWooApi.postOrder(order).enqueue(new Callback<Order>() {
+            @Override
+            public void onResponse(Call<Order> call, Response<Order> response) {
+                if (response.isSuccessful()) {
+                    mOrderMutableLiveData.setValue(response.body());
                 }
-            });
-        }
-        mConnectionStateMutableLiveData.postValue(ConnectionState.NOTHING);
+            }
+
+            @Override
+            public void onFailure(Call<Order> call, Throwable t) {
+            }
+        });
     }
 
     public void postCustomerToServer(com.nezamipour.mehdi.digikala.data.model.customer.Customer customer) {

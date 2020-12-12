@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.wholeProductsFragment:
                 case R.id.productDetailFragment:
                 case R.id.loginLoadingFragment:
+                case R.id.checkRegistrationFragment:
+                case R.id.customerFragment:
                     mBinding.mainSearchToolbar.setVisibility(View.GONE);
                     mBinding.bottomNavigation.setVisibility(View.VISIBLE);
                     break;
@@ -89,8 +91,6 @@ public class MainActivity extends AppCompatActivity {
         };
 
     }
-
-
 
 
     @Override

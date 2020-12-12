@@ -57,6 +57,8 @@
     <string name="login_to_digi">ورود به دیجی‌کالا</string>
     <string name="digi_login_rules">با ورود یا ثبت نام در دیجی‌کالا شما شرایط و قوانین استفاده از سرویس های سایت دیجی‌کالا و قوانین حریم خصوصی آن را می پذیرید.</string>
     <string name="enter_password">کلمه عبور</string>
+    <string name="login_for_payment">وارد حساب کاربری شوید.</string>
+    <string name="order_sent_successful">شفارش ثبت شد</string>
     <string name="first_name">نام کوچک</string>
     <string name="last_name">نام‌خانوادگی</string>
     <string name="sign_up">ثبت ‌نام</string>

@@ -87,4 +87,9 @@ public class LineItem implements Serializable {
         this.price = price;
     }
 
+    public LineItem(Integer productId, Integer quantity) {
+        this.productId = productId;
+        this.quantity = quantity;
+    }
+
 }

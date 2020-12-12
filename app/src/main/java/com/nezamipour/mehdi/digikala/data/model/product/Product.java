@@ -11,10 +11,10 @@ public class Product implements Serializable {
 
     @SerializedName("id")
     @Expose
-    public Integer id;
+    private Integer id;
     @SerializedName("name")
     @Expose
-    public String name;
+    private String name;
     @SerializedName("slug")
     @Expose
     private String slug;
@@ -29,10 +29,10 @@ public class Product implements Serializable {
     private Boolean featured;
     @SerializedName("description")
     @Expose
-    public String description;
+    private String description;
     @SerializedName("short_description")
     @Expose
-    public String shortDescription;
+    private String shortDescription;
     @SerializedName("price")
     @Expose
     private String price;
@@ -41,7 +41,7 @@ public class Product implements Serializable {
     private String regularPrice;
     @SerializedName("sale_price")
     @Expose
-    public String salePrice;
+    private String salePrice;
     @SerializedName("on_sale")
     @Expose
     private Boolean onSale;

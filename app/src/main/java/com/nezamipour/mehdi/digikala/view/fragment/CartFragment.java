@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -60,8 +61,9 @@ public class CartFragment extends Fragment {
         mBinding.buttonFinishShopping.setOnClickListener(v -> {
             //TODO Later Fix Bug : when app come up and not click on
             // login fragment at least for one time customer live data is null
-
-            if (mViewModel.getCustomerLiveData().getValue() != null) {
+            if (mViewModel.getCurrentLoginCustomer() == null && !mViewModel.getCartProducts().getValue().isEmpty()) {
+                Toast.makeText(getContext(), R.string.login_for_payment, Toast.LENGTH_SHORT).show();
+            } else if (mViewModel.getCustomerLiveData().getValue() != null) {
                 CartFragmentDirections.ActionCartFragmentToFinishShoppingFragment action =
                         CartFragmentDirections.actionCartFragmentToFinishShoppingFragment(mViewModel.getCustomerLiveData().getValue()
                                 , mViewModel.getTotalPriceLiveData().getValue());
@@ -71,8 +73,9 @@ public class CartFragment extends Fragment {
     }
 
     private void initUi() {
-        if (mViewModel.getCartProducts().getValue().isEmpty() && mViewModel.getCurrentLoginCustomer() != null)
+        if (mViewModel.getCartProducts().getValue().isEmpty())
             mBinding.buttonFinishShopping.setEnabled(false);
+
         mBinding.textViewSumOfCart.setText(mViewModel.getTotalPriceLiveData().getValue());
         mCartRecyclerAdapter = new CartRecyclerAdapter(getContext());
         mCartRecyclerAdapter.setProducts(mViewModel.getCartProducts().getValue());
