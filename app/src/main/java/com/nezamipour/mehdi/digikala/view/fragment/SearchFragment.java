@@ -46,13 +46,13 @@ public class SearchFragment extends Fragment {
 
         mViewModel.getSearchState().observe(this, searchState -> {
             switch (searchState) {
-                case RESULT_BACKED:
+                case START_ACTIVITY:
                     mSearchRecyclerAdapter.setProducts(mViewModel.getResultsLiveData().getValue());
                     mSearchRecyclerAdapter.notifyDataSetChanged();
                     break;
                 case ERROR:
                     break;
-                case SEARCHING:
+                case LOADING:
                     break;
                 default:
                     break;
@@ -104,7 +104,7 @@ public class SearchFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                mViewModel.fetchResults(s.toString());
+                mViewModel.fetchProductsBySearch(s.toString());
             }
         });
 
@@ -117,7 +117,7 @@ public class SearchFragment extends Fragment {
                 SearchFragmentDirections.ActionSearchFragmentToWholeProductsFragment action =
                         SearchFragmentDirections
                                 .actionSearchFragmentToWholeProductsFragment(
-                                        "search",
+                                        null,
                                         mBinding.toolbarSearch.editTextSearch.getText().toString(),
                                         null);
 

@@ -6,45 +6,60 @@ import androidx.lifecycle.ViewModel;
 
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.data.repository.ProductRepository;
-import com.nezamipour.mehdi.digikala.util.enums.SearchState;
+import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 
 import java.util.List;
 
 public class WholeProductFragmentViewModel extends ViewModel {
 
     private final ProductRepository mProductRepository;
-    private final MutableLiveData<List<Product>> mProducts = new MutableLiveData<>();
 
 
     public WholeProductFragmentViewModel() {
         mProductRepository = ProductRepository.getInstance();
     }
 
-    public void fetchDataFromRepository(String orderBy) {
+
+    // for orderBy
+    public void fetchOrderByProducts(String orderBy) {
         switch (orderBy) {
             case "onSale":
-                mProducts.setValue(mProductRepository.getOnSaleProductsLiveData().getValue());
+                mProductRepository.fetchOnSale();
                 break;
             case "date":
-                mProducts.setValue(mProductRepository.getLatestProductsLiveData().getValue());
+                mProductRepository.fetchLatest();
                 break;
             case "popularity":
-                mProducts.setValue(mProductRepository.getPopularProductsLiveData().getValue());
+                mProductRepository.fetchPopular();
                 break;
             case "rating":
-                mProducts.setValue(mProductRepository.getTopRatingProductsLiveData().getValue());
-                break;
-            case "category":
-                mProducts.setValue(mProductRepository.getCategoryProductsLiveData().getValue());
-                break;
-            case "search":
-                mProducts.setValue(mProductRepository.getProductSearchLiveData().getValue());
+                mProductRepository.fetchTopRating();
                 break;
             default:
                 break;
         }
     }
 
+    public LiveData<List<Product>> getOnSaleProducts() {
+        return mProductRepository.getOnSaleProductsLiveData();
+    }
+
+    public LiveData<List<Product>> getLatestProducts() {
+        return mProductRepository.getLatestProductsLiveData();
+    }
+
+    public LiveData<List<Product>> getPopularProducts() {
+        return mProductRepository.getPopularProductsLiveData();
+    }
+
+    public LiveData<List<Product>> getTopRatingProducts() {
+        return mProductRepository.getTopRatingProductsLiveData();
+    }
+
+    // for searching
+    public void fetchSearchProducts(String search) {
+        mProductRepository.fetchProductsBySearch(search);
+    }
 
     public void searchWithSorting(String search, String orderBy, String order) {
         mProductRepository.searchWithSorting(search, orderBy, order);
@@ -54,11 +69,22 @@ public class WholeProductFragmentViewModel extends ViewModel {
         mProductRepository.sortCategoryProducts(categoryId, orderBy, order);
     }
 
-    public LiveData<SearchState> getSearchState() {
-        return mProductRepository.getSearchStateLiveData();
+
+    public LiveData<List<Product>> getProductSearchLiveData() {
+        return mProductRepository.getProductSearchLiveData();
     }
 
-    public LiveData<List<Product>> getProducts() {
-        return mProducts;
+
+    //fetching category products
+    public void fetchCategoryProducts(Integer categoryId) {
+        mProductRepository.fetchCategoryProducts(categoryId);
+    }
+
+    public LiveData<List<Product>> getCategoryProducts() {
+        return mProductRepository.getCategoryProductsLiveData();
+    }
+
+    public MutableLiveData<ConnectionState> getConnectionStateLiveData() {
+        return mProductRepository.getConnectionStateLiveData();
     }
 }

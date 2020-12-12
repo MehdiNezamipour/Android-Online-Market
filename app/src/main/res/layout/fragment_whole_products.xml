@@ -3,42 +3,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
-    <LinearLayout
-        android:background="@color/digikala_dark_white"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <include
-            android:id="@+id/toolbar_back"
-            layout="@layout/toolbar_back"
-            android:visibility="gone" />
-
-        <include
-            android:id="@+id/toolbar_search"
-            layout="@layout/toolbar_search" />
+            android:id="@+id/loading_view"
+            layout="@layout/fragment_loading"
+            android:visibility="visible" />
 
 
-        <include
-            android:id="@+id/toolbar_filter"
-            layout="@layout/toolbar_filter_and_sort" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_whole_products"
+        <LinearLayout
+            android:id="@+id/main_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/digikala_dark_white"
             android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:spanCount="1"
-            tools:context=".view.fragment.WholeProductsFragment"
-            tools:listitem="@layout/row_item_whole_products">
+            android:visibility="gone">
+
+            <include
+                android:id="@+id/toolbar_back"
+                layout="@layout/toolbar_back"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/toolbar_search"
+                layout="@layout/toolbar_search" />
 
 
-        </androidx.recyclerview.widget.RecyclerView>
+            <include
+                android:id="@+id/toolbar_filter"
+                layout="@layout/toolbar_filter_and_sort" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_whole_products"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:spanCount="1"
+                tools:context=".view.fragment.WholeProductsFragment"
+                tools:listitem="@layout/row_item_whole_products">
 
 
-    </LinearLayout>
+            </androidx.recyclerview.widget.RecyclerView>
 
+
+        </LinearLayout>
+
+
+    </FrameLayout>
 
 </layout>

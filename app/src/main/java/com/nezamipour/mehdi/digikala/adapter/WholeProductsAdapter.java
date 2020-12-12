@@ -33,6 +33,7 @@ public class WholeProductsAdapter extends RecyclerView.Adapter<WholeProductsAdap
     private final MutableLiveData<List<Product>> mProducts = new MutableLiveData<>();
     private String mOrderBy;
     private Integer mCategoryId;
+    private String mSearch;
     private int mPage = 2;
 
 
@@ -52,30 +53,41 @@ public class WholeProductsAdapter extends RecyclerView.Adapter<WholeProductsAdap
         mCategoryId = categoryId;
     }
 
+    public void setSearch(String search) {
+        mSearch = search;
+    }
+
     public WholeProductsAdapter() {
         mWooApi = RetrofitInstance.getInstance().create(WooApi.class);
     }
 
     private void addToList(int position) {
-        if (position > getItemCount() - 2) {
-            switch (mOrderBy) {
-                case "onSale":
-                    addToOnSaleProducts();
-                    break;
-                case "date":
-                    addToLatestProducts();
-                    break;
-                case "popularity":
-                    addToPopularProducts();
-                    break;
-                case "rating":
-                    addToTopRatingProducts();
-                    break;
-                case "category":
-                    addToCategoryProducts(mCategoryId);
-                    break;
-                default:
-                    break;
+        if (mOrderBy != null) {
+            if (position > getItemCount() - 2) {
+                switch (mOrderBy) {
+                    case "onSale":
+                        addToOnSaleProducts();
+                        break;
+                    case "date":
+                        addToLatestProducts();
+                        break;
+                    case "popularity":
+                        addToPopularProducts();
+                        break;
+                    case "rating":
+                        addToTopRatingProducts();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        } else if (mCategoryId != null) {
+            if (position > getItemCount() - 2) {
+                addToCategoryProducts(mCategoryId);
+            }
+        } else if (mSearch != null) {
+            if (position > getItemCount() - 2) {
+                addToSearchProducts(mSearch);
             }
         }
     }
@@ -158,6 +170,25 @@ public class WholeProductsAdapter extends RecyclerView.Adapter<WholeProductsAdap
 
     private void addToCategoryProducts(int categoryId) {
         mWooApi.getCategoryProducts(categoryId, 10, mPage).enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    mPage++;
+                    List<Product> products = mProducts.getValue();
+                    products.addAll(response.body());
+                    mProducts.setValue(products);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void addToSearchProducts(String search) {
+        mWooApi.getProductsBySearch(10, mPage, search).enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if (response.isSuccessful()) {

@@ -71,8 +71,6 @@ Mapp/src/main/java/com/nezamipour/mehdi/digikala/data/model/product/Image.java,
 Oapp/src/main/java/com/nezamipour/mehdi/digikala/data/model/product/Product.java,0\6\06f4a887d345c5b294687115d79d9a65a99b603d
 {
 Kapp/src/main/java/com/nezamipour/mehdi/digikala/data/model/product/Tag.java,a\0\a07532f39c07fa514119c207ef4d3a27768b908d
-t
-Dapp/src/main/java/com/nezamipour/mehdi/digikala/data/model/text.java,9\9\99680bea61268370fe347635cd9b2636d2c0f052
 s
 Capp/src/main/java/com/nezamipour/mehdi/digikala/network/WooApi.java,7\9\79a6b3d56b10683407946689ee2316bcabbcf60a
 s
@@ -245,12 +243,8 @@ Rapp/src/main/java/com/nezamipour/mehdi/digikala/data/database/entity/Customer.j
 Wapp/src/main/java/com/nezamipour/mehdi/digikala/data/repository/CustomerRepository.java,4\c\4c3220cebdc94228b4878e5c46f2915821ee5cf0
 ]
 -app/src/main/res/layout/fragment_shipping.xml,0\5\0591a95d3b244dfe1c07f944c70a762cf925d031
-`
-0app/src/main/res/menu/bottom_navigation_menu.xml,d\6\d6b83c453579d1c62b11597f7bfbba2e903ecd37
 Y
 )app/src/main/res/layout/fragment_home.xml,3\1\31c5880846ef63ff1963efbe141ddfd56680bb19
-c
-3app/src/main/res/layout/fragment_whole_products.xml,d\3\d3fc7f9947f1ee82a6e0fd643182567563f8687e
 c
 3app/src/main/res/layout/toolbar_filter_and_sort.xml,0\3\039d427a3bba1eb035c7e8291c19b79caf219017
 a
@@ -278,6 +272,10 @@ c
 p
 @app/src/main/java/com/nezamipour/mehdi/digikala/util/UiUtil.java,b\3\b3e28c238c36cfa6ac999a9d1cc6a80d424c5a2a
 Y
-)app/src/main/res/layout/fragment_cart.xml,d\3\d3847d71b9fb3999d0a292b8bcc79f28a6d6933d
-Y
 )app/src/main/res/layout/row_item_cart.xml,e\6\e68038a89308535faf655e48e99dd54173b55c28
+g
+7app/src/main/res/layout/fragment_registration_check.xml,4\9\49a94a0efda05c9c4ff428935e16bf8eb7932fb5
+X
+(app/src/main/res/layout/toolbar_back.xml,5\5\5532db81934e58c5b8eb1b3ebcc117fc4cb6a5c5
+S
+#app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e

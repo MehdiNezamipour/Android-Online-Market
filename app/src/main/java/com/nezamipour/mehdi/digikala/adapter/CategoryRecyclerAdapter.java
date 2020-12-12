@@ -73,9 +73,9 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
 
             mBinding.rowLayoutCardView.setOnClickListener(v -> {
                 CategoryFragmentDirections
-                        .ActionNavFragCategoryToCategoryProductsLoadingFragment action =
+                        .ActionNavFragCategoryToWholeProductsFragment action =
                         CategoryFragmentDirections
-                                .actionNavFragCategoryToCategoryProductsLoadingFragment(mCategory);
+                                .actionNavFragCategoryToWholeProductsFragment(null, null, category);
                 Navigation.findNavController(v).navigate(action);
             });
         }

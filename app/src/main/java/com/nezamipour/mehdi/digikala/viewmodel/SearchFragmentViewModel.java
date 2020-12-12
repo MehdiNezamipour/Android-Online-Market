@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.data.repository.ProductRepository;
-import com.nezamipour.mehdi.digikala.util.enums.SearchState;
+import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 
 import java.util.List;
 
@@ -22,11 +22,11 @@ public class SearchFragmentViewModel extends ViewModel {
         return mProductRepository.getProductSearchLiveData();
     }
 
-    public LiveData<SearchState> getSearchState (){
-        return mProductRepository.getSearchStateLiveData();
+    public LiveData<ConnectionState> getSearchState() {
+        return mProductRepository.getConnectionStateLiveData();
     }
 
-    public void fetchResults(String search) {
+    public void fetchProductsBySearch(String search) {
         mProductRepository.fetchProductsBySearch(search);
     }
 

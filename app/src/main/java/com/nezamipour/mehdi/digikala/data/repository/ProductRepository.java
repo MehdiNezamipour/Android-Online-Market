@@ -10,7 +10,6 @@ import com.nezamipour.mehdi.digikala.network.RetrofitInstance;
 import com.nezamipour.mehdi.digikala.network.WooApi;
 import com.nezamipour.mehdi.digikala.util.CategoryUtil;
 import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
-import com.nezamipour.mehdi.digikala.util.enums.SearchState;
 
 import java.util.List;
 
@@ -31,10 +30,9 @@ public class ProductRepository {
     private final MutableLiveData<List<Product>> mPopularProductsLiveData;
 
     //for products of specific category
-    private MutableLiveData<List<Product>> mCategoryProductsLiveData;
+    private final MutableLiveData<List<Product>> mCategoryProductsLiveData;
 
     private final MutableLiveData<ConnectionState> mConnectionStateMutableLiveData;
-    private final MutableLiveData<SearchState> mSearchStateMutableLiveData;
 
     private final MutableLiveData<Product> mProductByIdMutableLiveData;
     private final MutableLiveData<List<Product>> mProductSearchMutableLiveData;
@@ -55,7 +53,6 @@ public class ProductRepository {
         mCategoryProductsLiveData = new MutableLiveData<>();
 
         mConnectionStateMutableLiveData = new MutableLiveData<>();
-        mSearchStateMutableLiveData = new MutableLiveData<>();
 
         mProductByIdMutableLiveData = new MutableLiveData<>();
         mProductSearchMutableLiveData = new MutableLiveData<>();
@@ -76,13 +73,10 @@ public class ProductRepository {
         return mCategoryProductsLiveData;
     }
 
-    public LiveData<ConnectionState> getConnectionStateLiveData() {
+    public MutableLiveData<ConnectionState> getConnectionStateLiveData() {
         return mConnectionStateMutableLiveData;
     }
 
-    public LiveData<SearchState> getSearchStateLiveData() {
-        return mSearchStateMutableLiveData;
-    }
 
     public LiveData<Product> getProductByIdMutableLiveData() {
         return mProductByIdMutableLiveData;
@@ -137,40 +131,40 @@ public class ProductRepository {
     }
 
     public void searchWithSorting(String search, String orderBy, String order) {
-        mSearchStateMutableLiveData.setValue(SearchState.SEARCHING);
+        mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
         mWooApi.searchWithSorting(10, 1, search, orderBy, order).enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if (response.isSuccessful()) {
                     mProductSearchMutableLiveData.setValue(response.body());
-                    mSearchStateMutableLiveData.setValue(SearchState.RESULT_BACKED);
+                    mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
 
                 }
-                mSearchStateMutableLiveData.setValue(SearchState.NOTHING);
+                mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);
             }
 
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
-                mSearchStateMutableLiveData.setValue(SearchState.ERROR);
+                mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
             }
         });
     }
 
     public void fetchProductsBySearch(String search) {
-        mSearchStateMutableLiveData.postValue(SearchState.SEARCHING);
+        mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
         mWooApi.getProductsBySearch(10, 1, search).enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if (response.isSuccessful()) {
                     mProductSearchMutableLiveData.setValue(response.body());
-                    mSearchStateMutableLiveData.setValue(SearchState.RESULT_BACKED);
+                    mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
                 }
-                mSearchStateMutableLiveData.setValue(SearchState.NOTHING);
+                mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);
             }
 
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
-                mSearchStateMutableLiveData.setValue(SearchState.ERROR);
+                mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
             }
         });
     }
@@ -215,20 +209,20 @@ public class ProductRepository {
     }
 
     public void sortCategoryProducts(Integer categoryId, String orderBy, String order) {
-        mSearchStateMutableLiveData.setValue(SearchState.SEARCHING);
+        mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
         mWooApi.sortCategoryProducts(categoryId, 10, 1, orderBy, order).enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 if (response.isSuccessful()) {
                     mCategoryProductsLiveData.setValue(response.body());
-                    mSearchStateMutableLiveData.setValue(SearchState.RESULT_BACKED);
+                    mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
                 }
-                mSearchStateMutableLiveData.setValue(SearchState.NOTHING);
+                mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);
             }
 
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
-                mSearchStateMutableLiveData.setValue(SearchState.ERROR);
+                mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
             }
         });
     }
@@ -271,6 +265,26 @@ public class ProductRepository {
         });
     }
 
+    public void fetchOnSale() {
+        //on sale products
+        mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
+        mWooApi.getOnSaleProducts(10, 1).enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    mOnSaleProductsLiveData.setValue(response.body());
+                    mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
+                }
+                mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
+            }
+        });
+    }
+
 
     private void fetchLatestProducts() {
         mWooApi.getProducts(10, 1, "date").enqueue(new Callback<List<Product>>() {
@@ -279,7 +293,7 @@ public class ProductRepository {
                 if (response.isSuccessful()) {
                     mLatestProductsLiveData.setValue(response.body());
                     //top rating products
-                    fetchBestProducts();
+                    fetchTopRatingProducts();
                 }
             }
 
@@ -290,7 +304,27 @@ public class ProductRepository {
         });
     }
 
-    private void fetchBestProducts() {
+    public void fetchLatest() {
+        mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
+        mWooApi.getProducts(10, 1, "date").enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    mLatestProductsLiveData.setValue(response.body());
+                    mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
+                }
+                mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
+            }
+        });
+    }
+
+
+    private void fetchTopRatingProducts() {
         mWooApi.getProducts(10, 1, "rating").enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
@@ -304,6 +338,25 @@ public class ProductRepository {
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
                 initInternetError();
+            }
+        });
+    }
+
+    public void fetchTopRating() {
+        mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
+        mWooApi.getProducts(10, 1, "rating").enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    mTopRatingProductsLiveData.setValue(response.body());
+                    mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
+                }
+                mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
             }
         });
     }
@@ -322,6 +375,25 @@ public class ProductRepository {
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
                 initInternetError();
+            }
+        });
+    }
+
+    public void fetchPopular() {
+        mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
+        mWooApi.getProducts(10, 1, "popularity").enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()) {
+                    mPopularProductsLiveData.setValue(response.body());
+                    mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
+                }
+                mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
             }
         });
     }
