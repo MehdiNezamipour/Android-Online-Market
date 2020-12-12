@@ -41,7 +41,7 @@ public class ProductDetailViewModel extends AndroidViewModel {
         return mProductRepository.getProductByIdMutableLiveData();
     }
 
-    public MutableLiveData<ConnectionState> getConnectionStateLiveData() {
+    public LiveData<ConnectionState> getConnectionStateLiveData() {
         return mProductRepository.getConnectionStateLiveData();
     }
 

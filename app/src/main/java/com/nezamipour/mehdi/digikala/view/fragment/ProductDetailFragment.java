@@ -16,7 +16,6 @@ import com.nezamipour.mehdi.digikala.adapter.ImageSliderAdapter;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.databinding.FragmentProductDetailBinding;
 import com.nezamipour.mehdi.digikala.util.ImageUtil;
-import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 import com.nezamipour.mehdi.digikala.viewmodel.ProductDetailViewModel;
 
 public class ProductDetailFragment extends Fragment {
@@ -94,7 +93,6 @@ public class ProductDetailFragment extends Fragment {
 
         mBinding.loadingView.buttonRetry.setOnClickListener(v -> {
             mViewModel.fetchProductById(mProduct.getId());
-            mViewModel.getConnectionStateLiveData().setValue(ConnectionState.LOADING);
             showLoadingUi();
         });
 

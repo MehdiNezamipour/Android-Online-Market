@@ -3,95 +3,109 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="top"
-        tools:context=".view.fragment.CartFragment">
+        android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <include
+            android:id="@+id/loading_view"
+            layout="@layout/fragment_loading"
+            android:visibility="visible" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="8dp"
-                android:weightSum="3">
-
-                <TextView
-
-                    android:id="@+id/textView_sum_of_cart"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_weight="1"
-                    android:gravity="left"
-                    android:textColor="@color/digikala_green"
-                    app:fontFamily="@font/far_roya_bd"
-                    tools:text="1500000" />
-
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="left"
-                    android:text="@string/tomans"
-                    android:textColor="@color/digikala_green"
-                    app:fontFamily="@font/iran_yekan" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="@string/cart_sum"
-                    android:textColor="@color/digikala_green"
-                    app:fontFamily="@font/iran_yekan" />
-
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_cart"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@color/digikala_dark_white"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@+id/button_finish_shopping"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/button_finish_shopping"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_finish_shopping"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_view"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_gravity="bottom"
-            android:fontFamily="@font/iran_yekan"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/commit_card"
-            app:backgroundTint="@color/digikala_green"
-            app:cornerRadius="0dp"
-            app:icon="@drawable/ic_arrow_left"
-            app:iconGravity="textStart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:visibility="gone"
+            tools:context=".view.fragment.CartFragment">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:weightSum="3">
+
+                    <TextView
+
+                        android:id="@+id/textView_sum_of_cart"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:textColor="@color/digikala_green"
+                        app:fontFamily="@font/far_roya_bd"
+                        tools:text="1500000" />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:text="@string/tomans"
+                        android:textColor="@color/digikala_green"
+                        app:fontFamily="@font/iran_yekan" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/cart_sum"
+                        android:textColor="@color/digikala_green"
+                        app:fontFamily="@font/iran_yekan" />
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_cart"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/digikala_dark_white"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/button_finish_shopping"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/button_finish_shopping"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_finish_shopping"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/iran_yekan"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/commit_card"
+                app:backgroundTint="@color/digikala_green"
+                app:cornerRadius="0dp"
+                app:icon="@drawable/ic_arrow_left"
+                app:iconGravity="textStart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
 
 </layout>

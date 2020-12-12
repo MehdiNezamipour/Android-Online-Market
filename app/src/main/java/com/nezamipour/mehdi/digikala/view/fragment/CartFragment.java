@@ -16,6 +16,7 @@ import androidx.navigation.Navigation;
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.adapter.CartRecyclerAdapter;
 import com.nezamipour.mehdi.digikala.databinding.FragmentCartBinding;
+import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 import com.nezamipour.mehdi.digikala.viewmodel.CartFragmentViewModel;
 
 public class CartFragment extends Fragment {
@@ -37,12 +38,32 @@ public class CartFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(CartFragmentViewModel.class);
 
-        mViewModel.getCartProducts().observe(
-                this, products -> {
-                    mCartRecyclerAdapter.notifyDataSetChanged();
-                    if (products.isEmpty())
-                        mBinding.buttonFinishShopping.setEnabled(false);
-                });
+        mViewModel.fetchCartProducts();
+
+        mViewModel.getConnectionStateLiveData().observe(this, connectionState -> {
+            switch (connectionState) {
+                case START_ACTIVITY:
+                    mBinding.loadingView.getRoot().setVisibility(View.GONE);
+                    mBinding.mainView.setVisibility(View.VISIBLE);
+                    initUi();
+                    mViewModel.getCartProducts().observe(
+                            this, products -> {
+                                mCartRecyclerAdapter.notifyDataSetChanged();
+                                if (products.isEmpty())
+                                    mBinding.buttonFinishShopping.setEnabled(false);
+                            });
+                    break;
+                case ERROR:
+                    loadInternetError();
+                    break;
+                case LOADING:
+                    showLoadingUi();
+                    break;
+                default:
+                    break;
+            }
+        });
+
 
         mViewModel.getTotalPriceLiveData().observe(this, s -> mBinding.textViewSumOfCart.setText(s));
     }
@@ -57,7 +78,12 @@ public class CartFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initUi();
+
+        mBinding.loadingView.buttonRetry.setOnClickListener(v -> {
+            mViewModel.fetchCartProducts();
+            showLoadingUi();
+        });
+
         mBinding.buttonFinishShopping.setOnClickListener(v -> {
             //TODO Later Fix Bug : when app come up and not click on
             // login fragment at least for one time customer live data is null
@@ -75,10 +101,23 @@ public class CartFragment extends Fragment {
     private void initUi() {
         if (mViewModel.getCartProducts().getValue().isEmpty())
             mBinding.buttonFinishShopping.setEnabled(false);
-
         mBinding.textViewSumOfCart.setText(mViewModel.getTotalPriceLiveData().getValue());
         mCartRecyclerAdapter = new CartRecyclerAdapter(getContext());
         mCartRecyclerAdapter.setProducts(mViewModel.getCartProducts().getValue());
         mBinding.recyclerViewCart.setAdapter(mCartRecyclerAdapter);
+    }
+
+    private void showLoadingUi() {
+        mBinding.loadingView.buttonRetry.setVisibility(View.GONE);
+        mBinding.loadingView.textViewNoInternet.setVisibility(View.GONE);
+        mBinding.loadingView.progressBarLoadingFragment.setVisibility(View.VISIBLE);
+        mBinding.loadingView.progressBarLoadingFragment.show();
+    }
+
+    private void loadInternetError() {
+        mBinding.loadingView.buttonRetry.setVisibility(View.VISIBLE);
+        mBinding.loadingView.textViewNoInternet.setVisibility(View.VISIBLE);
+        mBinding.loadingView.progressBarLoadingFragment.setVisibility(View.GONE);
+        mBinding.loadingView.progressBarLoadingFragment.hide();
     }
 }

@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.categoryProductsLoadingFragment:
                 case R.id.signUpFragment:
                 case R.id.shippingFragment:
-                case R.id.cartFragment:
                 case R.id.nav_fragCart:
                 case R.id.loginFragment:
                 case R.id.wholeProductsFragment:

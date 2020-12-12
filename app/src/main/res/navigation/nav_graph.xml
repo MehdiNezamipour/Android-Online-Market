@@ -75,22 +75,11 @@
             android:name="category"
             app:argType="com.nezamipour.mehdi.digikala.data.model.product.Category" />
     </fragment>
-    <fragment
-        android:id="@+id/nav_fragCart"
-        android:name="com.nezamipour.mehdi.digikala.view.fragment.CartProductsLoadingFragment"
-        android:label="CartProductsLoadingFragment"
-        >
-        <action
-            android:id="@+id/action_nav_fragCart_to_cartFragment"
-            app:destination="@id/cartFragment"
-            app:popUpTo="@id/nav_fragHome"
-            />
-    </fragment>
 
     <fragment
-        android:id="@+id/cartFragment"
+        android:id="@+id/nav_fragCart"
         android:name="com.nezamipour.mehdi.digikala.view.fragment.CartFragment"
-        android:label="CartFragment" >
+        android:label="nav_fragCart" >
         <action
             android:id="@+id/action_cartFragment_to_finishShoppingFragment"
             app:destination="@id/finishShoppingFragment" />
