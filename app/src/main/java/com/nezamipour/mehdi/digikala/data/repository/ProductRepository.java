@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.nezamipour.mehdi.digikala.data.model.product.Category;
 import com.nezamipour.mehdi.digikala.data.model.product.Coupon;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
+import com.nezamipour.mehdi.digikala.data.model.product.Review;
 import com.nezamipour.mehdi.digikala.network.RetrofitInstance;
 import com.nezamipour.mehdi.digikala.network.WooApi;
 import com.nezamipour.mehdi.digikala.util.CategoryUtil;
@@ -38,6 +39,9 @@ public class ProductRepository {
     private final MutableLiveData<List<Product>> mProductSearchMutableLiveData;
     private final MutableLiveData<Coupon> mCouponMutableLiveData;
 
+    private final MutableLiveData<List<Review>> mReviewListMutableLiveData;
+    private final MutableLiveData<Review> mReviewMutableLiveData;
+
     private final WooApi mWooApi;
 
 
@@ -58,6 +62,9 @@ public class ProductRepository {
         mProductSearchMutableLiveData = new MutableLiveData<>();
 
         mCouponMutableLiveData = new MutableLiveData<>();
+
+        mReviewListMutableLiveData = new MutableLiveData<>();
+        mReviewMutableLiveData = new MutableLiveData<>();
     }
 
 
@@ -68,6 +75,14 @@ public class ProductRepository {
         return sRepository;
     }
 
+
+    public LiveData<List<Review>> getReviewListMutableLiveData() {
+        return mReviewListMutableLiveData;
+    }
+
+    public MutableLiveData<Review> getReviewMutableLiveData() {
+        return mReviewMutableLiveData;
+    }
 
     public MutableLiveData<List<Product>> getCategoryProductsLiveData() {
         return mCategoryProductsLiveData;
@@ -109,6 +124,41 @@ public class ProductRepository {
 
     public LiveData<List<Product>> getProductSearchLiveData() {
         return mProductSearchMutableLiveData;
+    }
+
+    public void fetchReviewsOfProduct(Integer productId) {
+        mConnectionStateMutableLiveData.setValue(ConnectionState.LOADING);
+        mWooApi.getReviewsOfProduct(productId, 10, 1).enqueue(new Callback<List<Review>>() {
+            @Override
+            public void onResponse(Call<List<Review>> call, Response<List<Review>> response) {
+                if (response.isSuccessful()) {
+                    mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
+                    mReviewListMutableLiveData.setValue(response.body());
+                }
+                mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);
+            }
+
+            @Override
+            public void onFailure(Call<List<Review>> call, Throwable t) {
+                mConnectionStateMutableLiveData.setValue(ConnectionState.ERROR);
+            }
+        });
+    }
+
+    public void postReview(Review review) {
+        mWooApi.postReview(review).enqueue(new Callback<Review>() {
+            @Override
+            public void onResponse(Call<Review> call, Response<Review> response) {
+                if (response.isSuccessful()) {
+                    mReviewMutableLiveData.setValue(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Review> call, Throwable t) {
+
+            }
+        });
     }
 
     public LiveData<Coupon> getCouponLiveData() {

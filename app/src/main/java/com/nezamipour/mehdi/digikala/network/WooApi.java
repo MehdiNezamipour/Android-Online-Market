@@ -5,6 +5,7 @@ import com.nezamipour.mehdi.digikala.data.model.customer.Order;
 import com.nezamipour.mehdi.digikala.data.model.product.Category;
 import com.nezamipour.mehdi.digikala.data.model.product.Coupon;
 import com.nezamipour.mehdi.digikala.data.model.product.Product;
+import com.nezamipour.mehdi.digikala.data.model.product.Review;
 
 import java.util.List;
 
@@ -98,6 +99,15 @@ public interface WooApi {
     @PUT(BASE_URL + "coupons/{couponId}" + API_KEY)
     Call<Coupon> updateCoupon(@Path("couponId") int couponId,
                               @Body Coupon coupon);
+
+    //reviews
+    @POST(BASE_URL + "products/reviews" + API_KEY)
+    Call<Review> postReview(@Body Review review);
+
+    @GET(BASE_URL + "products/reviews" + API_KEY)
+    Call<List<Review>> getReviewsOfProduct(@Query("product") int productId,
+                                           @Query("per_page") int perPage,
+                                           @Query("page") int page);
 
 
 }

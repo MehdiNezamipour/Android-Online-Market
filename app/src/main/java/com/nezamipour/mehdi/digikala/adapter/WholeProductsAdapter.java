@@ -81,7 +81,9 @@ public class WholeProductsAdapter extends RecyclerView.Adapter<WholeProductsAdap
                         break;
                 }
             }
-        } else if (mCategoryId != null) {
+        }
+        //TODO FIX THIS BUG
+        /*else if (mCategoryId != null) {
             if (position > getItemCount() - 2) {
                 addToCategoryProducts(mCategoryId);
             }
@@ -89,7 +91,7 @@ public class WholeProductsAdapter extends RecyclerView.Adapter<WholeProductsAdap
             if (position > getItemCount() - 2) {
                 addToSearchProducts(mSearch);
             }
-        }
+        }*/
     }
 
     private void addToOnSaleProducts() {

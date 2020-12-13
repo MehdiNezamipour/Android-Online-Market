@@ -4,6 +4,7 @@
 
 
     <data>
+
         <variable
             name="viewModel"
             type="com.nezamipour.mehdi.digikala.viewmodel.ProductDetailViewModel" />
@@ -155,6 +156,7 @@
                         android:layout_marginEnd="4dp"
                         android:layout_weight="0.5"
                         android:fontFamily="@font/far_trafc_bd"
+                        android:onClick="@{viewModel::onClickCommentButton}"
                         android:text="@string/product_comments"
                         android:textColor="@color/digikala_dark_blue_gray"
                         android:textSize="10sp"

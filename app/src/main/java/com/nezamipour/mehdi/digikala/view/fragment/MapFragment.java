@@ -21,11 +21,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.databinding.FragmentMapBinding;
-import com.nezamipour.mehdi.digikala.viewmodel.ShippingFragmentViewModel;
+import com.nezamipour.mehdi.digikala.viewmodel.ShippingViewModel;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
-    private ShippingFragmentViewModel mViewModel;
+    private ShippingViewModel mViewModel;
     private FragmentMapBinding mBinding;
     private GoogleMap mMap;
     private LatLng mLatLng;

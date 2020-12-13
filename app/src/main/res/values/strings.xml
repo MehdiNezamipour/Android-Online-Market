@@ -87,6 +87,11 @@
     <string name="title_activity_maps">Map</string>
     <string name="add_location">اضافه کردن موقعیت</string>
     <string name="long_click_for_add_map_marker">برای انتخاب موقعیت انگشت خود را نگهدارید.</string>
+    <string name="must_login">برای ارسال نظر باید وارد حساب کاربری شوید.</string>
+    <string name="enter_your_comment">دیدگاه خود را وارد کنید</string>
+    <string name="send_comment">ثبت دیدگاه</string>
+    <string name="minimum_characters_of_comment">دیدگاه باید حداقل 8 کارکتر باشد</string>
+    <string name="your_comment_accepted">دیدگاه شما ثبت شد</string>
 
 
 </resources>

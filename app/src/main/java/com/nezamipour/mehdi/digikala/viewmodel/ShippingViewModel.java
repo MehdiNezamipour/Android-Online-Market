@@ -10,12 +10,12 @@ import com.nezamipour.mehdi.digikala.data.model.customer.Customer;
 import com.nezamipour.mehdi.digikala.data.repository.CustomerRepository;
 import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 
-public class ShippingFragmentViewModel extends AndroidViewModel {
+public class ShippingViewModel extends AndroidViewModel {
 
     private final CustomerRepository mCustomerRepository;
 
 
-    public ShippingFragmentViewModel(@NonNull Application application) {
+    public ShippingViewModel(@NonNull Application application) {
         super(application);
         mCustomerRepository = CustomerRepository.getInstance(application);
     }
