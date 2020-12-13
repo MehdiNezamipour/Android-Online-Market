@@ -11,17 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.adapter.WholeProductsAdapter;
 import com.nezamipour.mehdi.digikala.data.model.product.Category;
-import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.databinding.FragmentWholeProductsBinding;
 import com.nezamipour.mehdi.digikala.viewmodel.WholeProductFragmentViewModel;
-
-import java.util.List;
 
 public class WholeProductsFragment extends Fragment {
 
@@ -61,15 +57,6 @@ public class WholeProductsFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(WholeProductFragmentViewModel.class);
 
 
-        if (mCategory != null) {
-            mViewModel.fetchCategoryProducts(mCategory.getId());
-        } else if (mOrderBy != null) {
-            mViewModel.fetchOrderByProducts(mOrderBy);
-
-        } else if (mToolbarWord != null)
-            mViewModel.fetchSearchProducts(mToolbarWord);
-
-
         mViewModel.getConnectionStateLiveData().observe(this, connectionState -> {
             switch (connectionState) {
                 case LOADING:
@@ -101,6 +88,21 @@ public class WholeProductsFragment extends Fragment {
         return mBinding.getRoot();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        initialFetching();
+    }
+
+    private void initialFetching() {
+        if (mCategory != null) {
+            mViewModel.fetchCategoryProducts(mCategory.getId());
+        } else if (mOrderBy != null) {
+            mViewModel.fetchOrderByProducts(mOrderBy);
+
+        } else if (mToolbarWord != null)
+            mViewModel.fetchSearchProducts(mToolbarWord);
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

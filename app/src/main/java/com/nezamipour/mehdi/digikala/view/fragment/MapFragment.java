@@ -21,9 +21,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.databinding.FragmentMapBinding;
+import com.nezamipour.mehdi.digikala.viewmodel.ShippingViewModel;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
+    private ShippingViewModel mViewModel;
     private FragmentMapBinding mBinding;
     private GoogleMap mMap;
     private LatLng mLatLng;
@@ -65,14 +67,17 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(35.6, 51.3), 10);
         mMap.animateCamera(cameraUpdate);
 
-        mMap.setOnMapLongClickListener(latLng -> {
-            mLatLng = latLng;
-            CameraUpdate newCameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
-            MarkerOptions markerOptions = new MarkerOptions();
-            markerOptions.position(latLng);
-            mMap.clear();
-            mMap.animateCamera(newCameraUpdate);
-            mMap.addMarker(markerOptions);
+        mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
+            @Override
+            public void onMapLongClick(LatLng latLng) {
+                mLatLng = latLng;
+                CameraUpdate newCameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
+                MarkerOptions markerOptions = new MarkerOptions();
+                markerOptions.position(latLng);
+                mMap.clear();
+                mMap.animateCamera(newCameraUpdate);
+                mMap.addMarker(markerOptions);
+            }
         });
 
     }
@@ -80,10 +85,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mBinding.addLocation.setOnClickListener(v -> {
-            NavController navController = NavHostFragment.findNavController(MapFragment.this);
-            navController.getPreviousBackStackEntry().getSavedStateHandle().set(ShippingFragment.KEY, mLatLng);
-            getActivity().onBackPressed();
+        mBinding.addLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavController navController = NavHostFragment.findNavController(MapFragment.this);
+                navController.getPreviousBackStackEntry().getSavedStateHandle().set(ShippingFragment.KEY, mLatLng);
+                getActivity().onBackPressed();
+            }
         });
     }
 

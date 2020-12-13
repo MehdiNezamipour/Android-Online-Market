@@ -22,14 +22,14 @@ import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.data.model.customer.Customer;
 import com.nezamipour.mehdi.digikala.data.model.customer.Shipping;
 import com.nezamipour.mehdi.digikala.databinding.FragmentShippingBinding;
-import com.nezamipour.mehdi.digikala.viewmodel.ShippingFragmentViewModel;
+import com.nezamipour.mehdi.digikala.viewmodel.ShippingViewModel;
 
 public class ShippingFragment extends Fragment {
 
 
     public static final String KEY = "latLng";
     public static final String SHIPPING_TAG = "shipping";
-    private ShippingFragmentViewModel mViewModel;
+    private ShippingViewModel mViewModel;
     private FragmentShippingBinding mBinding;
     private String mEmail;
     private String mFirstName;
@@ -56,7 +56,7 @@ public class ShippingFragment extends Fragment {
             mPassword = ShippingFragmentArgs.fromBundle(getArguments()).getPassword();
         }
 
-        mViewModel = new ViewModelProvider(this).get(ShippingFragmentViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(ShippingViewModel.class);
         mViewModel.getConnectionStateLiveData().observe(this, connectionState -> {
             switch (connectionState) {
                 case ERROR:

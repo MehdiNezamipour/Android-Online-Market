@@ -42,7 +42,6 @@ public class ProductDetailFragment extends Fragment {
         mProduct = ProductDetailFragmentArgs.fromBundle(getArguments()).getProduct();
 
         mViewModel = new ViewModelProvider(this).get(ProductDetailViewModel.class);
-        mViewModel.fetchProductById(mProduct.getId());
 
 
         mViewModel.getConnectionStateLiveData().observe(this, connectionState -> {
@@ -76,6 +75,13 @@ public class ProductDetailFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        mViewModel.fetchProductById(mProduct.getId());
+
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mBinding = DataBindingUtil
@@ -95,6 +101,9 @@ public class ProductDetailFragment extends Fragment {
             mViewModel.fetchProductById(mProduct.getId());
             showLoadingUi();
         });
+
+
+
 
     }
 

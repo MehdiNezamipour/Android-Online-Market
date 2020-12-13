@@ -7,8 +7,6 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.DisplayMetrics;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -66,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
                 case R.id.searchFragment:
                 case R.id.mapFragment:
+                case R.id.reviewsFragment:
                     mBinding.bottomNavigation.setVisibility(View.GONE);
                     mBinding.mainSearchToolbar.setVisibility(View.GONE);
                     break;

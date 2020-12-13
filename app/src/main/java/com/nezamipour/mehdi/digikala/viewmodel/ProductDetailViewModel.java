@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.navigation.Navigation;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.data.database.entity.CartProduct;
@@ -17,6 +18,7 @@ import com.nezamipour.mehdi.digikala.data.model.product.Product;
 import com.nezamipour.mehdi.digikala.data.repository.CartRepository;
 import com.nezamipour.mehdi.digikala.data.repository.ProductRepository;
 import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
+import com.nezamipour.mehdi.digikala.view.fragment.ProductDetailFragmentDirections;
 
 public class ProductDetailViewModel extends AndroidViewModel {
 
@@ -31,6 +33,10 @@ public class ProductDetailViewModel extends AndroidViewModel {
         mCartRepository = CartRepository.getInstance(getApplication());
     }
 
+
+    public LiveData<Product> getProduct() {
+        return mProductRepository.getProductByIdMutableLiveData();
+    }
 
     public void fetchProductById(Integer productId) {
         mProductRepository.fetchProductById(productId);
@@ -50,6 +56,14 @@ public class ProductDetailViewModel extends AndroidViewModel {
         CartProduct cartProduct = new CartProduct(mProduct.getValue().getId(), "", 1);
         mCartRepository.insert(cartProduct);
         Toast.makeText(getApplication(), R.string.added_to_cart, Toast.LENGTH_SHORT).show();
+    }
+
+
+    public void onClickCommentButton(View v) {
+        ProductDetailFragmentDirections.ActionProductDetailFragmentToReviewsFragment action =
+                ProductDetailFragmentDirections
+                        .actionProductDetailFragmentToReviewsFragment(mProduct.getValue().getId());
+        Navigation.findNavController(v).navigate(action);
     }
 
     public Spanned getShortDescription() {

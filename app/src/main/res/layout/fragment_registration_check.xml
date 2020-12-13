@@ -123,7 +123,7 @@
 
             <com.wang.avi.AVLoadingIndicatorView
                 android:id="@+id/progressBar_check_registration"
-                style="@style/AVLoadingIndicatorView"
+                style="@style/AVLoadingIndicatorView.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/digikala_dark_white"
+        tools:context=".view.fragment.WriteReviewFragment">
+
+        <include
+            android:id="@+id/toolbar_back"
+            layout="@layout/toolbar_back" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/iran_yekan"
+            android:hint="@string/enter_your_comment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_back"
+            app:layout_constraintVertical_bias="0.05"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText_comment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:fontFamily="@font/iran_yekan"
+                android:inputType="textMultiLine|text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add_comment"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/iran_yekan"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/send_comment"
+            app:backgroundTint="@color/digikala_red"
+            app:cornerRadius="0dp"
+            app:icon="@drawable/ic_arrow_left"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
