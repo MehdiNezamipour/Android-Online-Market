@@ -1,6 +1,9 @@
 package com.nezamipour.mehdi.digikala.view.fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,10 +11,6 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.data.model.customer.Customer;
@@ -61,14 +60,12 @@ public class CustomerFragment extends Fragment {
             Navigation.findNavController(v).navigate(CustomerFragmentDirections.actionCustomerFragmentToNavFragHome());
         });
 
-        mBinding.imageViewInProcessOrders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TODO later
-            }
-        });
 
-        mBinding.imageViewNotificationBell.setOnClickListener(new View.OnClickListener() {
+        mBinding.imageViewNotificationBell.setOnClickListener(v -> Navigation.findNavController(v)
+                .navigate(CustomerFragmentDirections.actionCustomerFragmentToNotificationSettingFragment()));
+
+
+        mBinding.imageViewInProcessOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO later

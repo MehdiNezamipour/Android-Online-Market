@@ -35,6 +35,7 @@ dependencies {
     def lifecycle_version = "2.2.0"
     def room_version = "2.2.5"
     def nav_version = "2.3.1"
+    def work_version = "2.4.0"
     def paging_version = "3.0.0-alpha09"
 
 
@@ -79,6 +80,8 @@ dependencies {
     // google map
     implementation 'com.google.maps.android:android-maps-utils:2.2.0'
 
+    //work manager from jetPack
+    implementation "androidx.work:work-runtime:$work_version"
 
 
     testImplementation 'junit:junit:4.13.1'

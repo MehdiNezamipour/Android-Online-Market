@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="time_items_array">
+        <item>@string/per_3_hours</item>
+        <item>@string/per_5_hours</item>
+        <item>@string/per_8_hours</item>
+        <item>@string/per_12_hours</item>
+    </string-array>
+
+</resources>
