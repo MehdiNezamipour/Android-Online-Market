@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -82,7 +81,7 @@ public class ShippingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_shipping, container, false);
         return mBinding.getRoot();
     }
@@ -121,13 +120,10 @@ public class ShippingFragment extends Fragment {
         MutableLiveData<LatLng> liveData = navController.getCurrentBackStackEntry()
                 .getSavedStateHandle()
                 .getLiveData(KEY);
-        liveData.observe(getViewLifecycleOwner(), new Observer<LatLng>() {
-            @Override
-            public void onChanged(LatLng latLng) {
-                mLat = latLng.latitude;
-                mLon = latLng.longitude;
-                Log.d(SHIPPING_TAG, "onChanged: " + mLat + "    " + mLon);
-            }
+        liveData.observe(getViewLifecycleOwner(), latLng -> {
+            mLat = latLng.latitude;
+            mLon = latLng.longitude;
+            Log.d(SHIPPING_TAG, "onChanged: " + mLat + "    " + mLon);
         });
 
     }

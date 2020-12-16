@@ -110,6 +110,7 @@
     <string name="channel_name">DigiKala Channel</string>
     <string name="channel_description">This is a Channel for Digikala</string>
     <string name="incorrect_pass">پسورد نادرست ميباشد</string>
+    <string name="new_pictures_title">محصول جديد</string>
 
 
 </resources>
