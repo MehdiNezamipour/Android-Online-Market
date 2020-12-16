@@ -10,7 +10,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:padding="16dp"
             tools:context=".view.fragment.ShippingFragment">
 
@@ -165,7 +165,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_use_map"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="8dp"
                 android:shadowColor="@color/digikala_raw_white"
                 android:stateListAnimator="@null"
@@ -191,7 +191,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_final_accept"
                 android:layout_width="150dp"
-                android:layout_height="64dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="8dp"
                 android:shadowColor="@color/digikala_raw_white"
                 android:stateListAnimator="@null"

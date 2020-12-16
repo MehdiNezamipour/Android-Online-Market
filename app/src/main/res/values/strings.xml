@@ -109,6 +109,7 @@
     <string name="channel_id">digikala_channel_id</string>
     <string name="channel_name">DigiKala Channel</string>
     <string name="channel_description">This is a Channel for Digikala</string>
+    <string name="incorrect_pass">پسورد نادرست ميباشد</string>
 
 
 </resources>
