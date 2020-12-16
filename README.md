@@ -14,26 +14,28 @@ Online Android Shop using mvvm clean architecture, WooCommerce Api for BackEnd a
 
 <br>
 
- - Main View :  Show On sale, Top Rating, Popular, Best Seller With An Auto Slider.
- - Category View :  Show all parents gategory with their childs and ability to show products list of each gategory.
- - Card View :  Show Final Money And Count The Products You Want To Buy.
- - Product View :  Product Name And Details Such As Description, Color, Size And .... + Possibility To Add To The Card.
+ - Main View:  Show On sale, Top Rating, Popular, Best Seller With An Auto Slider.
+ - Category View:  Show all parents category with their children and ability to show products list of each category.
+ - Card View:  Show Final Money And Count The Products You Want To Buy.
+ - Product View:  Product Name And Details Such As Description, Color, Size And .... + Possibility To Add To The Card.
  - Sort And Search View : Search Product Name and ability to sort resualts.
- - Login View : First check user registration then go for login or signUp also used google map api for getting user address.
- - Using MVVM clean architecture 
- - Using LiveData and DataBinding
- - Using Navigation Component
+ - Login View: First check user registration then go for login or signUp also used google map API for getting user address.
+
 
 <br>
 
  ## Features
+ - [x] Using MVVM clean architecture
+ - [x] Using LiveData and DataBinding
+ - [x] Using Navigation Component
+ - [x] Using Splash screen and Loading view
+ - [x] Using Bottom navigation coupled with navigation component
  - [x] Add Coupon to total price of an order
  - [x] Send customer's Order to server side 
  - [x] Add comment to products
  - [x] Showing network connection error handle with Broadcast Reciever
- - [x] Using Splash sceen and Loading view
- - [x] Using Bottom navigation coupled with navigation component. 
- - [ ] Show notification when new product add on server side 
+ - [x] Show notification when new product add on server side handle with Work Manager (user can change repeat interval)
+ - [x] Using google map API for getting user location
 
 
  
@@ -44,4 +46,5 @@ Online Android Shop using mvvm clean architecture, WooCommerce Api for BackEnd a
  - Room
  - Navigation component
  - Safe Args plugin
- - Google map api
+ - Google map API
+ - Work Manager
