@@ -41,6 +41,8 @@ public class ProductDetailFragment extends Fragment {
         assert getArguments() != null;
         mProduct = ProductDetailFragmentArgs.fromBundle(getArguments()).getProduct();
 
+        //mProduct = (Product) getArguments().getSerializable("product");
+
         mViewModel = new ViewModelProvider(this).get(ProductDetailViewModel.class);
 
 

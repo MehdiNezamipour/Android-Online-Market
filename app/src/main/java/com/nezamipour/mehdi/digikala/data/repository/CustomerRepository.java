@@ -2,6 +2,7 @@ package com.nezamipour.mehdi.digikala.data.repository;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -22,6 +23,7 @@ import retrofit2.Response;
 
 public class CustomerRepository {
 
+    public static final String TAG = "CustomerReository";
     private final MutableLiveData<ConnectionState> mConnectionStateMutableLiveData;
     private final WooApi mWooApi;
     private static CustomerRepository sCustomerRepository;
@@ -145,6 +147,8 @@ public class CustomerRepository {
                 if (response.isSuccessful()) {
                     if (!response.body().isEmpty())
                         mCustomerMutableLiveData.setValue(response.body().get(0));
+                    else
+                        mCustomerMutableLiveData.setValue(null);
                     mConnectionStateMutableLiveData.setValue(ConnectionState.START_ACTIVITY);
                 }
                 mConnectionStateMutableLiveData.setValue(ConnectionState.NOTHING);

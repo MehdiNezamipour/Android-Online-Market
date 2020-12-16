@@ -6,6 +6,7 @@
     <string name="home_page">خانه</string>
     <string name="category">دسته‌‌بندی‌ها</string>
     <string name="cart">سبد خرید</string>
+
     <string name="offers">محصولات پیشنهادی</string>
     <string name="price_descending">گران‌ترین</string>
     <string name="price_ascending">ارزان‌ترین</string>
@@ -15,6 +16,7 @@
     <string name="topRating">پرامتیازترین ها</string>
     <string name="popular">پربازدیدترین ها</string>
     <string name="latest">جدیدترین ها</string>
+
     <string name="setting">تنظیمات</string>
     <string name="faq">سوالات متداول</string>
     <string name="about_us">درباره ما</string>
@@ -37,6 +39,7 @@
     <string name="search_hint_complete">جستجو در ديجی كالا… </string>
     <string name="sort">مرتب سازی</string>
     <string name="filter">فیلترها</string>
+
 
     <string name="commit_card">خرید خود را نهایی کنید</string>
     <string name="cart_sum">جمع کل خرید</string>
@@ -82,16 +85,32 @@
     <string name="sent_to">ارسال به</string>
     <string name="coupon">کد تخفیف</string>
     <string name="add_coupon">اعمال کد تخفیف</string>
+
     <string name="finish_payment">پرداخت نهایی</string>
     <string name="no_address_from_map">موقعیت این آدرس بر روی نقشه تعیین نشده، برای ادامه وجود موقعیت الزامی است.</string>
     <string name="title_activity_maps">Map</string>
     <string name="add_location">اضافه کردن موقعیت</string>
     <string name="long_click_for_add_map_marker">برای انتخاب موقعیت انگشت خود را نگهدارید.</string>
     <string name="must_login">برای ارسال نظر باید وارد حساب کاربری شوید.</string>
+
     <string name="enter_your_comment">دیدگاه خود را وارد کنید</string>
     <string name="send_comment">ثبت دیدگاه</string>
     <string name="minimum_characters_of_comment">دیدگاه باید حداقل 8 کارکتر باشد</string>
     <string name="your_comment_accepted">دیدگاه شما ثبت شد</string>
+
+    <string name="notification_time">انتخاب زمان ارسال نوتیفیکشین</string>
+    <string name="per_3_hours">سه ساعت یکبار</string>
+    <string name="per_5_hours">پنج ساعت یکبار</string>
+    <string name="per_8_hours">هشت ساعت یکبار</string>
+    <string name="per_12_hours">دوازده ساعت یکبار</string>
+    <string name="custom_time">انتخاب زمان دلخواه برحسب ساعت</string>
+    <string name="choose_time">زمان مورد نظر</string>
+    <string name="change_timing">تغییر زمان ارسال</string>
+    <string name="channel_id">digikala_channel_id</string>
+    <string name="channel_name">DigiKala Channel</string>
+    <string name="channel_description">This is a Channel for Digikala</string>
+    <string name="incorrect_pass">پسورد نادرست ميباشد</string>
+    <string name="new_pictures_title">محصول جديد</string>
 
 
 </resources>

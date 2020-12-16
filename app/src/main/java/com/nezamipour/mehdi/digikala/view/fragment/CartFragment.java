@@ -1,6 +1,7 @@
 package com.nezamipour.mehdi.digikala.view.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +17,11 @@ import androidx.navigation.Navigation;
 import com.nezamipour.mehdi.digikala.R;
 import com.nezamipour.mehdi.digikala.adapter.CartRecyclerAdapter;
 import com.nezamipour.mehdi.digikala.databinding.FragmentCartBinding;
-import com.nezamipour.mehdi.digikala.util.enums.ConnectionState;
 import com.nezamipour.mehdi.digikala.viewmodel.CartFragmentViewModel;
 
 public class CartFragment extends Fragment {
 
+    public static final String TAG = "CartFragment";
     private CartRecyclerAdapter mCartRecyclerAdapter;
     private FragmentCartBinding mBinding;
     private CartFragmentViewModel mViewModel;
@@ -36,6 +37,8 @@ public class CartFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate: ");
+
         mViewModel = new ViewModelProvider(this).get(CartFragmentViewModel.class);
 
         mViewModel.fetchCartProducts();

@@ -24,7 +24,6 @@ public class WholeProductsFragment extends Fragment {
 
     private FragmentWholeProductsBinding mBinding;
     private WholeProductFragmentViewModel mViewModel;
-
     private WholeProductsAdapter mWholeProductsAdapter;
 
     private String mOrderBy;
@@ -37,10 +36,7 @@ public class WholeProductsFragment extends Fragment {
     }
 
     public static WholeProductsFragment newInstance() {
-        WholeProductsFragment fragment = new WholeProductsFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
+        return new WholeProductsFragment();
     }
 
     @Override
@@ -53,9 +49,7 @@ public class WholeProductsFragment extends Fragment {
             mToolbarWord = WholeProductsFragmentArgs.fromBundle(getArguments()).getToolbarWord();
         }
 
-
         mViewModel = new ViewModelProvider(this).get(WholeProductFragmentViewModel.class);
-
 
         mViewModel.getConnectionStateLiveData().observe(this, connectionState -> {
             switch (connectionState) {
@@ -77,6 +71,18 @@ public class WholeProductsFragment extends Fragment {
             }
         });
 
+        if (mToolbarWord != null)
+            mViewModel.getProductSearchLiveData().observe(this, products -> {
+                if (mWholeProductsAdapter != null)
+                    mWholeProductsAdapter.setProducts(products);
+
+            });
+        else
+            mViewModel.getCategoryProducts().observe(this, products -> {
+                if (mWholeProductsAdapter != null)
+                    mWholeProductsAdapter.setProducts(products);
+            });
+
 
     }
 
@@ -88,11 +94,23 @@ public class WholeProductsFragment extends Fragment {
         return mBinding.getRoot();
     }
 
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mBinding.toolbarSearch.imageViewBackToHome.setOnClickListener(v -> getActivity().onBackPressed());
+        mBinding.toolbarBack.imageViewBack.setOnClickListener(v -> getActivity().onBackPressed());
+        setListenerForSortSpinner();
+    }
+
+
     @Override
     public void onResume() {
         super.onResume();
         initialFetching();
     }
+
 
     private void initialFetching() {
         if (mCategory != null) {
@@ -104,13 +122,7 @@ public class WholeProductsFragment extends Fragment {
             mViewModel.fetchSearchProducts(mToolbarWord);
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        mBinding.toolbarSearch.imageViewBackToHome.setOnClickListener(v -> getActivity().onBackPressed());
-        mBinding.toolbarBack.imageViewBack.setOnClickListener(v -> getActivity().onBackPressed());
-
+    private void setListenerForSortSpinner() {
         mBinding.toolbarFilter.spinnerSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -127,6 +139,7 @@ public class WholeProductsFragment extends Fragment {
                     } else {
                         mViewModel.searchWithSorting(mToolbarWord, "price", "asc");
                     }
+
                 else if (mCategory != null) {
                     if (selectedItem.equals(getResources().getString(R.string.latest_sort))) {
                         mViewModel.sortCategoryProducts(mCategory.getId(), "date", "desc");
@@ -162,7 +175,9 @@ public class WholeProductsFragment extends Fragment {
     }
 
     public void initUi() {
-        mWholeProductsAdapter = new WholeProductsAdapter();
+        if (mWholeProductsAdapter == null)
+            mWholeProductsAdapter = new WholeProductsAdapter();
+
         if (mOrderBy != null) {
             mWholeProductsAdapter.setOrderBy(mOrderBy);
             switch (mOrderBy) {
@@ -210,7 +225,6 @@ public class WholeProductsFragment extends Fragment {
         mBinding.loadingView.progressBarLoadingFragment.setVisibility(View.VISIBLE);
         mBinding.loadingView.progressBarLoadingFragment.show();
     }
-
 
     private void loadInternetError() {
         mBinding.loadingView.buttonRetry.setVisibility(View.VISIBLE);
